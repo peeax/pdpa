@@ -104,3 +104,5 @@ dist
 .tern-port
 
 public/
+# Generated highlight pages
+content/highlight-article-*.md
