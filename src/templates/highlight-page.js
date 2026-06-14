@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import BrainNoteContainer from 'gatsby-theme-andy/src/components/BrainNoteContainer';
 
-const NotePage = (props) => {
+const HighlightPage = (props) => {
   return (
     <BrainNoteContainer
       note={props.data.brainNote}
@@ -13,30 +13,15 @@ const NotePage = (props) => {
   );
 };
 
-export default NotePage;
+export default HighlightPage;
 
 export const query = graphql`
-  query BrainNoteWithRefsBySlug_($slug: String!) {
-    brainNote(slug: { eq: $slug }) {
+  query HighlightNoteBySlug($slug: String!) {
+    brainNote: highlightNote(slug: { eq: $slug }) {
       slug
       title
-      childMdx {
-        body
-      }
-      inboundReferenceNotes {
-        title
-        slug
-        childMdx {
-          excerpt(pruneLength: 280, truncate: true)
-        }
-      }
-      outboundReferenceNotes {
-        title
-        slug
-        childMdx {
-          excerpt(pruneLength: 280, truncate: true)
-        }
-      }
+      pdf
+      content
     }
     site {
       siteMetadata {
