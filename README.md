@@ -1,59 +1,40 @@
-# Thai PDPA Website (Unofficial)
+# พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ (Thailand PDPA)
 
-![Scree Capture](screen-capture.gif)
+เว็บไซต์ พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล แบบ interactive ด้วยระบบ stacked pages และ wiki-links
 
-The content on this website is based on [the official document of Thailand's Personal Data Protection Act (PDPA) B.E. 2562](http://www.ratchakitcha.soc.go.th/DATA/PDF/2562/A/069/T_0052.PDF).
+พัฒนาโดย **Siriraj Informatics and Data Innovation Center (SiData+)** คณะแพทยศาสตร์ศิริราชพยาบาล
 
-The website represents PDPA in a new format using [Gatsby-theme-andy](https://github.com/aravindballa/gatsby-theme-andy) (licensed under MIT).
+## Run
 
-The goal is to provide ease of access to PDPA and allow tracking of article references. Users can open referenced articles on the side portion of the desktop screen or landscape tablet (not on mobile or narrow screen).
-
-## How-to
-
-This website is built with [Gatsby-theme-andy](https://github.com/aravindballa/gatsby-theme-andy). To contribute, please consult its [documentation](https://github.com/aravindballa/gatsby-theme-andy).
-
-### Requirements
-
-- Node.js v12+
-- Yarn
-
-### Install
-
-Clone this repository to your machine. At the repository's root directory, run
-
-```{bash}
-yarn install
+```bash
+npm install        # ครั้งแรกเท่านั้น
+npm run dev        # http://localhost:3000
 ```
 
-### Development
+## Other Scripts
 
-Run
-
-```{bash}
-yarn dev
+```bash
+npm run gen        # regenerate public/notes/*.json from content/
+npm run build      # static export to ./out
+npm start          # serve the production build
 ```
 
-Then go to `localhost:8000` in your browser of choice. Any changes to the files saved will be automatically updated on the website.
+> `predev` / `prebuild` จะรัน `scripts/gen-public.mjs` อัตโนมัติ
+> ถ้าแก้ไฟล์ใน `content/` ขณะ dev server ทำงาน ให้รัน `npm run gen` แล้ว refresh
 
-### Build
+## Project Structure
 
-Run
-
-```{bash}
-yarn build
+```
+pdpa/
+├── app/            # Next.js App Router pages
+├── components/     # React components (BrainNote, Footer, etc.)
+├── content/        # Markdown notes + highlights-data.json
+├── lib/            # Data layer (build-notes, stacked pages, etc.)
+├── public/         # Static assets (pdfs/, favicon)
+├── scripts/        # Build & utility scripts
+└── theme/          # Theme-UI theme configuration
 ```
 
-The generated static site will be available at `public`
+## License
 
-### Deployment
-
-Once code pushed/merged into `master` branch on GitHub, the deploy action on SiData+'s Netlify will run automatically. (**If unsure, don't push to master but file a Pull Request first.**)
-
-## Contributions
-
-Contributions are highly welcome. Please submit your PRs.
-
-## Roadmap
-
-- Add simple Thai version of PDPA
-- ...(more to come)...
+MIT
