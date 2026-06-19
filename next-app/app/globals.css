@@ -1,0 +1,26 @@
+/* Mirrors theme.styles.root applied to <body> by gatsby-plugin-theme-ui,
+   plus a CSS reset equivalent to what the browser + theme-ui base provided. */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #333;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+#__next,
+.app-root {
+  min-height: 100vh;
+}
