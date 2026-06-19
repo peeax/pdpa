@@ -34,11 +34,13 @@ const theme = {
   links: {
     internal: {
       color: 'links',
+      textDecoration: 'none',
       px: '2px',
       mx: '-2px',
       borderRadius: 1,
       ':hover': {
         bg: 'accent',
+        textDecoration: 'underline',
       },
       ':focus': {
         bg: 'accent',

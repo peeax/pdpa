@@ -29,7 +29,7 @@ export default function AnchorTag({ href, node, popups = {}, noPopups = false, c
   }
 
   return (
-    <a {...restProps} href={href}>
+    <a {...restProps} href={href} sx={{ color: 'links', textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>
       {children}
     </a>
   );
