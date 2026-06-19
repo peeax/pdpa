@@ -17,6 +17,14 @@ import {
 
 const NOTE_WIDTH = 576; // w-xl
 
+/**
+ * A wrapper for individual stacked pages.
+ * Provides the PageIndexProvider context so child components know their position
+ * in the horizontally-scrolling stack.
+ * 
+ * @param {Object} props
+ * @param {number} props.i - The index of the page in the stack.
+ */
 const StackedPageWrapper = ({ i, ...rest }) => (
   <PageIndexProvider value={i}>
     <NoteWrapper {...rest} i={i} />

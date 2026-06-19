@@ -6,6 +6,7 @@
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import rehypeSanitize from 'rehype-sanitize';
 import { Themed } from '../theme/themed';
 import AnchorTag from './AnchorTag';
 
@@ -28,6 +29,16 @@ for (const tag of TAGS) {
   if (Themed[tag]) baseComponents[tag] = themed(Themed[tag]);
 }
 
+/**
+ * Renders Markdown content safely into React components, applying Theme UI styling.
+ * It uses `rehype-raw` to support HTML inside markdown, but immediately sanitizes it
+ * using `rehype-sanitize` to prevent XSS attacks.
+ * 
+ * @param {Object} props - The component props.
+ * @param {string} props.body - The raw markdown string to render.
+ * @param {Object} [props.popups] - Dictionary of popup contents mapped by slug.
+ * @param {boolean} [props.noPopups=false] - Whether to disable hover popovers for links.
+ */
 export default function MarkdownContent({ body, popups = {}, noPopups = false }) {
   const components = {
     ...baseComponents,
@@ -37,7 +48,7 @@ export default function MarkdownContent({ body, popups = {}, noPopups = false })
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw]}
+      rehypePlugins={[rehypeRaw, rehypeSanitize]}
       components={components}
     >
       {body}

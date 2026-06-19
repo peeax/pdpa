@@ -4,13 +4,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Box, Flex, Input, Text, Spinner } from 'theme-ui';
 
+/**
+ * SearchModal Component
+ * Displays a global search overlay. Users can search through the static `search-index.json`.
+ * Features keyboard shortcuts (Ctrl+K / Cmd+K) to open the modal.
+ * 
+ * @param {Object} props
+ * @param {Function} props.navigateToStackedPage - Callback function to navigate and stack the page in the UI.
+ */
 export default function SearchModal({ navigateToStackedPage }) {
-  const [query, setQuery] = useState('');
-  const [results, setResults] = useState([]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [indexData, setIndexData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
+  // --- React State Hooks ---
+  const [query, setQuery] = useState(''); // Current search query
+  const [results, setResults] = useState([]); // Array of search results
+  const [selectedIndex, setSelectedIndex] = useState(0); // For keyboard navigation (up/down arrows)
+  const [indexData, setIndexData] = useState(null); // The loaded search index from /search-index.json
+  const [loading, setLoading] = useState(false); // Loading state while fetching the index
+  const [isOpen, setIsOpen] = useState(false); // Controls modal visibility
 
   const inputRef = useRef(null);
   const resultsRef = useRef(null);
