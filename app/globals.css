@@ -24,3 +24,24 @@ body {
 .app-root {
   min-height: 100vh;
 }
+
+/* Custom Tippy.js Theme to match the website (removes the default thick dark box) */
+.tippy-box {
+  background-color: var(--light, #fff) !important;
+  color: var(--darkgray, #333) !important;
+  border: 1px solid var(--lightgray, #e8e8e8);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.tippy-content {
+  padding: 0 !important;
+}
+
+.tippy-arrow {
+  color: var(--light, #fff) !important;
+}
+
+[saved-theme='dark'] .tippy-box {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
