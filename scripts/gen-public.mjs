@@ -20,11 +20,43 @@ fs.mkdirSync(notesDir, { recursive: true });
 
 const { notes } = buildAll();
 let count = 0;
+const searchIndex = [];
+
 for (const [slug, note] of notes) {
   fs.writeFileSync(path.join(notesDir, `${slug}.json`), JSON.stringify(note));
   count++;
+  
+  // Categorize for search
+  let type = 'article';
+  if (note.isHighlight) type = 'highlight';
+  else if (slug === 'about' || slug === 'index') type = 'other';
+  
+  // Exclude empty stub nodes from search
+  let text = note.body || note.content || '';
+  
+  // Strip markdown and HTML entities for clean search snippets
+  text = text
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // remove links [text](url) -> text
+    .replace(/\[([^\]]+)\]\[[^\]]*\]/g, '$1') // remove refs [text][ref] -> text
+    .replace(/\[\[([^\]]+)\]\]/g, '$1') // remove wikilinks [[text]] -> text
+    .replace(/[#*>_`~-]/g, '') // remove common markdown characters
+    .replace(/&emsp;/g, ' ') // remove HTML entities
+    .replace(/&nbsp;/g, ' ')
+    .replace(/<[^>]+>/g, '') // remove HTML tags
+    .replace(/\s+/g, ' ') // collapse whitespace
+    .trim();
+
+  if (text || note.title !== slug) {
+    searchIndex.push({
+      slug,
+      title: note.title,
+      type,
+      text: text, // Raw text to search against
+    });
+  }
 }
-console.log(`[gen] wrote ${count} note JSON files`);
+fs.writeFileSync(path.join(publicDir, 'search-index.json'), JSON.stringify(searchIndex));
+console.log(`[gen] wrote ${count} note JSON files and search-index.json`);
 
 // --- PWA manifest ---
 const manifest = {

@@ -116,7 +116,7 @@ export default function BrainNoteContainer({ slug, note, siteMetadata }) {
 
   return (
     <Flex sx={{ flexDirection: 'column', height: '100vh', minHeight: '100vh' }}>
-      <Header siteMetadata={siteMetadata} />
+      <Header siteMetadata={siteMetadata} navigateToStackedPage={state.navigateToStackedPage} />
 
       <Flex
         ref={scrollContainer}
