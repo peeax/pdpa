@@ -8,6 +8,7 @@ import useWindowWidth from './useWindowWidth';
 import MarkdownContent from './MarkdownContent';
 import Popover from './Popover';
 import Footer from './Footer';
+import OfficialDisclaimer from './OfficialDisclaimer';
 
 export default function BrainNote({ note }) {
   const [width] = useWindowWidth();
@@ -27,15 +28,13 @@ export default function BrainNote({ note }) {
         <div sx={{ flex: '1' }}>
           <Themed.h1 sx={{ my: 3 }}>{note.title}</Themed.h1>
 
-          {note.pdf && (
-            <embed src={note.pdf} width="100%" height="800px" type="application/pdf" />
-          )}
 
           {note.content && (
             <Themed.p sx={{ lineHeight: 'body', whiteSpace: 'pre-wrap' }}>{note.content}</Themed.p>
           )}
         </div>
 
+        <OfficialDisclaimer isHighlight={true} pdf={note.pdf} mainPdfLink={note.main_pdf_link} />
         <Footer references={note.inboundReferenceNotes || []} />
       </>
     );
@@ -48,6 +47,7 @@ export default function BrainNote({ note }) {
         <MarkdownContent body={note.body} popups={popups} noPopups={noPopups} />
       </div>
 
+      {note.slug === 'about' && <OfficialDisclaimer />}
       <Footer references={note.inboundReferenceNotes || []} />
     </>
   );
