@@ -14,8 +14,7 @@ import {
   StackedPagesProvider,
   PageIndexProvider,
 } from '../lib/stacked';
-
-const NOTE_WIDTH = 576; // w-xl
+import { NOTE_WIDTH, MOBILE_BREAKPOINT } from '../lib/constants';
 
 /**
  * A wrapper for individual stacked pages.
@@ -115,7 +114,7 @@ export default function BrainNoteContainer({ slug, note, siteMetadata }) {
 
   let pages = stackedPages;
   let indexToShow;
-  if (width < 768) {
+  if (width < MOBILE_BREAKPOINT) {
     const activeSlug = Object.keys(stackedPageStates).find((s) => stackedPageStates[s].active);
     indexToShow = stackedPages.findIndex((page) => page.slug === activeSlug);
     if (indexToShow === -1) indexToShow = stackedPages.length - 1;

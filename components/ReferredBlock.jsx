@@ -6,12 +6,13 @@ import { Heading } from 'theme-ui';
 import { Themed } from '../theme/themed';
 import { LinkToStacked } from './LinkToStacked';
 import useWindowWidth from './useWindowWidth';
+import { MOBILE_BREAKPOINT } from '../lib/constants';
 
 export default function ReferredBlock({ references }) {
   const [width] = useWindowWidth();
 
   if (references.length > 0) {
-    const onMobile = width < 768;
+    const onMobile = width < MOBILE_BREAKPOINT;
 
     const linkSx = {
       textDecoration: 'none',

@@ -8,6 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { buildAll } from '../lib/build-notes.mjs';
+import { stripMarkdown } from '../lib/strip-markdown.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
@@ -34,17 +35,8 @@ for (const [slug, note] of notes) {
   // Exclude empty stub nodes from search
   let text = note.body || note.content || '';
   
-  // Strip markdown and HTML entities for clean search snippets
-  text = text
-    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // remove links [text](url) -> text
-    .replace(/\[([^\]]+)\]\[[^\]]*\]/g, '$1') // remove refs [text][ref] -> text
-    .replace(/\[\[([^\]]+)\]\]/g, '$1') // remove wikilinks [[text]] -> text
-    .replace(/[#*>_`~-]/g, '') // remove common markdown characters
-    .replace(/&emsp;/g, ' ') // remove HTML entities
-    .replace(/&nbsp;/g, ' ')
-    .replace(/<[^>]+>/g, '') // remove HTML tags
-    .replace(/\s+/g, ' ') // collapse whitespace
-    .trim();
+  // Strip markdown and HTML for clean search snippets (shared utility)
+  text = stripMarkdown(text);
 
   if (text || note.title !== slug) {
     searchIndex.push({

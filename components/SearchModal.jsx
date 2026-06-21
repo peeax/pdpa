@@ -1,157 +1,219 @@
 /** @jsxImportSource theme-ui */
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Box, Flex, Input, Text, Spinner } from 'theme-ui';
+import {
+  SEARCH_SNIPPET_CONTEXT,
+  SEARCH_MAX_RESULTS,
+  SEARCH_TITLE_SCORE,
+  SEARCH_TEXT_SCORE,
+} from '../lib/constants';
+
+// Maps Arabic digits ↔ Thai digits so "มาตรา 1" matches "มาตรา ๑" and vice versa.
+const DIGIT_MAP = {
+  '0': '[0๐]', '๐': '[0๐]', '1': '[1๑]', '๑': '[1๑]',
+  '2': '[2๒]', '๒': '[2๒]', '3': '[3๓]', '๓': '[3๓]',
+  '4': '[4๔]', '๔': '[4๔]', '5': '[5๕]', '๕': '[5๕]',
+  '6': '[6๖]', '๖': '[6๖]', '7': '[7๗]', '๗': '[7๗]',
+  '8': '[8๘]', '๘': '[8๘]', '9': '[9๙]', '๙': '[9๙]',
+};
 
 /**
- * SearchModal Component
- * Displays a global search overlay. Users can search through the static `search-index.json`.
- * Features keyboard shortcuts (Ctrl+K / Cmd+K) to open the modal.
- * 
- * @param {Object} props
- * @param {Function} props.navigateToStackedPage - Callback function to navigate and stack the page in the UI.
+ * Convert a raw search query into a regex pattern that:
+ *  - Allows optional whitespace between words
+ *  - Matches both Arabic (1–9) and Thai (๑–๙) digits interchangeably
+ *
+ * @param {string} q - Raw user input.
+ * @returns {string} Safe regex pattern string.
+ */
+function buildSearchRegexStr(q) {
+  // Escape special regex characters first to prevent ReDoS
+  let escaped = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // Allow optional spaces between words
+  escaped = escaped.replace(/\s+/g, '\\s*');
+  // Allow optional space between text and digits (e.g. "มาตรา1" → "มาตรา 1")
+  escaped = escaped.replace(/([^0-9๐-๙\s\\])(?=[0-9๐-๙])/g, '$1\\s*');
+  escaped = escaped.replace(/([0-9๐-๙])(?=[^0-9๐-๙\s\\])/g, '$1\\s*');
+  // Replace each digit with a character class matching both script equivalents
+  return escaped.replace(/[0-9๐-๙]/g, (match) => DIGIT_MAP[match] || match);
+}
+
+/**
+ * Split `text` into alternating [non-match, match, non-match, ...] segments
+ * based on `regex` so we can render match spans without dangerouslySetInnerHTML.
+ *
+ * @param {string} text
+ * @param {RegExp} regex
+ * @returns {Array<{text: string, highlight: boolean}>}
+ */
+function splitHighlight(text, regex) {
+  const parts = [];
+  let lastIndex = 0;
+  const re = new RegExp(regex.source, 'gi');
+  let match;
+  while ((match = re.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push({ text: text.slice(lastIndex, match.index), highlight: false });
+    }
+    parts.push({ text: match[0], highlight: true });
+    lastIndex = re.lastIndex;
+  }
+  if (lastIndex < text.length) {
+    parts.push({ text: text.slice(lastIndex), highlight: false });
+  }
+  return parts.length > 0 ? parts : [{ text, highlight: false }];
+}
+
+/**
+ * Render `text` with matched segments wrapped in a highlighted <Box as="mark">.
+ * Safe alternative to dangerouslySetInnerHTML.
+ */
+function HighlightedText({ text, regex, sx: sxProp }) {
+  if (!regex || !text) return <Text sx={sxProp}>{text}</Text>;
+  const parts = splitHighlight(text, regex);
+  return (
+    <Text sx={sxProp}>
+      {parts.map((part, i) =>
+        part.highlight ? (
+          <Box
+            key={i}
+            as="mark"
+            sx={{ bg: 'transparent', color: 'primary', fontWeight: 'bold' }}
+          >
+            {part.text}
+          </Box>
+        ) : (
+          part.text
+        )
+      )}
+    </Text>
+  );
+}
+
+/**
+ * Inline search box that expands into a dropdown results panel.
+ * Opened by clicking the input or pressing Ctrl+K / Cmd+K.
+ *
+ * @param {Object}   props
+ * @param {Function} props.navigateToStackedPage - Opens a note in the stacked-page view.
  */
 export default function SearchModal({ navigateToStackedPage }) {
-  // --- React State Hooks ---
-  const [query, setQuery] = useState(''); // Current search query
-  const [results, setResults] = useState([]); // Array of search results
-  const [selectedIndex, setSelectedIndex] = useState(0); // For keyboard navigation (up/down arrows)
-  const [indexData, setIndexData] = useState(null); // The loaded search index from /search-index.json
-  const [loading, setLoading] = useState(false); // Loading state while fetching the index
-  const [isOpen, setIsOpen] = useState(false); // Controls modal visibility
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [indexData, setIndexData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [fetchError, setFetchError] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   const inputRef = useRef(null);
   const resultsRef = useRef(null);
 
-  useEffect(() => {
-    if (isOpen && !indexData) {
-      setLoading(true);
-      fetch('/search-index.json' + (process.env.NODE_ENV === 'development' ? `?t=${Date.now()}` : ''))
-        .then(res => res.json())
-        .then(data => {
-          setIndexData(data);
-          setLoading(false);
-        })
-        .catch(err => {
-          console.error('Error fetching search index:', err);
-          setLoading(false);
-        });
-    }
-  }, [isOpen, indexData]);
+  // --- Memoised regex (only recomputed when the query string changes) ---
+  const regexStr = useMemo(() => (query ? buildSearchRegexStr(query) : ''), [query]);
+  const testRegex = useMemo(() => (regexStr ? new RegExp(regexStr, 'i') : null), [regexStr]);
 
+  // --- Lazy-load the search index once on first open ---
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    if (!isOpen || indexData || loading) return;
+    setLoading(true);
+    setFetchError(null);
+    const isDev = process.env.NODE_ENV === 'development';
+    fetch(`/search-index.json${isDev ? `?t=${Date.now()}` : ''}`)
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.json();
+      })
+      .then((data) => {
+        setIndexData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Search index fetch failed:', err);
+        setFetchError('โหลดข้อมูลค้นหาไม่สำเร็จ กรุณาลองใหม่');
+        setLoading(false);
+      });
+  }, [isOpen, indexData, loading]);
+
+  // --- Open with Ctrl+K / Cmd+K ---
+  useEffect(() => {
+    const onKeyDown = (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();
         setIsOpen(true);
-        if (inputRef.current) inputRef.current.focus();
+        inputRef.current?.focus();
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
   }, []);
 
+  // --- Build grouped results whenever query or index data changes ---
   useEffect(() => {
-    if (!query || !indexData) {
+    if (!query || !indexData || !testRegex) {
       setResults([]);
       return;
     }
 
-    const buildSearchRegexStr = (q) => {
-      let escaped = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      escaped = escaped.replace(/\s+/g, '\\s*');
-      escaped = escaped.replace(/([^0-9๐-๙\s\\])(?=[0-9๐-๙])/g, '$1\\s*');
-      escaped = escaped.replace(/([0-9๐-๙])(?=[^0-9๐-๙\s\\])/g, '$1\\s*');
-      return escaped.replace(/[0-9๐-๙]/g, match => {
-        const map = {
-          '0': '[0๐]', '๐': '[0๐]', '1': '[1๑]', '๑': '[1๑]',
-          '2': '[2๒]', '๒': '[2๒]', '3': '[3๓]', '๓': '[3๓]',
-          '4': '[4๔]', '๔': '[4๔]', '5': '[5๕]', '๕': '[5๕]',
-          '6': '[6๖]', '๖': '[6๖]', '7': '[7๗]', '๗': '[7๗]',
-          '8': '[8๘]', '๘': '[8๘]', '9': '[9๙]', '๙': '[9๙]'
-        };
-        return map[match] || match;
-      });
-    };
-
-    const regexStr = buildSearchRegexStr(query);
-    const testRegex = new RegExp(regexStr, 'i');
-    
-    const escapeHtml = (unsafe) => {
-      return unsafe
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    };
-
     const matches = indexData
-      .map(item => {
+      .map((item) => {
         let score = 0;
         const titleMatch = testRegex.test(item.title);
         const textMatch = testRegex.test(item.text);
-        
-        if (titleMatch) score += 10;
-        if (textMatch) score += 1;
 
-        if (score > 0) {
-          let snippet = '';
-          const markTemplate = '<span style="color: #3182ce; font-weight: bold;">$1</span>';
-          let highlightedTitle = escapeHtml(item.title).replace(new RegExp(`(${regexStr})`, 'gi'), markTemplate);
+        if (titleMatch) score += SEARCH_TITLE_SCORE;
+        if (textMatch) score += SEARCH_TEXT_SCORE;
+        if (score === 0) return null;
 
-          if (textMatch) {
-            const matchIndex = item.text.search(testRegex);
-            const start = Math.max(0, matchIndex - 30);
-            const end = Math.min(item.text.length, matchIndex + query.length + 30);
-            const rawSnippet = (start > 0 ? '...' : '') + item.text.substring(start, end) + (end < item.text.length ? '...' : '');
-            snippet = escapeHtml(rawSnippet).replace(new RegExp(`(${regexStr})`, 'gi'), markTemplate);
-          }
-          return { ...item, score, snippet, highlightedTitle };
+        let snippet = '';
+        if (textMatch) {
+          const matchIndex = item.text.search(testRegex);
+          const start = Math.max(0, matchIndex - SEARCH_SNIPPET_CONTEXT);
+          const end = Math.min(item.text.length, matchIndex + query.length + SEARCH_SNIPPET_CONTEXT);
+          snippet =
+            (start > 0 ? '…' : '') +
+            item.text.substring(start, end) +
+            (end < item.text.length ? '…' : '');
         }
-        return null;
+        return { ...item, score, snippet };
       })
       .filter(Boolean)
       .sort((a, b) => b.score - a.score)
-      .slice(0, 20);
+      .slice(0, SEARCH_MAX_RESULTS);
 
-    const groups = [];
-    const articles = matches.filter(m => m.type === 'article');
-    const highlights = matches.filter(m => m.type === 'highlight');
-    const others = matches.filter(m => m.type === 'other');
+    // Group results by type for a cleaner UI
+    const articles = matches.filter((m) => m.type === 'article');
+    const highlights = matches.filter((m) => m.type === 'highlight');
+    const others = matches.filter((m) => m.type === 'other');
 
-    if (articles.length > 0) groups.push({ label: 'หมวดมาตรา', items: articles });
-    if (highlights.length > 0) groups.push({ label: 'หมวดคำอธิบาย', items: highlights });
-    if (others.length > 0) groups.push({ label: 'หมวดอื่นๆ', items: others });
+    const flat = [];
+    if (articles.length) { flat.push({ isHeader: true, label: 'หมวดมาตรา' }); articles.forEach((i) => flat.push({ isItem: true, ...i })); }
+    if (highlights.length) { flat.push({ isHeader: true, label: 'หมวดคำอธิบาย' }); highlights.forEach((i) => flat.push({ isItem: true, ...i })); }
+    if (others.length) { flat.push({ isHeader: true, label: 'หมวดอื่นๆ' }); others.forEach((i) => flat.push({ isItem: true, ...i })); }
 
-    const flatResults = [];
-    groups.forEach(g => {
-      flatResults.push({ isHeader: true, label: g.label });
-      g.items.forEach(item => flatResults.push({ isItem: true, ...item }));
-    });
+    setResults(flat);
+    setSelectedIndex(flat.findIndex((r) => r.isItem));
+  }, [query, indexData, testRegex]);
 
-    setResults(flatResults);
-    setSelectedIndex(flatResults.findIndex(r => r.isItem));
-  }, [query, indexData]);
-
+  // --- Keyboard navigation inside the results panel ---
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const onKeyDown = (e) => {
       if (!isOpen) return;
       if (e.key === 'Escape') {
-        setIsOpen(false);
-        if (inputRef.current) inputRef.current.blur();
         e.preventDefault();
+        setIsOpen(false);
+        inputRef.current?.blur();
       } else if (e.key === 'ArrowDown') {
         e.preventDefault();
-        setSelectedIndex(prev => {
+        setSelectedIndex((prev) => {
           let next = prev + 1;
           while (next < results.length && !results[next].isItem) next++;
           return next < results.length ? next : prev;
         });
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
-        setSelectedIndex(prev => {
+        setSelectedIndex((prev) => {
           let next = prev - 1;
           while (next >= 0 && !results[next].isItem) next--;
           return next >= 0 ? next : prev;
@@ -159,97 +221,97 @@ export default function SearchModal({ navigateToStackedPage }) {
       } else if (e.key === 'Enter') {
         e.preventDefault();
         const selected = results[selectedIndex];
-        if (selected && selected.isItem) {
+        if (selected?.isItem) {
           setIsOpen(false);
           setQuery('');
-          if (inputRef.current) inputRef.current.blur();
+          inputRef.current?.blur();
           navigateToStackedPage(selected.slug);
         }
       }
     };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
   }, [isOpen, results, selectedIndex, navigateToStackedPage]);
 
+  // --- Scroll active result into view ---
   useEffect(() => {
     if (resultsRef.current) {
-      const activeEl = resultsRef.current.querySelector('.selected');
-      if (activeEl) {
-        activeEl.scrollIntoView({ block: 'nearest' });
-      }
+      resultsRef.current.querySelector('.selected')?.scrollIntoView({ block: 'nearest' });
     }
   }, [selectedIndex]);
 
+  const handleSelect = useCallback(
+    (slug) => {
+      setIsOpen(false);
+      setQuery('');
+      inputRef.current?.blur();
+      navigateToStackedPage(slug);
+    },
+    [navigateToStackedPage]
+  );
+
   return (
     <Box sx={{ position: 'relative' }}>
-      <Flex sx={{ alignItems: 'center', bg: 'white', border: '1px solid', borderColor: '#ccc', px: 2, py: 1 }}>
+      {/* Search input */}
+      <Flex sx={{ alignItems: 'center', bg: 'white', border: '1px solid', borderColor: 'gray', px: 2, py: 1 }}>
         <Input
           ref={inputRef}
           placeholder="พิมพ์คำค้นหา..."
           value={query}
           onFocus={() => setIsOpen(true)}
-          onChange={(e) => {
-            setQuery(e.target.value);
-            setIsOpen(true);
-          }}
+          onChange={(e) => { setQuery(e.target.value); setIsOpen(true); }}
           sx={{
-            border: 'none',
-            outline: 'none',
-            fontSize: 2,
-            p: 1,
-            width: ['150px', '200px'],
-            backgroundColor: 'transparent',
+            border: 'none', outline: 'none', fontSize: 2, p: 1,
+            width: ['150px', '200px'], backgroundColor: 'transparent',
             '&:focus': { outline: 'none' },
           }}
         />
         <Box sx={{ display: 'flex', alignItems: 'center', color: 'text-light', px: 2 }}>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
         </Box>
       </Flex>
-      
+
       {isOpen && (
         <>
+          {/* Invisible overlay to close dropdown on outside click */}
           <Box
             onClick={() => setIsOpen(false)}
-            sx={{
-              position: 'fixed',
-              top: 0, left: 0, right: 0, bottom: 0,
-              zIndex: 999, // click catcher
-            }}
+            sx={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 999 }}
           />
+
           {query.trim().length > 0 && (
             <Box
               onClick={(e) => e.stopPropagation()}
               sx={{
-                position: 'absolute',
-                top: '100%',
-                right: 0,
-                mt: 1,
+                position: 'absolute', top: '100%', right: 0, mt: 1,
                 width: ['calc(100vw - 32px)', '400px', '450px'],
                 backgroundColor: 'background',
-                borderRadius: 0,
                 boxShadow: '0 4px 20px rgba(0,0,0,0.15)',
-                border: '1px solid',
-                borderColor: 'muted',
-                overflow: 'hidden',
-                display: 'flex',
-                flexDirection: 'column',
-                maxHeight: '70vh',
-                zIndex: 1000,
+                border: '1px solid', borderColor: 'gray',
+                display: 'flex', flexDirection: 'column',
+                maxHeight: '70vh', zIndex: 1000,
               }}
             >
+              {/* Loading spinner */}
               {loading && (
                 <Flex sx={{ p: 3, justifyContent: 'center' }}>
                   <Spinner size={24} />
                 </Flex>
               )}
 
+              {/* Fetch error */}
+              {fetchError && (
+                <Text sx={{ p: 3, color: 'red', textAlign: 'center', fontSize: 1 }}>
+                  {fetchError}
+                </Text>
+              )}
+
               <Box ref={resultsRef} sx={{ overflowY: 'auto', p: 2 }}>
-                {query && results.length === 0 && !loading && (
+                {/* No results */}
+                {query && results.length === 0 && !loading && !fetchError && (
                   <Text sx={{ p: 3, color: 'text-light', textAlign: 'center' }}>ไม่พบผลลัพธ์</Text>
                 )}
 
@@ -259,8 +321,8 @@ export default function SearchModal({ navigateToStackedPage }) {
                       <Text
                         key={`header-${i}`}
                         sx={{
-                          px: 3, pt: 3, pb: 1,
-                          fontSize: 1, fontWeight: 'bold', color: 'text',
+                          px: 3, pt: 3, pb: 1, fontSize: 1,
+                          fontWeight: 'bold', color: 'text-light',
                           textTransform: 'uppercase', letterSpacing: 0.5,
                         }}
                       >
@@ -270,37 +332,36 @@ export default function SearchModal({ navigateToStackedPage }) {
                   }
 
                   const isSelected = i === selectedIndex;
-
                   return (
                     <Box
                       key={`item-${item.slug}-${i}`}
                       className={isSelected ? 'selected' : ''}
                       onMouseEnter={() => setSelectedIndex(i)}
-                      onClick={() => {
-                        setIsOpen(false);
-                        setQuery('');
-                        if (inputRef.current) inputRef.current.blur();
-                        navigateToStackedPage(item.slug);
-                      }}
+                      onClick={() => handleSelect(item.slug)}
                       sx={{
                         px: 3, py: 2, mx: 2, my: 1,
-                        borderRadius: 0, cursor: 'pointer',
-                        backgroundColor: isSelected ? 'muted' : 'transparent',
-                        borderLeft: isSelected ? '3px solid #3182ce' : '3px solid transparent',
-                        '&:hover': {
-                          backgroundColor: 'muted',
-                        },
+                        cursor: 'pointer',
+                        backgroundColor: isSelected ? 'accent' : 'transparent',
+                        borderLeft: isSelected ? '3px solid' : '3px solid transparent',
+                        borderLeftColor: isSelected ? 'primary' : 'transparent',
+                        '&:hover': { backgroundColor: 'accent' },
                       }}
                     >
-                      <Text sx={{ fontWeight: 'bold', display: 'block', mb: 1, color: isSelected ? '#3182ce' : 'text' }} dangerouslySetInnerHTML={{ __html: item.highlightedTitle || item.title }} />
+                      {/* Title with highlighted matches — rendered as safe JSX, not HTML */}
+                      <HighlightedText
+                        text={item.title}
+                        regex={testRegex}
+                        sx={{ fontWeight: 'bold', display: 'block', mb: 1, color: isSelected ? 'primary' : 'text' }}
+                      />
                       {item.snippet && (
-                        <Text
+                        <HighlightedText
+                          text={item.snippet}
+                          regex={testRegex}
                           sx={{
                             fontSize: 1, color: 'text', opacity: 0.8,
                             display: '-webkit-box', WebkitLineClamp: 2,
                             WebkitBoxOrient: 'vertical', overflow: 'hidden',
                           }}
-                          dangerouslySetInnerHTML={{ __html: item.snippet }}
                         />
                       )}
                     </Box>
