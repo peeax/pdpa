@@ -33,17 +33,30 @@ const BrainNote = ({ note }) => {
       <ThemeProvider theme={theme} components={{ ...components, a: AnchorTagWithPopups }}>
         <div sx={{ flex: '1' }}>
           <Styled.h1 sx={{ my: 3 }}>{note.title}</Styled.h1>
-          
-          {note.pdf && (
-            <embed src={note.pdf} width="100%" height="800px" type="application/pdf" />
-          )}
-          
+
           {note.content && (
             <Styled.p sx={{ lineHeight: 'body', whiteSpace: 'pre-wrap' }}>
               {note.content}
             </Styled.p>
           )}
 
+          {note.pdf && (
+            <div sx={{ mt: 4, pt: 3, borderTop: '1px solid', borderColor: 'muted' }}>
+              <a
+                href={note.pdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  color: 'primary',
+                  fontWeight: 'bold',
+                  textDecoration: 'none',
+                  '&:hover': { textDecoration: 'underline' },
+                }}
+              >
+                เอกสารอ้างอิง
+              </a>
+            </div>
+          )}
 
         </div>
 
