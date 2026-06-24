@@ -55,7 +55,7 @@ export default function BrainNote({ note }) {
           )}
         </div>
         <OfficialDisclaimer isHighlight={true} pdf={note.pdf} mainPdfLink={note.main_pdf_link} />
-        <Footer references={note.inboundReferenceNotes || []} />
+        <Footer discussion={note.discussion} references={note.inboundReferenceNotes || []} />
       </>
     );
   }
@@ -67,7 +67,7 @@ export default function BrainNote({ note }) {
         <MarkdownContent body={note.body} popups={popups} noPopups={noPopups} />
       </div>
       {note.slug === 'about' && <OfficialDisclaimer />}
-      <Footer references={note.inboundReferenceNotes || []} />
+      <Footer discussion={note.discussion} references={note.inboundReferenceNotes || []} />
     </>
   );
 }
