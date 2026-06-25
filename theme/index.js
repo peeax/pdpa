@@ -2,6 +2,8 @@
 // (src/gatsby-theme-andy/themes.js) so colors, spacing, type scale and
 // element styles render identically under theme-ui.
 const theme = {
+  initialColorModeName: 'light',
+  useColorSchemeMediaQuery: true,
   colors: {
     text: '#333',
     'text-light': '#718096',
@@ -10,6 +12,17 @@ const theme = {
     links: '#3182ce',
     gray: '#dadada',
     accent: '#fafafc',
+    modes: {
+      dark: {
+        text: '#e2e8f0',
+        'text-light': '#a0aec0',
+        background: '#1a202c',
+        primary: '#63b3ed',
+        links: '#63b3ed',
+        gray: '#4a5568',
+        accent: '#2d3748',
+      },
+    },
   },
   breakpoints: ['640px', '768px', '1024px', '1280px'],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],

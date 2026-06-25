@@ -253,7 +253,7 @@ export default function SearchModal({ navigateToStackedPage }) {
   return (
     <Box sx={{ position: 'relative' }}>
       {/* Search input */}
-      <Flex sx={{ alignItems: 'center', bg: 'white', border: '1px solid', borderColor: 'gray', px: 2, py: 1 }}>
+      <Flex sx={{ alignItems: 'center', bg: 'background', border: '1px solid', borderColor: 'gray', px: 2, py: 1 }}>
         <Input
           ref={inputRef}
           placeholder="พิมพ์คำค้นหา..."

@@ -15,9 +15,10 @@ body {
     'Helvetica Neue', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color: #333;
-  background-color: #fff;
+  color: var(--theme-ui-colors-text, #333);
+  background-color: var(--theme-ui-colors-background, #fff);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 #__next,
@@ -25,11 +26,16 @@ body {
   min-height: 100vh;
 }
 
+/* Smooth transition for all colored elements when toggling dark mode */
+*, *::before, *::after {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
 /* Custom Tippy.js Theme to match the website (removes the default thick dark box) */
 .tippy-box {
-  background-color: var(--light, #fff) !important;
-  color: var(--darkgray, #333) !important;
-  border: 1px solid var(--lightgray, #e8e8e8);
+  background-color: var(--theme-ui-colors-background, #fff) !important;
+  color: var(--theme-ui-colors-text, #333) !important;
+  border: 1px solid var(--theme-ui-colors-gray, #e8e8e8);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
 }
@@ -39,9 +45,15 @@ body {
 }
 
 .tippy-arrow {
-  color: var(--light, #fff) !important;
+  color: var(--theme-ui-colors-background, #fff) !important;
 }
 
+/* Dark mode: deepen the Tippy shadow */
+[data-theme-ui-color-mode='dark'] .tippy-box {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Legacy selector (kept for compatibility) */
 [saved-theme='dark'] .tippy-box {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
