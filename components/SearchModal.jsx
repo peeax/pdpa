@@ -253,7 +253,7 @@ export default function SearchModal({ navigateToStackedPage }) {
   return (
     <Box sx={{ position: 'relative' }}>
       {/* Search input */}
-      <Flex sx={{ alignItems: 'center', bg: 'background', border: '1px solid', borderColor: 'gray', px: 2, py: 1 }}>
+      <Flex sx={{ alignItems: 'center', bg: 'background', border: '1px solid', borderColor: 'gray', borderRadius: '8px', px: 2, py: '4px' }}>
         <Input
           ref={inputRef}
           placeholder="พิมพ์คำค้นหา..."
@@ -261,8 +261,8 @@ export default function SearchModal({ navigateToStackedPage }) {
           onFocus={() => setIsOpen(true)}
           onChange={(e) => { setQuery(e.target.value); setIsOpen(true); }}
           sx={{
-            border: 'none', outline: 'none', fontSize: 2, p: 1,
-            width: ['150px', '200px'], backgroundColor: 'transparent',
+            border: 'none', outline: 'none', fontSize: 1, p: 0,
+            width: ['120px', '160px'], backgroundColor: 'transparent',
             '&:focus': { outline: 'none' },
           }}
         />
