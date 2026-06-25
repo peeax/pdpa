@@ -14,13 +14,13 @@ const theme = {
     accent: '#fafafc',
     modes: {
       dark: {
-        text: '#e2e8f0',
-        'text-light': '#a0aec0',
-        background: '#1a202c',
+        text: '#e8e8e8',
+        'text-light': '#888888',
+        background: '#0a0a0a',
         primary: '#63b3ed',
         links: '#63b3ed',
-        gray: '#4a5568',
-        accent: '#2d3748',
+        gray: '#333333',
+        accent: '#1a1a1a',
       },
     },
   },
@@ -29,9 +29,8 @@ const theme = {
   borders: [0, 1, 2, 3, 4],
   radii: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   fonts: {
-    body:
-      'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-    heading: 'inherit',
+    body: 'var(--font-sarabun), system-ui, -apple-system, sans-serif',
+    heading: 'var(--font-sarabun), system-ui, -apple-system, sans-serif',
     monospace: 'Menlo, monospace',
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64, 96],

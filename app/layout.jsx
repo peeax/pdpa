@@ -1,7 +1,15 @@
 import './globals.css';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
+import { Sarabun } from 'next/font/google';
 import Providers from './Providers';
+
+const sarabun = Sarabun({
+  subsets: ['thai', 'latin'],
+  weight: ['400', '700'],
+  variable: '--font-sarabun',
+  display: 'swap',
+});
 
 export const metadata = {
   title:
@@ -24,7 +32,7 @@ export default function RootLayout({ children }) {
         />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
       </head>
-      <body>
+      <body className={sarabun.variable}>
         <Providers>{children}</Providers>
       </body>
     </html>
