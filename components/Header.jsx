@@ -9,13 +9,14 @@ import SearchModal from './SearchModal';
 export default function Header({ siteMetadata, navigateToStackedPage }) {
   return (
     <header>
-      <Flex py={2} px={3} sx={{ borderBottom: '1px solid', borderColor: 'gray', justifyContent: 'space-between', alignItems: 'center', gap: 2, minWidth: 0 }}>
+      <Flex py={2} px={3} sx={{ borderBottom: '1px solid', borderColor: 'gray', flexDirection: ['column', 'row'], alignItems: ['flex-start', 'center'], justifyContent: ['flex-start', 'space-between'], gap: [1, 2], minWidth: 0 }}>
         <Box
           as="a"
           href="/"
           sx={{
             fontWeight: 'bold', color: 'text', textDecoration: 'none',
             minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+            width: ['100%', 'auto'],
           }}
         >
           {siteMetadata.title}
