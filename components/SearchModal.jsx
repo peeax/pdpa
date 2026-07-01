@@ -284,25 +284,6 @@ export default function SearchModal({ navigateToStackedPage }) {
             '&:focus': { outline: 'none' },
           }}
         />
-        <Box
-          as="kbd"
-          sx={{
-            display: ['none', 'flex'],
-            alignItems: 'center',
-            fontSize: '11px',
-            color: '#28c6b5',
-            border: '1px solid rgba(40,198,181,0.5)',
-            borderRadius: '4px',
-            px: '5px',
-            py: '2px',
-            lineHeight: 1,
-            flexShrink: 0,
-            fontFamily: 'monospace',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          ⌘K
-        </Box>
       </Flex>
 
       {isOpen && (
