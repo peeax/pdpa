@@ -253,24 +253,45 @@ export default function SearchModal({ navigateToStackedPage }) {
   return (
     <Box sx={{ position: 'relative' }}>
       {/* Search input */}
-      <Flex sx={{ alignItems: 'center', bg: 'background', border: '1px solid', borderColor: 'gray', borderRadius: '8px', px: 2, py: '4px' }}>
+      <Flex sx={{ alignItems: 'center', bg: 'rgba(255,255,255,0.12)', border: '1px solid rgba(246,244,247,0.35)', borderRadius: '8px', px: 2, py: '4px', gap: 1, ':focus-within': { borderColor: '#28c6b5' } }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', color: 'rgba(246,244,247,0.7)', flexShrink: 0 }}>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </Box>
         <Input
           ref={inputRef}
-          placeholder="พิมพ์คำค้นหา..."
+          placeholder="ค้นหามาตรา..."
           value={query}
           onFocus={() => setIsOpen(true)}
           onChange={(e) => { setQuery(e.target.value); setIsOpen(true); }}
           sx={{
             border: 'none', outline: 'none', fontSize: 1, p: 0,
-            width: ['120px', '160px'], backgroundColor: 'transparent',
+            width: ['100px', '140px'], backgroundColor: 'transparent',
+            color: '#f6f4f7',
+            '::placeholder': { color: 'rgba(246,244,247,0.6)' },
             '&:focus': { outline: 'none' },
           }}
         />
-        <Box sx={{ display: 'flex', alignItems: 'center', color: 'text-light', px: 2 }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
+        <Box
+          as="kbd"
+          sx={{
+            display: ['none', 'flex'],
+            alignItems: 'center',
+            fontSize: '11px',
+            color: '#28c6b5',
+            border: '1px solid rgba(40,198,181,0.5)',
+            borderRadius: '4px',
+            px: '5px',
+            py: '2px',
+            lineHeight: 1,
+            flexShrink: 0,
+            fontFamily: 'monospace',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          ⌘K
         </Box>
       </Flex>
 
@@ -312,7 +333,10 @@ export default function SearchModal({ navigateToStackedPage }) {
               <Box ref={resultsRef} sx={{ overflowY: 'auto', p: 2 }}>
                 {/* No results */}
                 {query && results.length === 0 && !loading && !fetchError && (
-                  <Text sx={{ p: 3, color: 'text-light', textAlign: 'center' }}>ไม่พบผลลัพธ์</Text>
+                  <Box sx={{ p: 3, textAlign: 'center' }}>
+                    <Text sx={{ color: 'text-light', display: 'block', mb: 1 }}>ไม่พบผลลัพธ์สำหรับ "{query}"</Text>
+                    <Text sx={{ fontSize: 0, color: 'text-light', opacity: 0.7 }}>ลองพิมพ์ชื่อมาตรา เช่น ม1, ม19, หรือคำในเนื้อหา</Text>
+                  </Box>
                 )}
 
                 {results.map((item, i) => {

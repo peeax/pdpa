@@ -1,7 +1,20 @@
+@font-face {
+  font-family: 'db_lim_xmedium';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://sidata.plus/storage/fonts/DB-Lim-X-v3.2.woff') format('woff');
+}
+
 /* Mirrors theme.styles.root applied to <body> by gatsby-plugin-theme-ui,
    plus a CSS reset equivalent to what the browser + theme-ui base provided. */
 * {
   box-sizing: border-box;
+  font-family: inherit;
+}
+
+code, pre, kbd, samp {
+  font-family: Menlo, monospace;
 }
 
 html,
@@ -12,12 +25,14 @@ body {
 
 body {
   font-family: var(--font-sarabun), system-ui, -apple-system, sans-serif;
-  line-height: 1.5;
+  line-height: 1.65;
   font-weight: 400;
   color: var(--theme-ui-colors-text, #333);
   background-color: var(--theme-ui-colors-background, #fff);
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.25s ease, color 0.25s ease;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 #__next,

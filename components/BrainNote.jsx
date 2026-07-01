@@ -10,6 +10,8 @@ import MarkdownContent from './MarkdownContent';
 import Popover from './Popover';
 import Footer from './Footer';
 import OfficialDisclaimer from './OfficialDisclaimer';
+import dynamic from 'next/dynamic';
+const TableOfContents = dynamic(() => import('./TableOfContents'), { ssr: false });
 import { MOBILE_BREAKPOINT } from '../lib/constants';
 
 /**
@@ -60,13 +62,32 @@ export default function BrainNote({ note }) {
     );
   }
 
+  // For the about page, split markdown at the first '---' so we can inject
+  // TableOfContents between the intro blockquote and the law content.
+  if (note.slug === 'about') {
+    const hrIndex = note.body.search(/\r?\n---\r?\n/);
+    const introPart = hrIndex >= 0 ? note.body.slice(0, hrIndex) : note.body;
+    const restPart = hrIndex >= 0 ? note.body.slice(hrIndex) : '';
+    return (
+      <>
+        <div sx={{ flex: '1' }}>
+          <Themed.h1 sx={{ my: 3 }}>{note.title}</Themed.h1>
+          <MarkdownContent body={introPart} popups={popups} noPopups={noPopups} />
+          <TableOfContents />
+          {restPart && <MarkdownContent body={restPart} popups={popups} noPopups={noPopups} />}
+        </div>
+        <OfficialDisclaimer />
+        <Footer references={note.inboundReferenceNotes || []} />
+      </>
+    );
+  }
+
   return (
     <>
       <div sx={{ flex: '1' }}>
         <Themed.h1 sx={{ my: 3 }}>{note.title}</Themed.h1>
         <MarkdownContent body={note.body} popups={popups} noPopups={noPopups} />
       </div>
-      {note.slug === 'about' && <OfficialDisclaimer />}
       <Footer references={note.inboundReferenceNotes || []} />
     </>
   );
