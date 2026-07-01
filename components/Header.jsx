@@ -15,8 +15,11 @@ export default function Header({ siteMetadata, navigateToStackedPage }) {
           href="/"
           sx={{
             fontWeight: 'bold', color: 'text', textDecoration: 'none',
-            minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap',
+            minWidth: 0,
             width: ['100%', 'auto'],
+            whiteSpace: ['normal', 'nowrap'],
+            overflow: ['visible', 'hidden'],
+            textOverflow: ['clip', 'ellipsis'],
           }}
         >
           {siteMetadata.title}
