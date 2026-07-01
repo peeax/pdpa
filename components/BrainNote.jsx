@@ -3,7 +3,7 @@
 // Port of the project's shadowed gatsby-theme-andy BrainNote
 // (src/gatsby-theme-andy/components/BrainNote.js), including the HighlightNote
 // branch (pdf embed / pre-wrap plain-text content).
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Themed } from '../theme/themed';
 import useWindowWidth from './useWindowWidth';
 import MarkdownContent from './MarkdownContent';
@@ -29,7 +29,7 @@ import { MOBILE_BREAKPOINT } from '../lib/constants';
  *   - outboundReferenceNotes {Array} - notes this note links to
  *   - inboundReferenceNotes  {Array} - notes that link to this note
  */
-export default function BrainNote({ note }) {
+function BrainNote({ note }) {
   const [width] = useWindowWidth();
   const noPopups = width < MOBILE_BREAKPOINT;
 
@@ -92,3 +92,5 @@ export default function BrainNote({ note }) {
     </>
   );
 }
+
+export default React.memo(BrainNote);

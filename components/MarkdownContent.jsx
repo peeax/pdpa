@@ -3,6 +3,7 @@
 // Renders the linkified markdown body the way gatsby-plugin-mdx + theme-ui did:
 // every HTML element is mapped to its `Themed.*` equivalent (so theme.styles
 // applies) and anchors are replaced by our stacked-pages-aware AnchorTag.
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
@@ -39,11 +40,11 @@ for (const tag of TAGS) {
  * @param {Object} [props.popups] - Dictionary of popup contents mapped by slug.
  * @param {boolean} [props.noPopups=false] - Whether to disable hover popovers for links.
  */
-export default function MarkdownContent({ body, popups = {}, noPopups = false }) {
-  const components = {
+function MarkdownContent({ body, popups = {}, noPopups = false }) {
+  const components = React.useMemo(() => ({
     ...baseComponents,
     a: ({ node, ...props }) => <AnchorTag {...props} popups={popups} noPopups={noPopups} />,
-  };
+  }), [popups, noPopups]);
 
   return (
     <ReactMarkdown
@@ -55,3 +56,9 @@ export default function MarkdownContent({ body, popups = {}, noPopups = false })
     </ReactMarkdown>
   );
 }
+
+export default React.memo(MarkdownContent, (prev, next) =>
+  prev.body === next.body &&
+  prev.noPopups === next.noPopups &&
+  prev.popups === next.popups
+);
