@@ -10,8 +10,7 @@ import MarkdownContent from './MarkdownContent';
 import Popover from './Popover';
 import Footer from './Footer';
 import OfficialDisclaimer from './OfficialDisclaimer';
-import dynamic from 'next/dynamic';
-const TableOfContents = dynamic(() => import('./TableOfContents'), { ssr: false });
+import TableOfContents from './TableOfContents';
 import { MOBILE_BREAKPOINT } from '../lib/constants';
 
 /**
@@ -73,6 +72,7 @@ export default function BrainNote({ note }) {
         <div sx={{ flex: '1' }}>
           <Themed.h1 sx={{ my: 3 }}>{note.title}</Themed.h1>
           <MarkdownContent body={introPart} popups={popups} noPopups={noPopups} />
+          <Themed.hr />
           <TableOfContents />
           {restPart && <MarkdownContent body={restPart} popups={popups} noPopups={noPopups} />}
         </div>

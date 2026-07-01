@@ -32,6 +32,7 @@ export default function Header({ siteMetadata, navigateToStackedPage }) {
             href="/"
             sx={{ alignItems: 'center', gap: 2, textDecoration: 'none', color: '#f6f4f7', minWidth: 0, overflow: 'hidden' }}
           >
+            <Box as="img" src="/Mahidol_U.png" alt="Mahidol University Logo" sx={{ height: '32px', width: 'auto', display: 'block', flexShrink: 0 }} />
             <Box sx={{ bg: 'white', borderRadius: '50%', p: '3px', display: 'flex', alignItems: 'center', flexShrink: 0 }}>
               <Box as="img" src="/favicon.png" alt="SiData+ Logo" sx={{ height: '24px', width: 'auto', display: 'block' }} />
             </Box>
@@ -55,6 +56,7 @@ export default function Header({ siteMetadata, navigateToStackedPage }) {
             href="/"
             sx={{ alignItems: 'flex-start', gap: 2, textDecoration: 'none', color: '#f6f4f7', mb: 2 }}
           >
+            <Box as="img" src="/Mahidol_U.png" alt="Mahidol University Logo" sx={{ height: '28px', width: 'auto', display: 'block', flexShrink: 0, mt: '2px' }} />
             <Box sx={{ bg: 'white', borderRadius: '50%', p: '3px', display: 'flex', alignItems: 'center', flexShrink: 0, mt: '2px' }}>
               <Box as="img" src="/favicon.png" alt="SiData+ Logo" sx={{ height: '20px', width: 'auto', display: 'block' }} />
             </Box>
