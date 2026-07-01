@@ -99,6 +99,7 @@ function HighlightedText({ text, regex, sx: sxProp }) {
  * @param {Function} props.navigateToStackedPage - Opens a note in the stacked-page view.
  */
 export default function SearchModal({ navigateToStackedPage }) {
+  const [inputValue, setInputValue] = useState('');
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -109,6 +110,7 @@ export default function SearchModal({ navigateToStackedPage }) {
 
   const inputRef = useRef(null);
   const resultsRef = useRef(null);
+  const debounceTimer = useRef(null);
 
   // --- Memoised regex (only recomputed when the query string changes) ---
   const regexStr = useMemo(() => (query ? buildSearchRegexStr(query) : ''), [query]);
@@ -223,6 +225,7 @@ export default function SearchModal({ navigateToStackedPage }) {
         const selected = results[selectedIndex];
         if (selected?.isItem) {
           setIsOpen(false);
+          setInputValue('');
           setQuery('');
           inputRef.current?.blur();
           navigateToStackedPage(selected.slug);
@@ -243,6 +246,7 @@ export default function SearchModal({ navigateToStackedPage }) {
   const handleSelect = useCallback(
     (slug) => {
       setIsOpen(false);
+      setInputValue('');
       setQuery('');
       inputRef.current?.blur();
       navigateToStackedPage(slug);
@@ -263,9 +267,15 @@ export default function SearchModal({ navigateToStackedPage }) {
         <Input
           ref={inputRef}
           placeholder="ค้นหามาตรา..."
-          value={query}
+          value={inputValue}
           onFocus={() => setIsOpen(true)}
-          onChange={(e) => { setQuery(e.target.value); setIsOpen(true); }}
+          onChange={(e) => {
+            const v = e.target.value;
+            setInputValue(v);
+            setIsOpen(true);
+            clearTimeout(debounceTimer.current);
+            debounceTimer.current = setTimeout(() => setQuery(v), 200);
+          }}
           sx={{
             border: 'none', outline: 'none', fontSize: 1, p: 0,
             width: ['100px', '140px'], backgroundColor: 'transparent',

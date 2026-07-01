@@ -2,7 +2,7 @@
 // Port of gatsby-theme-andy/src/components/CustomLinkToStacked.js
 // Renders a plain <a> (the original used Gatsby <Link>) and intercepts clicks
 // to push the target onto the stack instead of doing a full navigation.
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { useStackedPage } from '../lib/stacked';
 
 export const LinkToStacked = React.forwardRef(function LinkToStacked(
@@ -10,6 +10,7 @@ export const LinkToStacked = React.forwardRef(function LinkToStacked(
   ref
 ) {
   const [, , , navigateToStackedPage, highlightStackedPage] = useStackedPage();
+  const highlightTimer = useRef(null);
 
   const onClickHandler = useCallback(
     (ev) => {
@@ -32,7 +33,8 @@ export const LinkToStacked = React.forwardRef(function LinkToStacked(
 
   const onMouseEnterHandler = useCallback(
     (ev) => {
-      highlightStackedPage(to, true);
+      clearTimeout(highlightTimer.current);
+      highlightTimer.current = setTimeout(() => highlightStackedPage(to, true), 80);
       if (onMouseEnter) onMouseEnter(ev);
     },
     [to, onMouseEnter, highlightStackedPage]
@@ -40,6 +42,7 @@ export const LinkToStacked = React.forwardRef(function LinkToStacked(
 
   const onMouseLeaveHandler = useCallback(
     (ev) => {
+      clearTimeout(highlightTimer.current);
       highlightStackedPage(to, false);
       if (onMouseLeave) onMouseLeave(ev);
     },
