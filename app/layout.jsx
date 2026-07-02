@@ -54,6 +54,12 @@ const websiteJsonLd = {
   },
 };
 
+// Runs synchronously before first paint, so the correct theme (saved choice,
+// falling back to the OS prefers-color-scheme) is applied immediately instead
+// of flashing light and then switching — mirrors the class ColorModeSync
+// applies later in React, just early enough to avoid the flash.
+const noFlashColorMode = `(function(){try{var m=localStorage.getItem('theme-ui-color-mode');if(!m){m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.classList.add('theme-ui-'+m);}catch(e){}})();`;
+
 export default function RootLayout({ children }) {
   return (
     <html lang="th">
@@ -64,6 +70,10 @@ export default function RootLayout({ children }) {
         />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <link rel="prefetch" href="/search-index.json" as="fetch" crossOrigin="anonymous" />
+        <script
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: noFlashColorMode }}
+        />
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger

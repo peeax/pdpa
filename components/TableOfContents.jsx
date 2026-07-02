@@ -60,7 +60,7 @@ function ChipGroup({ articles, onMobile, selectedSlug, onSelect }) {
 export default function TableOfContents() {
   const [width] = useWindowWidth();
   const onMobile = width < MOBILE_BREAKPOINT;
-  const [openSet, setOpenSet] = useState(new Set([0]));
+  const [openSet, setOpenSet] = useState(() => new Set(TOC.map((_, i) => i)));
   const [selectedSlug, setSelectedSlug] = useState(null);
 
   // Reflect the currently-open second column (e.g. the default มาตรา ๑ opened
