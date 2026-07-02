@@ -49,7 +49,6 @@ export default function BrainNote({ note }) {
     return (
       <>
         <div sx={{ flex: '1' }}>
-          <Themed.h1 sx={{ my: 3 }}>{note.title}</Themed.h1>
           {note.content && (
             <Themed.p sx={{ lineHeight: 'body', whiteSpace: 'pre-wrap' }}>{note.content}</Themed.p>
           )}
@@ -63,7 +62,9 @@ export default function BrainNote({ note }) {
   return (
     <>
       <div sx={{ flex: '1' }}>
-        <Themed.h1 sx={{ my: 3 }}>{note.title}</Themed.h1>
+        {!note.slug.startsWith('discussion') && note.slug !== 'about' && (
+          <Themed.h1 sx={{ my: 3 }}>{note.title}</Themed.h1>
+        )}
         <MarkdownContent body={note.body} popups={popups} noPopups={noPopups} />
       </div>
       {note.slug === 'about' && <OfficialDisclaimer />}
