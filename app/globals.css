@@ -30,7 +30,7 @@ body {
   color: var(--theme-ui-colors-text, #333);
   background-color: var(--theme-ui-colors-background, #fff);
   -webkit-font-smoothing: antialiased;
-  transition: background-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.12s ease, color 0.12s ease;
   word-break: break-word;
   overflow-wrap: break-word;
 }
@@ -41,13 +41,13 @@ body {
 }
 
 /* Smooth dark mode transition — only on layout/container elements, NOT interactive ones.
-   Applying transition to * delays click feedback by 250ms. */
+   Kept short (120ms) so the toggle still feels instant, especially on mobile. */
 body,
 header,
 .note-container,
 .note-columns-container,
 .tippy-box {
-  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  transition: background-color 0.10s ease, border-color 0.10s ease, color 0.10s ease;
 }
 
 /* Remove tap delay on mobile (iOS/Android adds 300ms delay without this) */
