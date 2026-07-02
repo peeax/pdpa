@@ -5,14 +5,10 @@
 import React, { useCallback, useRef } from 'react';
 import { useStackedPage } from '../lib/stacked';
 
-export function LinkToStacked({
-  to,
-  onClick,
-  onMouseLeave,
-  onMouseEnter,
-  ref,
-  ...restProps
-}) {
+export const LinkToStacked = React.forwardRef(function LinkToStacked(
+  { to, onClick, onMouseLeave, onMouseEnter, ...restProps },
+  ref
+) {
   const [, , , navigateToStackedPage, highlightStackedPage] = useStackedPage();
   const highlightTimer = useRef(null);
 
@@ -63,4 +59,4 @@ export function LinkToStacked({
       onMouseLeave={onMouseLeaveHandler}
     />
   );
-}
+});

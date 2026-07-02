@@ -18,7 +18,7 @@ The goal is to provide ease of access to PDPA and allow tracking of article refe
 Clone this repository to your machine. At the repository's root directory, run
 
 ```bash
-
+npm install
 ```
 
 ### Development
