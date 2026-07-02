@@ -69,7 +69,7 @@ export default function TableOfContents() {
     const syncFromUrl = () => {
       const params = new URLSearchParams(window.location.search.replace(/^\?/, ''));
       const slugs = params.getAll('stackedPages');
-      setSelectedSlug(slugs.length ? slugs[slugs.length - 1] : null);
+      setSelectedSlug(slugs.length ? slugs[slugs.length - 1].replace(/^\/+/, '') : null);
     };
     syncFromUrl();
     window.addEventListener('popstate', syncFromUrl);
