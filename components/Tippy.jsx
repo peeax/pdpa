@@ -4,5 +4,5 @@ import React from 'react';
 import Tippy from '@tippyjs/react';
 
 export default function ThemedTippy(props) {
-  return <Tippy placement="right" animation="shift-away" {...props} />;
+  return <Tippy placement="right" animation="shift-away" touch={false} {...props} />;
 }
