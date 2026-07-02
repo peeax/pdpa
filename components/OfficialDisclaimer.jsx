@@ -12,16 +12,16 @@ export default function OfficialDisclaimer({ isHighlight, pdf, mainPdfLink }) {
           mt: 4,
           mb: 3,
           p: 3,
-          bg: 'muted',
+          bg: 'accent',
           borderLeft: '4px solid',
           borderColor: 'primary',
           borderRadius: 2,
           fontSize: 1,
-          color: 'black',
+          color: 'text',
         }}
       >
         {pdf && (
-          <Themed.p sx={{ mt: 0, color: 'black' }}>
+          <Themed.p sx={{ mt: 0 }}>
             หากท่านต้องการเอกสาร พ.ร.บ. นี้อย่างเป็นทางการ กรุณาใช้{' '}
             {mainPdfLink ? (
               <Themed.a href={mainPdfLink} target="_blank" rel="noopener noreferrer">
@@ -38,7 +38,7 @@ export default function OfficialDisclaimer({ isHighlight, pdf, mainPdfLink }) {
             )
           </Themed.p>
         )}
-        <Themed.p sx={{ mb: 0, color: 'black' }}>
+        <Themed.p sx={{ mb: 0 }}>
           Website นี้พัฒนาขึ้นแบบ open source ท่านสามารถร่วมแก้ไข ปรับปรุงได้ บน{' '}
           <Themed.a href="https://github.com/sidataplus/pdpa">GitHub</Themed.a>
         </Themed.p>
@@ -52,11 +52,12 @@ export default function OfficialDisclaimer({ isHighlight, pdf, mainPdfLink }) {
         mt: 4,
         mb: 3,
         p: 3,
-        bg: 'muted',
+        bg: 'accent',
         borderLeft: '4px solid',
         borderColor: 'primary',
         borderRadius: 2,
         fontSize: 1,
+        color: 'text',
       }}
     >
       <Themed.p sx={{ mt: 0 }}>

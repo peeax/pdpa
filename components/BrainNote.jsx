@@ -3,13 +3,14 @@
 // Port of the project's shadowed gatsby-theme-andy BrainNote
 // (src/gatsby-theme-andy/components/BrainNote.js), including the HighlightNote
 // branch (pdf embed / pre-wrap plain-text content).
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Themed } from '../theme/themed';
 import useWindowWidth from './useWindowWidth';
 import MarkdownContent from './MarkdownContent';
 import Popover from './Popover';
 import Footer from './Footer';
 import OfficialDisclaimer from './OfficialDisclaimer';
+import TableOfContents from './TableOfContents';
 import { MOBILE_BREAKPOINT } from '../lib/constants';
 
 /**
@@ -28,7 +29,7 @@ import { MOBILE_BREAKPOINT } from '../lib/constants';
  *   - outboundReferenceNotes {Array} - notes this note links to
  *   - inboundReferenceNotes  {Array} - notes that link to this note
  */
-export default function BrainNote({ note }) {
+function BrainNote({ note }) {
   const [width] = useWindowWidth();
   const noPopups = width < MOBILE_BREAKPOINT;
 
@@ -59,6 +60,27 @@ export default function BrainNote({ note }) {
     );
   }
 
+  // For the about page, split markdown at the first '---' so we can inject
+  // TableOfContents between the intro blockquote and the law content.
+  if (note.slug === 'about') {
+    const hrIndex = note.body.search(/\r?\n---\r?\n/);
+    const introPart = hrIndex >= 0 ? note.body.slice(0, hrIndex) : note.body;
+    const restPart = hrIndex >= 0 ? note.body.slice(hrIndex) : '';
+    return (
+      <>
+        <div sx={{ flex: '1' }}>
+          <Themed.h1 sx={{ my: 3 }}>{note.title}</Themed.h1>
+          <MarkdownContent body={introPart} popups={popups} noPopups={noPopups} />
+          <Themed.hr />
+          <TableOfContents />
+          {restPart && <MarkdownContent body={restPart} popups={popups} noPopups={noPopups} />}
+        </div>
+        <OfficialDisclaimer />
+        <Footer references={note.inboundReferenceNotes || []} />
+      </>
+    );
+  }
+
   return (
     <>
       <div sx={{ flex: '1' }}>
@@ -72,3 +94,5 @@ export default function BrainNote({ note }) {
     </>
   );
 }
+
+export default React.memo(BrainNote);

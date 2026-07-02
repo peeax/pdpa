@@ -99,6 +99,7 @@ function HighlightedText({ text, regex, sx: sxProp }) {
  * @param {Function} props.navigateToStackedPage - Opens a note in the stacked-page view.
  */
 export default function SearchModal({ navigateToStackedPage }) {
+  const [inputValue, setInputValue] = useState('');
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -109,6 +110,7 @@ export default function SearchModal({ navigateToStackedPage }) {
 
   const inputRef = useRef(null);
   const resultsRef = useRef(null);
+  const debounceTimer = useRef(null);
 
   // --- Memoised regex (only recomputed when the query string changes) ---
   const regexStr = useMemo(() => (query ? buildSearchRegexStr(query) : ''), [query]);
@@ -223,6 +225,7 @@ export default function SearchModal({ navigateToStackedPage }) {
         const selected = results[selectedIndex];
         if (selected?.isItem) {
           setIsOpen(false);
+          setInputValue('');
           setQuery('');
           inputRef.current?.blur();
           navigateToStackedPage(selected.slug);
@@ -243,6 +246,7 @@ export default function SearchModal({ navigateToStackedPage }) {
   const handleSelect = useCallback(
     (slug) => {
       setIsOpen(false);
+      setInputValue('');
       setQuery('');
       inputRef.current?.blur();
       navigateToStackedPage(slug);
@@ -253,25 +257,33 @@ export default function SearchModal({ navigateToStackedPage }) {
   return (
     <Box sx={{ position: 'relative' }}>
       {/* Search input */}
-      <Flex sx={{ alignItems: 'center', bg: 'white', border: '1px solid', borderColor: 'gray', px: 2, py: 1 }}>
-        <Input
-          ref={inputRef}
-          placeholder="พิมพ์คำค้นหา..."
-          value={query}
-          onFocus={() => setIsOpen(true)}
-          onChange={(e) => { setQuery(e.target.value); setIsOpen(true); }}
-          sx={{
-            border: 'none', outline: 'none', fontSize: 2, p: 1,
-            width: ['150px', '200px'], backgroundColor: 'transparent',
-            '&:focus': { outline: 'none' },
-          }}
-        />
-        <Box sx={{ display: 'flex', alignItems: 'center', color: 'text-light', px: 2 }}>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <Flex sx={{ alignItems: 'center', bg: 'rgba(255,255,255,0.12)', border: '1px solid rgba(246,244,247,0.35)', borderRadius: '8px', px: 2, py: '4px', gap: 1, ':focus-within': { borderColor: '#28c6b5' } }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', color: 'rgba(246,244,247,0.7)', flexShrink: 0 }}>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
         </Box>
+        <Input
+          ref={inputRef}
+          placeholder="ค้นหามาตรา..."
+          value={inputValue}
+          onFocus={() => setIsOpen(true)}
+          onChange={(e) => {
+            const v = e.target.value;
+            setInputValue(v);
+            setIsOpen(true);
+            clearTimeout(debounceTimer.current);
+            debounceTimer.current = setTimeout(() => setQuery(v), 200);
+          }}
+          sx={{
+            border: 'none', outline: 'none', fontSize: 1, p: 0,
+            width: ['100px', '140px'], backgroundColor: 'transparent',
+            color: '#f6f4f7',
+            '::placeholder': { color: 'rgba(246,244,247,0.6)' },
+            '&:focus': { outline: 'none' },
+          }}
+        />
       </Flex>
 
       {isOpen && (
@@ -312,7 +324,10 @@ export default function SearchModal({ navigateToStackedPage }) {
               <Box ref={resultsRef} sx={{ overflowY: 'auto', p: 2 }}>
                 {/* No results */}
                 {query && results.length === 0 && !loading && !fetchError && (
-                  <Text sx={{ p: 3, color: 'text-light', textAlign: 'center' }}>ไม่พบผลลัพธ์</Text>
+                  <Box sx={{ p: 3, textAlign: 'center' }}>
+                    <Text sx={{ color: 'text-light', display: 'block', mb: 1 }}>ไม่พบผลลัพธ์สำหรับ "{query}"</Text>
+                    <Text sx={{ fontSize: 0, color: 'text-light', opacity: 0.7 }}>ลองพิมพ์ชื่อมาตรา เช่น ม1, ม19, หรือคำในเนื้อหา</Text>
+                  </Box>
                 )}
 
                 {results.map((item, i) => {

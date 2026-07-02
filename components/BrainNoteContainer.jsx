@@ -24,14 +24,17 @@ import { NOTE_WIDTH, MOBILE_BREAKPOINT } from '../lib/constants';
  * @param {Object} props
  * @param {number} props.i - The index of the page in the stack.
  */
-const StackedPageWrapper = ({ i, ...rest }) => (
-  <PageIndexProvider value={i}>
-    <NoteWrapper {...rest} i={i} />
-  </PageIndexProvider>
-);
+const StackedPageWrapper = React.memo(function StackedPageWrapper({ i, ...rest }) {
+  return (
+    <PageIndexProvider value={i}>
+      <NoteWrapper {...rest} i={i} />
+    </PageIndexProvider>
+  );
+});
 
 // Wrapper for a single stacked column.
-const NoteWrapper = ({ children, slug, title, overlay, obstructed, highlighted, i }) => (
+const NoteWrapper = React.memo(function NoteWrapper({ children, slug, title, overlay, obstructed, highlighted, i }) {
+  return (
   <Flex
     bg={highlighted ? 'accent' : 'background'}
     px={3}
@@ -82,7 +85,8 @@ const NoteWrapper = ({ children, slug, title, overlay, obstructed, highlighted, 
       {children}
     </Flex>
   </Flex>
-);
+  );
+});
 
 export default function BrainNoteContainer({ slug, note, siteMetadata }) {
   const [width] = useWindowWidth();

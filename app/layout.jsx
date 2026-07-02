@@ -1,7 +1,15 @@
 import './globals.css';
 import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
+import { Sarabun } from 'next/font/google';
 import Providers from './Providers';
+
+const sarabun = Sarabun({
+  subsets: ['thai', 'latin'],
+  weight: ['400', '700'],
+  variable: '--font-sarabun',
+  display: 'swap',
+});
 
 export const metadata = {
   title:
@@ -20,11 +28,12 @@ export default function RootLayout({ children }) {
       <head>
         <meta
           httpEquiv="Content-Security-Policy"
-          content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:;"
+          content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://sidata.plus; img-src 'self' data: https:;"
         />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <link rel="prefetch" href="/search-index.json" as="fetch" crossOrigin="anonymous" />
       </head>
-      <body>
+      <body className={sarabun.variable}>
         <Providers>{children}</Providers>
       </body>
     </html>
