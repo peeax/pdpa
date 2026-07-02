@@ -3,6 +3,7 @@ import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 import { Sarabun } from 'next/font/google';
 import Providers from './Providers';
+import { SITE_TITLE, SITE_SHORT_TITLE, SITE_DESCRIPTION, SITE_URL, PUBLISHER } from '../lib/site';
 
 const sarabun = Sarabun({
   subsets: ['thai', 'latin'],
@@ -12,14 +13,45 @@ const sarabun = Sarabun({
 });
 
 export const metadata = {
-  title:
-    'พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ Thailand PDPA - SiData+ คณะแพทยศาสตร์ศิริราชพยาบาล',
+  metadataBase: new URL(SITE_URL),
+  title: { default: SITE_TITLE, template: `%s - ${SITE_TITLE}` },
+  description: SITE_DESCRIPTION,
   manifest: '/manifest.webmanifest',
   icons: { icon: '/favicon.png' },
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'th_TH',
+    siteName: SITE_TITLE,
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: SITE_URL,
+    images: [{ url: '/favicon.png', width: 1591, height: 1591, alt: SITE_SHORT_TITLE }],
+  },
+  twitter: {
+    card: 'summary',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ['/favicon.png'],
+  },
 };
 
 export const viewport = {
-  themeColor: '#006400',
+  themeColor: '#ffffff',
+};
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_TITLE,
+  alternateName: SITE_SHORT_TITLE,
+  url: SITE_URL,
+  publisher: PUBLISHER,
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: { '@type': 'EntryPoint', urlTemplate: `${SITE_URL}/?q={search_term_string}` },
+    'query-input': 'required name=search_term_string',
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -32,6 +64,11 @@ export default function RootLayout({ children }) {
         />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <link rel="prefetch" href="/search-index.json" as="fetch" crossOrigin="anonymous" />
+        <script
+          type="application/ld+json"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
       </head>
       <body className={sarabun.variable}>
         <Providers>{children}</Providers>

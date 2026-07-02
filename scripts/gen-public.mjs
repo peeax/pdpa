@@ -55,8 +55,8 @@ const manifest = {
   name: 'พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ Thailand PDPA - SiData+ คณะแพทยศาสตร์ศิริราชพยาบาล',
   short_name: 'PDPA',
   start_url: '/',
-  background_color: '#006400',
-  theme_color: '#006400',
+  background_color: '#ffffff',
+  theme_color: '#ffffff',
   display: 'minimal-ui',
   icons: [{ src: '/favicon.png', sizes: '512x512', type: 'image/png' }],
 };

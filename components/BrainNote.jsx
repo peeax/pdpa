@@ -50,7 +50,7 @@ function BrainNote({ note }) {
     return (
       <>
         <div sx={{ flex: '1' }}>
-          <Themed.h1 sx={{ my: 3 }}>{note.title}</Themed.h1>
+          <Themed.h1 className="note-title" sx={{ my: 3 }}>{note.title}</Themed.h1>
           {note.content && (
             <Themed.p sx={{ lineHeight: 'body', whiteSpace: 'pre-wrap' }}>{note.content}</Themed.p>
           )}
@@ -70,7 +70,7 @@ function BrainNote({ note }) {
     return (
       <>
         <div sx={{ flex: '1' }}>
-          <Themed.h1 sx={{ my: 3 }}>{note.title}</Themed.h1>
+          <Themed.h1 className="note-title" sx={{ my: 3 }}>{note.title}</Themed.h1>
           <MarkdownContent body={introPart} popups={popups} noPopups={noPopups} />
           <Themed.hr />
           <TableOfContents />
@@ -85,7 +85,7 @@ function BrainNote({ note }) {
   return (
     <>
       <div sx={{ flex: '1' }}>
-        <Themed.h1 sx={{ my: 3 }}>{note.title}</Themed.h1>
+        <Themed.h1 className="note-title" sx={{ my: 3 }}>{note.title}</Themed.h1>
         <MarkdownContent body={note.body} popups={popups} noPopups={noPopups} />
       </div>
       <Footer references={note.inboundReferenceNotes || []} />

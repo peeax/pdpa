@@ -138,6 +138,16 @@ export default function SearchModal({ navigateToStackedPage }) {
       });
   }, [isOpen, indexData, loading]);
 
+  // --- Prefill from ?q= (deep link support for the WebSite SearchAction schema) ---
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get('q');
+    if (q) {
+      setInputValue(q);
+      setQuery(q);
+      setIsOpen(true);
+    }
+  }, []);
+
   // --- Open with Ctrl+K / Cmd+K ---
   useEffect(() => {
     const onKeyDown = (e) => {
