@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Flex, Text } from 'theme-ui';
 import NextLink from 'next/link';
 import { LinkToStacked } from './LinkToStacked';
@@ -62,6 +62,19 @@ export default function TableOfContents() {
   const onMobile = width < MOBILE_BREAKPOINT;
   const [openSet, setOpenSet] = useState(new Set([0]));
   const [selectedSlug, setSelectedSlug] = useState(null);
+
+  // Reflect the currently-open second column (e.g. the default มาตรา ๑ opened
+  // on first visit, or the user's browser back/forward) as the active chip.
+  useEffect(() => {
+    const syncFromUrl = () => {
+      const params = new URLSearchParams(window.location.search.replace(/^\?/, ''));
+      const slugs = params.getAll('stackedPages');
+      setSelectedSlug(slugs.length ? slugs[slugs.length - 1] : null);
+    };
+    syncFromUrl();
+    window.addEventListener('popstate', syncFromUrl);
+    return () => window.removeEventListener('popstate', syncFromUrl);
+  }, []);
 
   const toggle = (i) => {
     setOpenSet((prev) => {

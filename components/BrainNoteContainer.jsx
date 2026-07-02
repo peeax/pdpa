@@ -94,11 +94,19 @@ export default function BrainNoteContainer({ slug, note, siteMetadata }) {
   // Manage the query string (?stackedPages=...) via the History API.
   const [search, setSearch] = React.useState('');
   React.useEffect(() => {
+    // On first visit to the about page on a wide-enough screen, default-open
+    // มาตรา ๑ as the second column so the layout doesn't look mostly empty.
+    const params = new URLSearchParams(window.location.search.replace(/^\?/, ''));
+    if (slug === 'about' && !params.has('stackedPages') && window.innerWidth >= MOBILE_BREAKPOINT) {
+      params.set('stackedPages', 'article-1');
+      const qs = params.toString();
+      window.history.replaceState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}`);
+    }
     setSearch(window.location.search);
     const onPop = () => setSearch(window.location.search);
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
-  }, []);
+  }, [slug]);
 
   const navigate = React.useCallback((url) => {
     window.history.pushState(null, '', url);
