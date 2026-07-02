@@ -4,6 +4,7 @@ import 'tippy.js/animations/shift-away.css';
 import { Sarabun } from 'next/font/google';
 import Providers from './Providers';
 import { SITE_TITLE, SITE_SHORT_TITLE, SITE_DESCRIPTION, SITE_URL, PUBLISHER } from '../lib/site';
+import theme from '../theme';
 
 const sarabun = Sarabun({
   subsets: ['thai', 'latin'],
@@ -54,11 +55,26 @@ const websiteJsonLd = {
   },
 };
 
-// Runs synchronously before first paint, so the correct theme (saved choice,
-// falling back to the OS prefers-color-scheme) is applied immediately instead
-// of flashing light and then switching — mirrors the class ColorModeSync
-// applies later in React, just early enough to avoid the flash.
-const noFlashColorMode = `(function(){try{var m=localStorage.getItem('theme-ui-color-mode');if(!m){m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.classList.add('theme-ui-'+m);}catch(e){}})();`;
+// Runs synchronously before first paint, so the correct background/text
+// color (saved choice, falling back to OS prefers-color-scheme) is visible
+// immediately instead of flashing light then switching. We set inline CSS
+// custom properties directly rather than toggling the `theme-ui-<mode>`
+// class — theme-ui's own ColorModeProvider actively removes that exact class
+// on mount (its own no-flash cleanup step), which raced with our class and
+// caused a second, worse flicker. Inline style vars avoid that conflict:
+// theme-ui's real styles win again as soon as React commits, since inline
+// declarations set on the very next paint (via Providers' ColorModeSync)
+// simply overwrite these.
+const darkColors = theme.colors.modes.dark;
+const noFlashColorMode = `(function(){try{
+  var m=localStorage.getItem('theme-ui-color-mode');
+  if(!m){m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+  if(m==='dark'){
+    var s=document.documentElement.style;
+    s.setProperty('--theme-ui-colors-background','${darkColors.background}');
+    s.setProperty('--theme-ui-colors-text','${darkColors.text}');
+  }
+}catch(e){}})();`;
 
 export default function RootLayout({ children }) {
   return (
