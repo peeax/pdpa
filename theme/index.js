@@ -3,7 +3,10 @@
 // element styles render identically under theme-ui.
 const theme = {
   initialColorModeName: 'light',
-  useColorSchemeMediaQuery: true,
+  // Always default to light regardless of the OS's prefers-color-scheme —
+  // the user can still toggle to dark manually, and that choice is
+  // remembered (localStorage) for their next visit.
+  useColorSchemeMediaQuery: false,
   colors: {
     text: '#1c1e21',
     'text-light': '#606770',

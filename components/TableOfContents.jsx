@@ -64,7 +64,8 @@ export default function TableOfContents() {
   const [selectedSlug, setSelectedSlug] = useState(null);
 
   // Reflect the currently-open second column (e.g. the default มาตรา ๑ opened
-  // on first visit, or the user's browser back/forward) as the active chip.
+  // on first visit, the user's browser back/forward, or in-app navigation via
+  // a citation link / search result) as the active chip.
   useEffect(() => {
     const syncFromUrl = () => {
       const params = new URLSearchParams(window.location.search.replace(/^\?/, ''));
@@ -72,8 +73,14 @@ export default function TableOfContents() {
       setSelectedSlug(slugs.length ? slugs[slugs.length - 1].replace(/^\/+/, '') : null);
     };
     syncFromUrl();
+    // 'popstate' covers back/forward; 'pdpa:navigate' covers in-app pushState
+    // navigation (BrainNoteContainer's `navigate`), which never fires popstate.
     window.addEventListener('popstate', syncFromUrl);
-    return () => window.removeEventListener('popstate', syncFromUrl);
+    window.addEventListener('pdpa:navigate', syncFromUrl);
+    return () => {
+      window.removeEventListener('popstate', syncFromUrl);
+      window.removeEventListener('pdpa:navigate', syncFromUrl);
+    };
   }, []);
 
   const toggle = (i) => {

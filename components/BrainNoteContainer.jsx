@@ -117,6 +117,10 @@ export default function BrainNoteContainer({ slug, note, siteMetadata }) {
   const navigate = React.useCallback((url) => {
     window.history.pushState(null, '', url);
     setSearch(window.location.search);
+    // pushState doesn't fire `popstate` — dispatch our own event so other
+    // components (e.g. TableOfContents' active-chip highlight) can react to
+    // in-app navigation the same way they react to back/forward.
+    window.dispatchEvent(new Event('pdpa:navigate'));
   }, []);
 
   const firstPage = React.useMemo(() => ({ slug, data: note }), [slug, note]);

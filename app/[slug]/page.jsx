@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getNote, getAllSlugs, ROOT_NOTE } from '../../lib/build-notes.mjs';
-import { SITE_TITLE, SITE_URL, PUBLISHER } from '../../lib/site';
+import { SITE_TITLE, SITE_URL, PUBLISHER, jsonLdString } from '../../lib/site';
 import BrainNoteContainer from '../../components/BrainNoteContainer';
 
 export const dynamicParams = false;
@@ -86,18 +86,18 @@ export default function NotePage({ params }) {
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
       />
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdString(breadcrumbLd) }}
       />
       {definedTermsLd && (
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(definedTermsLd) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdString(definedTermsLd) }}
         />
       )}
       <BrainNoteContainer slug={params.slug} note={note} siteMetadata={{ title: SITE_TITLE }} />

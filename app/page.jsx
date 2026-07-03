@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getNote, ROOT_NOTE } from '../lib/build-notes.mjs';
-import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL, PUBLISHER } from '../lib/site';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL, PUBLISHER, jsonLdString } from '../lib/site';
 import BrainNoteContainer from '../components/BrainNoteContainer';
 
 export const metadata = {
@@ -29,7 +29,7 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
       />
       <BrainNoteContainer slug={ROOT_NOTE} note={note} siteMetadata={{ title: SITE_TITLE }} />
     </>

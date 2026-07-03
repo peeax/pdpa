@@ -3,7 +3,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('https://sidata.plus/storage/fonts/DB-Lim-X-v3.2.woff') format('woff');
+  src: url('/fonts/DB-Lim-X-v3.2.woff') format('woff');
 }
 
 /* Mirrors theme.styles.root applied to <body> by gatsby-plugin-theme-ui,

@@ -3,7 +3,7 @@ import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 import { Sarabun } from 'next/font/google';
 import Providers from './Providers';
-import { SITE_TITLE, SITE_SHORT_TITLE, SITE_DESCRIPTION, SITE_URL, PUBLISHER } from '../lib/site';
+import { SITE_TITLE, SITE_SHORT_TITLE, SITE_DESCRIPTION, SITE_URL, PUBLISHER, jsonLdString } from '../lib/site';
 import theme from '../theme';
 
 const sarabun = Sarabun({
@@ -37,6 +37,11 @@ export const metadata = {
   },
 };
 
+const darkColors = theme.colors.modes.dark;
+
+// Static metadata can't react to the in-app dark-mode toggle, and the site
+// no longer follows the OS's prefers-color-scheme (see theme/index.js) — so
+// this just matches the light default every first-time visitor gets.
 export const viewport = {
   themeColor: '#ffffff',
 };
@@ -55,21 +60,20 @@ const websiteJsonLd = {
   },
 };
 
-// Runs synchronously before first paint, so the correct background/text
-// color (saved choice, falling back to OS prefers-color-scheme) is visible
-// immediately instead of flashing light then switching. We set inline CSS
-// custom properties directly rather than toggling the `theme-ui-<mode>`
-// class — theme-ui's own ColorModeProvider actively removes that exact class
-// on mount (its own no-flash cleanup step), which raced with our class and
-// caused a second, worse flicker. Inline style vars avoid that conflict:
-// theme-ui's real styles win again as soon as React commits, since inline
-// declarations set on the very next paint (via Providers' ColorModeSync)
-// simply overwrite these.
-const darkColors = theme.colors.modes.dark;
+// Runs synchronously before first paint, so a previously *saved* dark-mode
+// choice is visible immediately instead of flashing light then switching.
+// The site now always defaults to light for first-time visitors (no OS
+// prefers-color-scheme auto-detection — see theme/index.js's
+// useColorSchemeMediaQuery: false), so this only needs to check localStorage.
+// We set inline CSS custom properties directly rather than toggling the
+// `theme-ui-<mode>` class — theme-ui's own ColorModeProvider actively
+// removes that exact class on mount (its own no-flash cleanup step), which
+// raced with our class and caused a second, worse flicker. Inline style vars
+// avoid that conflict: theme-ui's real styles win again as soon as React
+// commits, since inline declarations set on the very next paint (via
+// Providers' ColorModeSync) simply overwrite these.
 const noFlashColorMode = `(function(){try{
-  var m=localStorage.getItem('theme-ui-color-mode');
-  if(!m){m=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
-  if(m==='dark'){
+  if(localStorage.getItem('theme-ui-color-mode')==='dark'){
     var s=document.documentElement.style;
     s.setProperty('--theme-ui-colors-background','${darkColors.background}');
     s.setProperty('--theme-ui-colors-text','${darkColors.text}');
@@ -82,10 +86,14 @@ export default function RootLayout({ children }) {
       <head>
         <meta
           httpEquiv="Content-Security-Policy"
-          content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com https://sidata.plus; img-src 'self' data: https:;"
+          content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data:; frame-ancestors 'none'; upgrade-insecure-requests;"
         />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <link rel="prefetch" href="/search-index.json" as="fetch" crossOrigin="anonymous" />
+        {/* Self-hosted heading font — preloaded so it's ready before first paint
+            instead of swapping in after headings already rendered in the
+            fallback font (Sarabun). */}
+        <link rel="preload" href="/fonts/DB-Lim-X-v3.2.woff" as="font" type="font/woff" crossOrigin="anonymous" />
         <script
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{ __html: noFlashColorMode }}
@@ -93,7 +101,7 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: jsonLdString(websiteJsonLd) }}
         />
       </head>
       <body className={sarabun.variable}>
