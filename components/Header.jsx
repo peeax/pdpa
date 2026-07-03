@@ -7,6 +7,18 @@ import DarkModeToggle from './DarkModeToggle';
 import SearchModal from './SearchModal';
 import { SITE_SHORT_TITLE } from '../lib/site';
 
+const MAHIDOL_HEADER_LOGO = {
+  src: '/Mahidol_U-96.png',
+  width: 96,
+  height: 96,
+};
+
+const SIDATA_HEADER_LOGO = {
+  src: '/icons/icon-72x72.png',
+  width: 72,
+  height: 72,
+};
+
 export default function Header({ siteMetadata, navigateToStackedPage }) {
   const [colorMode] = useColorMode();
   const isDark = colorMode === 'dark';
@@ -32,9 +44,27 @@ export default function Header({ siteMetadata, navigateToStackedPage }) {
             href="/"
             sx={{ alignItems: 'center', gap: 2, textDecoration: 'none', color: '#f6f4f7', minWidth: 0, overflow: 'hidden' }}
           >
-            <Box as="img" src="/Mahidol_U.png" alt="Mahidol University Logo" sx={{ height: '32px', width: 'auto', display: 'block', flexShrink: 0 }} />
+            <Box
+              as="img"
+              src={MAHIDOL_HEADER_LOGO.src}
+              alt="Mahidol University Logo"
+              width={MAHIDOL_HEADER_LOGO.width}
+              height={MAHIDOL_HEADER_LOGO.height}
+              decoding="async"
+              fetchPriority="high"
+              sx={{ height: '32px', width: 'auto', display: 'block', flexShrink: 0 }}
+            />
             <Box sx={{ bg: 'white', borderRadius: '50%', p: '3px', display: 'flex', alignItems: 'center', flexShrink: 0 }}>
-              <Box as="img" src="/favicon.png" alt="SiData+ Logo" sx={{ height: '24px', width: 'auto', display: 'block' }} />
+              <Box
+                as="img"
+                src={SIDATA_HEADER_LOGO.src}
+                alt="SiData+ Logo"
+                width={SIDATA_HEADER_LOGO.width}
+                height={SIDATA_HEADER_LOGO.height}
+                decoding="async"
+                fetchPriority="high"
+                sx={{ height: '24px', width: 'auto', display: 'block' }}
+              />
             </Box>
             <Box sx={{ fontWeight: 'bold', fontSize: 2, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               {siteMetadata.title}
@@ -56,9 +86,27 @@ export default function Header({ siteMetadata, navigateToStackedPage }) {
             href="/"
             sx={{ alignItems: 'flex-start', gap: 2, textDecoration: 'none', color: '#f6f4f7', mb: 2 }}
           >
-            <Box as="img" src="/Mahidol_U.png" alt="Mahidol University Logo" sx={{ height: '28px', width: 'auto', display: 'block', flexShrink: 0, mt: '2px' }} />
+            <Box
+              as="img"
+              src={MAHIDOL_HEADER_LOGO.src}
+              alt="Mahidol University Logo"
+              width={MAHIDOL_HEADER_LOGO.width}
+              height={MAHIDOL_HEADER_LOGO.height}
+              decoding="async"
+              fetchPriority="high"
+              sx={{ height: '28px', width: 'auto', display: 'block', flexShrink: 0, mt: '2px' }}
+            />
             <Box sx={{ bg: 'white', borderRadius: '50%', p: '3px', display: 'flex', alignItems: 'center', flexShrink: 0, mt: '2px' }}>
-              <Box as="img" src="/favicon.png" alt="SiData+ Logo" sx={{ height: '20px', width: 'auto', display: 'block' }} />
+              <Box
+                as="img"
+                src={SIDATA_HEADER_LOGO.src}
+                alt="SiData+ Logo"
+                width={SIDATA_HEADER_LOGO.width}
+                height={SIDATA_HEADER_LOGO.height}
+                decoding="async"
+                fetchPriority="high"
+                sx={{ height: '20px', width: 'auto', display: 'block' }}
+              />
             </Box>
             <Box sx={{ fontWeight: 'bold', fontSize: 1, lineHeight: 1.5 }}>
               {siteMetadata.title}

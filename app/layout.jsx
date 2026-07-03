@@ -3,7 +3,14 @@ import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/shift-away.css';
 import { Sarabun } from 'next/font/google';
 import Providers from './Providers';
-import { SITE_TITLE, SITE_SHORT_TITLE, SITE_DESCRIPTION, SITE_URL, PUBLISHER, jsonLdString } from '../lib/site';
+import {
+  SITE_TITLE,
+  SITE_SHORT_TITLE,
+  SITE_DESCRIPTION,
+  SITE_URL,
+  PUBLISHER,
+  jsonLdString,
+} from '../lib/site';
 
 const sarabun = Sarabun({
   subsets: ['thai', 'latin'],
@@ -17,7 +24,7 @@ export const metadata = {
   title: { default: SITE_TITLE, template: `%s - ${SITE_TITLE}` },
   description: SITE_DESCRIPTION,
   manifest: '/manifest.webmanifest',
-  icons: { icon: '/favicon.png' },
+  icons: { icon: '/favicon-32x32.png' },
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
@@ -37,7 +44,7 @@ export const metadata = {
 };
 
 // Static metadata can't react to the in-app dark-mode toggle, and the site
-// no longer follows the OS's prefers-color-scheme (see theme/index.js) — so
+// no longer follows the OS's prefers-color-scheme (see theme/index.js) - so
 // this just matches the light default every first-time visitor gets.
 export const viewport = {
   themeColor: '#ffffff',
@@ -67,10 +74,18 @@ export default function RootLayout({ children }) {
         />
         <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <link rel="prefetch" href="/search-index.json" as="fetch" crossOrigin="anonymous" />
-        {/* Self-hosted heading font — preloaded so it's ready before first paint
+        <link rel="preload" href="/Mahidol_U-96.png" as="image" type="image/png" />
+        <link rel="preload" href="/icons/icon-72x72.png" as="image" type="image/png" />
+        {/* Self-hosted heading font - preloaded so it's ready before first paint
             instead of swapping in after headings already rendered in the
             fallback font (Sarabun). */}
-        <link rel="preload" href="/fonts/DB-Lim-X-v3.2.woff" as="font" type="font/woff" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          href="/fonts/DB-Lim-X-v3.2.woff"
+          as="font"
+          type="font/woff"
+          crossOrigin="anonymous"
+        />
         <script
           type="application/ld+json"
           // eslint-disable-next-line react/no-danger
