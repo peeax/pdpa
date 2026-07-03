@@ -91,6 +91,16 @@ function HighlightedText({ text, regex, sx: sxProp }) {
   );
 }
 
+function normalizeSearchIndex(data) {
+  if (!Array.isArray(data)) return [];
+
+  return data.map((item) =>
+    Array.isArray(item)
+      ? { slug: item[0], title: item[1], type: item[2], text: item[3] }
+      : item
+  );
+}
+
 /**
  * Inline search box that expands into a dropdown results panel.
  * Opened by clicking the input or pressing Ctrl+K / Cmd+K.
@@ -128,7 +138,7 @@ export default function SearchModal({ navigateToStackedPage }) {
         return res.json();
       })
       .then((data) => {
-        setIndexData(data);
+        setIndexData(normalizeSearchIndex(data));
         setLoading(false);
       })
       .catch((err) => {

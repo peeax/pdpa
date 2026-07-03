@@ -14,6 +14,35 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
 const publicDir = path.join(rootDir, 'public');
 const notesDir = path.join(publicDir, 'notes');
+const noteMetaPath = path.join(publicDir, 'note-meta.json');
+
+function compactSearchEntry(slug, note, text) {
+  let type = 'article';
+  if (note.isHighlight) type = 'highlight';
+  else if (slug === 'about' || slug === 'index') type = 'other';
+  return [slug, note.title, type, text];
+}
+
+function compactNote(note) {
+  if (note.isHighlight) {
+    return {
+      s: note.slug,
+      t: note.title,
+      h: 1,
+      c: note.content ?? '',
+      p: note.pdf ?? '',
+      l: note.main_pdf_link ?? '',
+    };
+  }
+
+  return {
+    s: note.slug,
+    t: note.title,
+    b: note.body,
+    o: (note.outboundReferenceNotes || []).map((ref) => ref.slug),
+    i: (note.inboundReferenceNotes || []).map((ref) => ref.slug),
+  };
+}
 
 // --- per-note JSON ---
 fs.rmSync(notesDir, { recursive: true, force: true });
@@ -22,33 +51,27 @@ fs.mkdirSync(notesDir, { recursive: true });
 const { notes } = buildAll();
 let count = 0;
 const searchIndex = [];
+const noteMeta = {};
 
 for (const [slug, note] of notes) {
-  fs.writeFileSync(path.join(notesDir, `${slug}.json`), JSON.stringify(note));
+  fs.writeFileSync(path.join(notesDir, `${slug}.json`), JSON.stringify(compactNote(note)));
   count++;
-  
-  // Categorize for search
-  let type = 'article';
-  if (note.isHighlight) type = 'highlight';
-  else if (slug === 'about' || slug === 'index') type = 'other';
-  
+
+  noteMeta[slug] = [note.title, note.excerpt || ''];
+
   // Exclude empty stub nodes from search
   let text = note.body || note.content || '';
-  
+
   // Strip markdown and HTML for clean search snippets (shared utility)
   text = stripMarkdown(text);
 
   if (text || note.title !== slug) {
-    searchIndex.push({
-      slug,
-      title: note.title,
-      type,
-      text: text, // Raw text to search against
-    });
+    searchIndex.push(compactSearchEntry(slug, note, text));
   }
 }
 fs.writeFileSync(path.join(publicDir, 'search-index.json'), JSON.stringify(searchIndex));
-console.log(`[gen] wrote ${count} note JSON files and search-index.json`);
+fs.writeFileSync(noteMetaPath, JSON.stringify(noteMeta));
+console.log(`[gen] wrote ${count} note JSON files, search-index.json, and note-meta.json`);
 
 // --- PWA manifest ---
 const manifest = {

@@ -16,6 +16,7 @@ npm-debug.log*
 # Generated at build time
 /public/notes
 /public/manifest.webmanifest
+/public/note-meta.json
 
 # Generated highlight pages
 content/highlight-article-*.md
