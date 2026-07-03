@@ -54,8 +54,6 @@ const NoteWrapper = React.memo(function NoteWrapper({ children, slug, title, ove
     <Box
       sx={{
         display: ['none', 'none', 'block'],
-        transition: 'opacity',
-        transitionDuration: 100,
         opacity: obstructed ? 1 : 0,
       }}
     >
@@ -77,8 +75,6 @@ const NoteWrapper = React.memo(function NoteWrapper({ children, slug, title, ove
       sx={{
         flexDirection: 'column',
         minHeight: '100%',
-        transition: 'opacity',
-        transitionDuration: 100,
         opacity: obstructed ? 0 : 1,
       }}
     >
@@ -161,8 +157,6 @@ export default function BrainNoteContainer({ slug, note, siteMetadata }) {
           sx={{
             minWidth: 'unset',
             flexGrow: 1,
-            transition: [null, null, 'width'],
-            transitionDuration: 100,
             width: ['100%', '100%', NOTE_WIDTH * (pages.length + 1)],
           }}
         >

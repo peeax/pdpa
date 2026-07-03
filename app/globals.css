@@ -30,7 +30,6 @@ body {
   color: var(--theme-ui-colors-text, #333);
   background-color: var(--theme-ui-colors-background, #fff);
   -webkit-font-smoothing: antialiased;
-  transition: background-color 0.12s ease, color 0.12s ease;
   word-break: break-word;
   overflow-wrap: break-word;
 }
@@ -38,16 +37,6 @@ body {
 #__next,
 .app-root {
   min-height: 100vh;
-}
-
-/* Smooth dark mode transition — only on layout/container elements, NOT interactive ones.
-   Kept short (120ms) so the toggle still feels instant, especially on mobile. */
-body,
-header,
-.note-container,
-.note-columns-container,
-.tippy-box {
-  transition: background-color 0.10s ease, border-color 0.10s ease, color 0.10s ease;
 }
 
 /* Remove tap delay on mobile (iOS/Android adds 300ms delay without this) */

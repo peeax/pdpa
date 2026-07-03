@@ -147,7 +147,6 @@ export default function TableOfContents() {
                 sx={{
                   color: 'text-light',
                   transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                  transition: 'transform 0.2s ease',
                   flexShrink: 0,
                 }}
               >
