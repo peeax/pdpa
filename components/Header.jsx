@@ -5,7 +5,6 @@ import React from 'react';
 import { Box, Flex, useColorMode } from 'theme-ui';
 import DarkModeToggle from './DarkModeToggle';
 import SearchModal from './SearchModal';
-import { SITE_SHORT_TITLE } from '../lib/site';
 
 const MAHIDOL_HEADER_LOGO = {
   src: '/Mahidol_U-96.png',

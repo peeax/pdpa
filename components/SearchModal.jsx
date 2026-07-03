@@ -9,6 +9,7 @@ import {
   SEARCH_TITLE_SCORE,
   SEARCH_TEXT_SCORE,
 } from '../lib/constants';
+import { normalizeSearchIndex } from '../lib/search-index.mjs';
 
 // Maps Arabic digits ↔ Thai digits so "มาตรา 1" matches "มาตรา ๑" and vice versa.
 const DIGIT_MAP = {
@@ -88,16 +89,6 @@ function HighlightedText({ text, regex, sx: sxProp }) {
         )
       )}
     </Text>
-  );
-}
-
-function normalizeSearchIndex(data) {
-  if (!Array.isArray(data)) return [];
-
-  return data.map((item) =>
-    Array.isArray(item)
-      ? { slug: item[0], title: item[1], type: item[2], text: item[3] }
-      : item
   );
 }
 

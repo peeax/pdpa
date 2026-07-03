@@ -8,6 +8,8 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { buildAll } from '../lib/build-notes.mjs';
+import { buildNoteMetaEntry, compactNote } from '../lib/note-payload.mjs';
+import { compactSearchEntry } from '../lib/search-index.mjs';
 import { stripMarkdown } from '../lib/strip-markdown.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -15,34 +17,6 @@ const rootDir = path.resolve(__dirname, '..');
 const publicDir = path.join(rootDir, 'public');
 const notesDir = path.join(publicDir, 'notes');
 const noteMetaPath = path.join(publicDir, 'note-meta.json');
-
-function compactSearchEntry(slug, note, text) {
-  let type = 'article';
-  if (note.isHighlight) type = 'highlight';
-  else if (slug === 'about' || slug === 'index') type = 'other';
-  return [slug, note.title, type, text];
-}
-
-function compactNote(note) {
-  if (note.isHighlight) {
-    return {
-      s: note.slug,
-      t: note.title,
-      h: 1,
-      c: note.content ?? '',
-      p: note.pdf ?? '',
-      l: note.main_pdf_link ?? '',
-    };
-  }
-
-  return {
-    s: note.slug,
-    t: note.title,
-    b: note.body,
-    o: (note.outboundReferenceNotes || []).map((ref) => ref.slug),
-    i: (note.inboundReferenceNotes || []).map((ref) => ref.slug),
-  };
-}
 
 // --- per-note JSON ---
 fs.rmSync(notesDir, { recursive: true, force: true });
@@ -57,7 +31,7 @@ for (const [slug, note] of notes) {
   fs.writeFileSync(path.join(notesDir, `${slug}.json`), JSON.stringify(compactNote(note)));
   count++;
 
-  noteMeta[slug] = [note.title, note.excerpt || ''];
+  noteMeta[slug] = buildNoteMetaEntry(note);
 
   // Exclude empty stub nodes from search
   let text = note.body || note.content || '';
