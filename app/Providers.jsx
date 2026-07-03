@@ -14,12 +14,6 @@ function ColorModeSync() {
     const html = document.documentElement;
     html.classList.remove('theme-ui-light', 'theme-ui-dark');
     html.classList.add(colorMode === 'dark' ? 'theme-ui-dark' : 'theme-ui-light');
-    // Clear the pre-hydration no-flash inline overrides (see layout.jsx) now
-    // that theme-ui's real, colorMode-driven CSS vars have taken over —
-    // otherwise these inline styles would permanently win over any later
-    // switch back to light.
-    html.style.removeProperty('--theme-ui-colors-background');
-    html.style.removeProperty('--theme-ui-colors-text');
   }, [colorMode]);
   return null;
 }
