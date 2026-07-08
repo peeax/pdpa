@@ -4,12 +4,21 @@
 import { Box } from 'theme-ui';
 import { Themed } from '../theme/themed';
 import ReferredBlock from './ReferredBlock';
+import buildInfo from '../lib/build-info.json';
 
 const getLastUpdatedText = () => {
-  const now = new Date();
-  const month = new Intl.DateTimeFormat('th-TH', { month: 'long' }).format(now);
-  const year = new Intl.DateTimeFormat('th-TH', { year: 'numeric' }).format(now);
-  return `อัพเดทข้อมูลล่าสุด เดือน${month} ${year}`;
+  if (!buildInfo || !buildInfo.lastUpdated) return '';
+  const date = new Date(buildInfo.lastUpdated);
+  const formattedDate = new Intl.DateTimeFormat('th-TH', { 
+    day: 'numeric',
+    month: 'long', 
+    year: 'numeric' 
+  }).format(date);
+  const formattedTime = new Intl.DateTimeFormat('th-TH', {
+    hour: '2-digit',
+    minute: '2-digit'
+  }).format(date);
+  return `อัปเดตข้อมูลล่าสุด: ${formattedDate} เวลา ${formattedTime} น.`;
 };
 
 export default function Footer({ references }) {

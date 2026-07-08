@@ -31,6 +31,14 @@ npm run dev
 
 Then go to `http://localhost:3000` in your browser of choice. Any changes to the files saved will be automatically updated on the website.
 
+### Sync Excel Data
+
+If you update the title or PDF links in `data/โยงประกาศ PDPA.xlsx`, you must run the following command to sync the changes to the markdown files:
+
+```bash
+npm run sync
+```
+
 ### Build
 
 Run

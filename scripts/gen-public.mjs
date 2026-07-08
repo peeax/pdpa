@@ -63,3 +63,9 @@ const manifest = {
 fs.writeFileSync(path.join(publicDir, 'manifest.webmanifest'), JSON.stringify(manifest, null, 2));
 console.log('[gen] wrote manifest.webmanifest');
 
+// --- Build Info ---
+const buildInfo = {
+  lastUpdated: new Date().toISOString()
+};
+fs.writeFileSync(path.join(rootDir, 'lib', 'build-info.json'), JSON.stringify(buildInfo, null, 2));
+console.log('[gen] wrote build-info.json');
