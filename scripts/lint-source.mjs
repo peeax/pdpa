@@ -27,8 +27,41 @@ function report(filePath, message) {
   failures.push(`${path.relative(rootDir, filePath)}: ${message}`);
 }
 
+function checkCommentLanguage(filePath, text) {
+  let inBlockComment = false;
+
+  text.split(/\n/).forEach((line, index) => {
+    const trimmed = line.trim();
+    const lineNumber = index + 1;
+
+    if (inBlockComment || trimmed.startsWith('*')) {
+      if (/[ก-๙]/.test(trimmed)) {
+        report(filePath, `line ${lineNumber}: comments must be written in English`);
+      }
+    }
+
+    const blockStart = trimmed.startsWith('/*') ? line.indexOf('/*') : -1;
+    const jsxBlockStart = trimmed.startsWith('{/*') ? line.indexOf('{/*') : -1;
+    const slashCommentStart = line.indexOf('//');
+    const commentStart =
+      blockStart === -1
+        ? slashCommentStart
+        : slashCommentStart === -1
+          ? blockStart
+          : Math.min(blockStart, slashCommentStart);
+
+    if (commentStart !== -1 && /[ก-๙]/.test(line.slice(commentStart))) {
+      report(filePath, `line ${lineNumber}: comments must be written in English`);
+    }
+
+    if (blockStart !== -1 || jsxBlockStart !== -1) inBlockComment = true;
+    if (inBlockComment && line.includes('*/')) inBlockComment = false;
+  });
+}
+
 function checkFile(filePath) {
   const text = fs.readFileSync(filePath, 'utf8');
+  checkCommentLanguage(filePath, text);
   if (/[ \t]$/m.test(text)) report(filePath, 'remove trailing whitespace');
   if (text.includes('window.open(to, \'_blank\');')) {
     report(filePath, 'window.open must use noopener,noreferrer');

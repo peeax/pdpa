@@ -6,5 +6,3 @@
 import { Themed } from '@theme-ui/mdx';
 
 export { Themed };
-export default Themed;
-

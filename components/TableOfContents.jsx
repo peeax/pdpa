@@ -63,7 +63,7 @@ export default function TableOfContents() {
   const [openSet, setOpenSet] = useState(() => new Set(TOC.map((_, i) => i)));
   const [selectedSlug, setSelectedSlug] = useState(null);
 
-  // Reflect the currently-open second column (e.g. the default มาตรา ๑ opened
+  // Reflect the currently-open second column (e.g. the default article 1 opened
   // on first visit, the user's browser back/forward, or in-app navigation via
   // a citation link / search result) as the active chip.
   useEffect(() => {

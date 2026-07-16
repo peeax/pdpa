@@ -19,6 +19,8 @@
   "author": "Siriraj Informatics and Data Innovation Center (SiData+)",
   "license": "MIT",
   "dependencies": {
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
     "@theme-ui/mdx": "^0.17.4",
     "@tippyjs/react": "^4.2.6",
     "gray-matter": "^4.0.3",

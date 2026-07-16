@@ -33,10 +33,6 @@ export default function Header({ siteMetadata, navigateToStackedPage }) {
           pb: 2,
         }}
       >
-        {/* Mobile: logo+title แถว 1, controls แถว 2
-            Desktop: logo+title ซ้าย, controls ขวา แถวเดียว */}
-
-        {/* Desktop layout — แถวเดียว */}
         <Flex sx={{ display: ['none', 'flex'], alignItems: 'center', justifyContent: 'space-between', gap: 2 }}>
           <Flex
             as="a"
@@ -77,9 +73,7 @@ export default function Header({ siteMetadata, navigateToStackedPage }) {
           </Flex>
         </Flex>
 
-        {/* Mobile layout — 2 แถว */}
         <Box sx={{ display: ['block', 'none'] }}>
-          {/* แถว 1: logo + title */}
           <Flex
             as="a"
             href="/"
@@ -111,7 +105,6 @@ export default function Header({ siteMetadata, navigateToStackedPage }) {
               {siteMetadata.title}
             </Box>
           </Flex>
-          {/* แถว 2: controls ชิดขวา */}
           <Flex sx={{ alignItems: 'center', justifyContent: 'flex-end', gap: 2 }}>
             <DarkModeToggle />
             <Box sx={{ position: 'relative' }}>

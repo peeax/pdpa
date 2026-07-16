@@ -91,7 +91,7 @@ export default function BrainNoteContainer({ slug, note, siteMetadata }) {
   const [search, setSearch] = React.useState('');
   React.useEffect(() => {
     // On first visit to the about page on a wide-enough screen, default-open
-    // มาตรา ๑ as the second column so the layout doesn't look mostly empty.
+    // article 1 as the second column so the layout doesn't look mostly empty.
     const params = new URLSearchParams(window.location.search.replace(/^\?/, ''));
     // Require enough width for two full columns side by side (not just the
     // >=768px "desktop" breakpoint) — otherwise the default second column

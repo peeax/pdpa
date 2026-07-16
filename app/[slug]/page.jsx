@@ -62,7 +62,7 @@ export default function NotePage({ params }) {
     ],
   };
 
-  // มาตรา with legal definitions (e.g. "ข้อมูลส่วนบุคคล" หมายความว่า...) get a
+  // Pages with legal definitions get a
   // DefinedTermSet so answer engines can surface individual term definitions.
   // Terms are extracted verbatim from the source text — never rewritten.
   const definedTermsLd =

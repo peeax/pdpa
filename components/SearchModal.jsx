@@ -11,7 +11,7 @@ import {
 } from '../lib/constants';
 import { normalizeSearchIndex } from '../lib/search-index.mjs';
 
-// Maps Arabic digits ↔ Thai digits so "มาตรา 1" matches "มาตรา ๑" and vice versa.
+// Maps Western Arabic digits to Thai-script digits and back.
 const DIGIT_MAP = {
   '0': '[0๐]', '๐': '[0๐]', '1': '[1๑]', '๑': '[1๑]',
   '2': '[2๒]', '๒': '[2๒]', '3': '[3๓]', '๓': '[3๓]',
@@ -23,7 +23,7 @@ const DIGIT_MAP = {
 /**
  * Convert a raw search query into a regex pattern that:
  *  - Allows optional whitespace between words
- *  - Matches both Arabic (1–9) and Thai (๑–๙) digits interchangeably
+ *  - Matches Western Arabic and Thai-script digits interchangeably
  *
  * @param {string} q - Raw user input.
  * @returns {string} Safe regex pattern string.
@@ -33,7 +33,7 @@ function buildSearchRegexStr(q) {
   let escaped = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   // Allow optional spaces between words
   escaped = escaped.replace(/\s+/g, '\\s*');
-  // Allow optional space between text and digits (e.g. "มาตรา1" → "มาตรา 1")
+  // Allow optional space between letters and digits.
   escaped = escaped.replace(/([^0-9๐-๙\s\\])(?=[0-9๐-๙])/g, '$1\\s*');
   escaped = escaped.replace(/([0-9๐-๙])(?=[^0-9๐-๙\s\\])/g, '$1\\s*');
   // Replace each digit with a character class matching both script equivalents
@@ -54,6 +54,7 @@ function splitHighlight(text, regex) {
   const re = new RegExp(regex.source, 'gi');
   let match;
   while ((match = re.exec(text)) !== null) {
+    // Avoid infinite loops when a generated regex can match an empty string.
     if (match[0] === '') {
       re.lastIndex += 1;
       continue;
@@ -278,7 +279,6 @@ export default function SearchModal({ navigateToStackedPage }) {
 
   return (
     <Box sx={{ position: 'relative' }}>
-      {/* Search input */}
       <Flex sx={{ alignItems: 'center', bg: 'rgba(255,255,255,0.12)', border: '1px solid rgba(246,244,247,0.35)', borderRadius: '8px', px: 2, py: '4px', gap: 1, ':focus-within': { borderColor: '#28c6b5' } }}>
         <Box sx={{ display: 'flex', alignItems: 'center', color: 'rgba(246,244,247,0.7)', flexShrink: 0 }}>
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -310,7 +310,6 @@ export default function SearchModal({ navigateToStackedPage }) {
 
       {isOpen && (
         <>
-          {/* Invisible overlay to close dropdown on outside click */}
           <Box
             onClick={() => setIsOpen(false)}
             sx={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 999 }}
@@ -329,14 +328,12 @@ export default function SearchModal({ navigateToStackedPage }) {
                 maxHeight: '70vh', zIndex: 1000,
               }}
             >
-              {/* Loading spinner */}
               {loading && (
                 <Flex sx={{ p: 3, justifyContent: 'center' }}>
                   <Spinner size={24} />
                 </Flex>
               )}
 
-              {/* Fetch error */}
               {fetchError && (
                 <Text sx={{ p: 3, color: 'red', textAlign: 'center', fontSize: 1 }}>
                   {fetchError}
@@ -344,7 +341,6 @@ export default function SearchModal({ navigateToStackedPage }) {
               )}
 
               <Box ref={resultsRef} sx={{ overflowY: 'auto', p: 2 }}>
-                {/* No results */}
                 {query && results.length === 0 && !loading && !fetchError && (
                   <Box sx={{ p: 3, textAlign: 'center' }}>
                     <Text sx={{ color: 'text-light', display: 'block', mb: 1 }}>ไม่พบผลลัพธ์สำหรับ "{query}"</Text>
@@ -384,7 +380,6 @@ export default function SearchModal({ navigateToStackedPage }) {
                         '&:hover': { backgroundColor: 'accent' },
                       }}
                     >
-                      {/* Title with highlighted matches — rendered as safe JSX, not HTML */}
                       <HighlightedText
                         text={item.title}
                         regex={testRegex}
