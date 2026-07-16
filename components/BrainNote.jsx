@@ -2,7 +2,7 @@
 'use client';
 // Port of the project's shadowed gatsby-theme-andy BrainNote
 // (src/gatsby-theme-andy/components/BrainNote.js), including the HighlightNote
-// branch (pdf embed / pre-wrap plain-text content).
+// branch.
 import React, { useMemo } from 'react';
 import { Themed } from '../theme/themed';
 import useWindowWidth from './useWindowWidth';
@@ -14,7 +14,7 @@ import TableOfContents from './TableOfContents';
 import { MOBILE_BREAKPOINT } from '../lib/constants';
 
 /**
- * Renders a single note as either a Highlight (pre-wrap text / PDF) or a
+ * Renders a single note as either a Highlight (markdown content / PDF) or a
  * regular markdown note with hover popovers for outbound wiki-links.
  *
  * @param {Object} props
@@ -23,7 +23,7 @@ import { MOBILE_BREAKPOINT } from '../lib/constants';
  *   - title {string}
  *   - isHighlight {boolean} - true for highlight/announcement notes
  *   - body {string}         - linkified markdown (regular notes only)
- *   - content {string}      - raw pre-wrap text (highlight notes only)
+ *   - content {string}      - raw markdown content (highlight notes only)
  *   - pdf {string}          - local PDF path (highlight notes only)
  *   - main_pdf_link {string}- official PDF URL (highlight notes only)
  *   - outboundReferenceNotes {Array} - notes this note links to
@@ -53,14 +53,15 @@ function BrainNote({ note }) {
     );
   }
 
-  // Highlight notes show pre-wrapped plain text (or a PDF embed) instead of markdown.
+  // Highlight notes use the same markdown renderer as regular notes so copy/paste
+  // carries semantic HTML paragraphs instead of CSS-only whitespace formatting.
   if (note.isHighlight) {
     return (
       <>
         <div sx={{ flex: '1' }}>
           <Themed.h1 className="note-title" sx={{ my: 3 }}>{note.title}</Themed.h1>
           {note.content && (
-            <Themed.p sx={{ lineHeight: 'body', whiteSpace: 'pre-wrap' }}>{note.content}</Themed.p>
+            <MarkdownContent body={note.content} popups={popups} noPopups={noPopups} />
           )}
         </div>
         <OfficialDisclaimer isHighlight={true} pdf={note.pdf} mainPdfLink={note.main_pdf_link} />
