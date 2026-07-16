@@ -20,7 +20,7 @@ import { NOTE_WIDTH, MOBILE_BREAKPOINT } from '../lib/constants';
  * A wrapper for individual stacked pages.
  * Provides the PageIndexProvider context so child components know their position
  * in the horizontally-scrolling stack.
- * 
+ *
  * @param {Object} props
  * @param {number} props.i - The index of the page in the stack.
  */

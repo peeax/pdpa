@@ -1,6 +1,8 @@
 import { getAllSlugs, ROOT_NOTE } from '../lib/build-notes.mjs';
 import { SITE_URL } from '../lib/site';
 
+export const dynamic = 'force-static';
+
 export default function sitemap() {
   // Exclude the root note's own slug — it's served at "/" (see app/page.jsx),
   // and /about/ would otherwise be a duplicate-content entry.
