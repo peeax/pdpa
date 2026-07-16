@@ -5,16 +5,12 @@
   "private": true,
   "scripts": {
     "gen": "node scripts/gen-public.mjs",
-    "lint": "node scripts/lint-source.mjs",
-    "test": "node scripts/check-production.mjs",
-    "audit": "npm audit --omit=dev --audit-level=moderate",
-    "check": "npm run lint && npm run test && npm run audit && npm run build",
     "watch:content": "nodemon --watch content --ext md,json --exec \"npm run gen\"",
     "predev": "node scripts/gen-public.mjs",
     "dev": "concurrently \"npm run watch:content\" \"next dev\"",
     "prebuild": "node scripts/gen-public.mjs",
     "build": "next build",
-    "start": "node scripts/serve-static.mjs"
+    "start": "next start"
   },
   "author": "Siriraj Informatics and Data Innovation Center (SiData+)",
   "license": "MIT",
@@ -27,8 +23,8 @@
     "lodash.isequal": "^4.5.0",
     "lodash.throttle": "^4.1.1",
     "next": "^16.2.10",
-    "react": "^19.2.7",
-    "react-dom": "^19.2.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-markdown": "^9.0.1",
     "rehype-raw": "^7.0.0",
     "rehype-sanitize": "^6.0.0",

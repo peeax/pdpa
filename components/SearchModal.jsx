@@ -119,11 +119,7 @@ export default function SearchModal({ navigateToStackedPage }) {
   const debounceTimer = useRef(null);
 
   // --- Memoised regex (only recomputed when the query string changes) ---
-  const normalizedQuery = query.trim();
-  const regexStr = useMemo(
-    () => (normalizedQuery ? buildSearchRegexStr(normalizedQuery) : ''),
-    [normalizedQuery]
-  );
+  const regexStr = useMemo(() => (query ? buildSearchRegexStr(query) : ''), [query]);
   const testRegex = useMemo(() => (regexStr ? new RegExp(regexStr, 'i') : null), [regexStr]);
 
   // --- Lazy-load the search index once on first open ---
@@ -192,10 +188,7 @@ export default function SearchModal({ navigateToStackedPage }) {
         if (textMatch) {
           const matchIndex = item.text.search(testRegex);
           const start = Math.max(0, matchIndex - SEARCH_SNIPPET_CONTEXT);
-          const end = Math.min(
-            item.text.length,
-            matchIndex + normalizedQuery.length + SEARCH_SNIPPET_CONTEXT
-          );
+          const end = Math.min(item.text.length, matchIndex + query.length + SEARCH_SNIPPET_CONTEXT);
           snippet =
             (start > 0 ? '…' : '') +
             item.text.substring(start, end) +
@@ -219,7 +212,7 @@ export default function SearchModal({ navigateToStackedPage }) {
 
     setResults(flat);
     setSelectedIndex(flat.findIndex((r) => r.isItem));
-  }, [query, normalizedQuery, indexData, testRegex]);
+  }, [query, indexData, testRegex]);
 
   // --- Keyboard navigation inside the results panel ---
   useEffect(() => {
@@ -315,7 +308,7 @@ export default function SearchModal({ navigateToStackedPage }) {
             sx={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 999 }}
           />
 
-          {normalizedQuery.length > 0 && (
+          {query.trim().length > 0 && (
             <Box
               onClick={(e) => e.stopPropagation()}
               sx={{

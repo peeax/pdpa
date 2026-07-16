@@ -34,7 +34,7 @@ for (const tag of TAGS) {
  * Renders Markdown content safely into React components, applying Theme UI styling.
  * It uses `rehype-raw` to support HTML inside markdown, but immediately sanitizes it
  * using `rehype-sanitize` to prevent XSS attacks.
- *
+ * 
  * @param {Object} props - The component props.
  * @param {string} props.body - The raw markdown string to render.
  * @param {Object} [props.popups] - Dictionary of popup contents mapped by slug.

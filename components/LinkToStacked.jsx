@@ -1,3 +1,4 @@
+/** @jsxImportSource theme-ui */
 'use client';
 // Port of gatsby-theme-andy/src/components/CustomLinkToStacked.js
 // Renders a plain <a> (the original used Gatsby <Link>) and intercepts clicks
@@ -23,7 +24,7 @@ export const LinkToStacked = React.forwardRef(function LinkToStacked(
 
       // Override cmd+click (Mac) / ctrl+click (others) to open in a new tab
       if ((isMac && ev.metaKey) || (!isMac && ev.ctrlKey)) {
-        window.open(to, '_blank', 'noopener,noreferrer');
+        window.open(to, '_blank');
       } else {
         navigateToStackedPage(to);
       }

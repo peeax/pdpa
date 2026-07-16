@@ -68,6 +68,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="th">
       <head>
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data:; frame-ancestors 'none'; upgrade-insecure-requests;"
+        />
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
         <link rel="prefetch" href="/search-index.json" as="fetch" crossOrigin="anonymous" />
         <link rel="preload" href="/Mahidol_U-96.png" as="image" type="image/png" />
         <link rel="preload" href="/icons/icon-72x72.png" as="image" type="image/png" />

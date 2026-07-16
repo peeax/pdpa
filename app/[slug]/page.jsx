@@ -9,13 +9,14 @@ export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }) {
-  const note = getNote(params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const note = getNote(slug);
   if (!note) return { title: SITE_TITLE };
   const description = note.excerpt || SITE_TITLE;
   // The root note is also reachable at its own slug (/about/), but "/" is
   // canonical for it — point search engines there to avoid duplicate content.
-  const url = params.slug === ROOT_NOTE ? `${SITE_URL}/` : `${SITE_URL}/${params.slug}/`;
+  const url = slug === ROOT_NOTE ? `${SITE_URL}/` : `${SITE_URL}/${slug}/`;
   return {
     title: note.title,
     description,
@@ -31,11 +32,12 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function NotePage({ params }) {
-  const note = getNote(params.slug);
+export default async function NotePage({ params }) {
+  const { slug } = await params;
+  const note = getNote(slug);
   if (!note) notFound();
 
-  const pageUrl = `${SITE_URL}/${params.slug}/`;
+  const pageUrl = `${SITE_URL}/${slug}/`;
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': note.isHighlight ? 'WebPage' : 'Legislation',
@@ -100,7 +102,7 @@ export default function NotePage({ params }) {
           dangerouslySetInnerHTML={{ __html: jsonLdString(definedTermsLd) }}
         />
       )}
-      <BrainNoteContainer slug={params.slug} note={note} siteMetadata={{ title: SITE_TITLE }} />
+      <BrainNoteContainer slug={slug} note={note} siteMetadata={{ title: SITE_TITLE }} />
     </>
   );
 }
