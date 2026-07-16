@@ -17,3 +17,19 @@ aliases: ['มาตรา ๘๐', 'ม80']
 &emsp; (๔) การเปิดเผยที่ได้รับความยินยอมเป็นหนังสือเฉพาะครั้งจากเจ้าของข้อมูลส่วนบุคคล  
 
 &emsp; (๕) การเปิดเผยข้อมูลส่วนบุคคลที่เกี่ยวกับการฟ้องร้องคดีต่าง ๆ ที่เปิดเผยต่อสาธารณะ
+
+
+<details>
+<summary style="font-size: 22px; font-weight: bold; color: #1a5f4a; cursor: pointer; background: #f0f7f4; padding: 12px; border-radius: 8px;">
+ข้อหารือที่เกี่ยวข้อง
+</summary>
+
+<small style="color: #666; display: block; margin-bottom: 15px;">คลิกที่รายการเพื่อดูรายละเอียดข้อหารือ</small>
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๒/๒๕๖๖](/PDPC-consultation-22)**
+   สถานีตำรวจภูธร ข. หารือเกี่ยวกับการกระทำความผิดตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ 
+</div>
+
+</details>  

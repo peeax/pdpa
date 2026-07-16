@@ -31,3 +31,26 @@ aliases: ['มาตรา ๑๖', 'ม16']
 &emsp; (๑๒) ส่งเสริมและสนับสนุนการวิจัย เพื่อพัฒนาเทคโนโลยีที่เกี่ยวข้องกับการคุ้มครองข้อมูล ส่วนบุคคล  
 
 &emsp; (๑๓) ปฏิบัติการอื่นใดตามที่พระราชบัญญัตินี้หรือกฎหมายอื่นกำหนดให้เป็นหน้าที่และอำนาจ ของคณะกรรมการ
+
+<details>
+<summary style="font-size: 22px; font-weight: bold; color: #1a5f4a; cursor: pointer; background: #f0f7f4; padding: 12px; border-radius: 8px;">
+ข้อหารือที่เกี่ยวข้อง
+</summary>
+
+<small style="color: #666; display: block; margin-bottom: 15px;">คลิกที่รายการเพื่อดูรายละเอียดข้อหารือ</small>
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๓/๒๕๖๖](/dicussion16-13-2566)**
+  กรมส่งเสริมสหกรณ์หารือแนวทางปฏิบัติการรายงานข้อมูลส่วนบุคคลตามประกาศนายทะเบียนสหกรณ์ฯ
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๘/๒๕๖๖](/PDPC-consultation-18)**
+  ธนาคาร Z ขอหารือเกี่ยวกับแนวทางการนำส่งข้อมูลส่วนบุคคลของกรรมการตามกฎข้อบังคับของ ACRA ประเทศสิงคโปร์ และ/หรือกฎข้อบังคับและกฎหมายของประเทศอื่น
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๙/๒๕๖๖](/PDPC-consultation-29)**
+   สำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน) ขอคำปรึกษาเกี่ยวกับการเก็บรวบรวม ใช้ ข้อมูลส่วนบุคคลที่เป็นข้อมูลสุขภาพ ในการเบิกค่ารักษาพยาบาลของเจ้าหน้าที่องค์การมหาชน
+</div>
+</details>

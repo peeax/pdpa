@@ -13,6 +13,37 @@ aliases: ['มาตรา ๓', 'ม3', 'ม 3']
 
 &emsp;&emsp;&emsp; (ข) ในกรณีที่กฎหมายว่าด้วยการนั้นมีบทบัญญัติที่ให้อำนาจแก่เจ้าหน้าที่ผู้มีอำนาจพิจารณา เรื่องร้องเรียนตามกฎหมายดังกล่าวออกคำสั่งเพื่อคุ้มครองเจ้าของข้อมูลส่วนบุคคล แต่ไม่เพียงพอเท่ากับ อำนาจของคณะกรรมการผู้เชี่ยวชาญตามพระราชบัญญัตินี้และเจ้าหน้าที่ผู้มีอำนาจตามกฎหมายดังกล่าว ร้องขอต่อคณะกรรมการผู้เชี่ยวชาญหรือเจ้าของข้อมูลส่วนบุคคลผู้เสียหายยื่นคำร้องเรียนต่อคณะกรรมการ ผู้เชี่ยวชาญตามพระราชบัญญัตินี้ แล้วแต่กรณี
 
+
+<details>
+<summary style="font-size: 22px; font-weight: bold; color: #1a5f4a; cursor: pointer; background: #f0f7f4; padding: 12px; border-radius: 8px;">
 ข้อหารือที่เกี่ยวข้อง
----
-[เลขที่๒/๒๕๖๖กองทุนเงินให้กู้ยืมเพื่อการศึกษาขอหารือเกี่ยวกับการเปิดเผยข้อมูลส่วนบุคคลตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒](/discussion3)
+</summary>
+
+<small style="color: #666; display: block; margin-bottom: 15px;">คลิกที่รายการเพื่อดูรายละเอียดข้อหารือ</small>
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒/๒๕๖๖](/discussion3)**  
+กองทุนเงินให้กู้ยืมเพื่อการศึกษาขอหารือเกี่ยวกับการเปิดเผยข้อมูลส่วนบุคคลตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๔/๒๕๖๖](/discussion3-14-2566)**
+   โรงพยาบาล B ขอหารือกรณีพนักงานสอบสวนขอข้อมูลส่วนบุคคล
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๓/๒๕๖๖](/PDPC-consultation-23)**
+   องค์การขนส่งมวลชนกรุงเทพขอหารือเกี่ยวกับการให้ข้อมูลส่วนบุคคลกับประชาชน
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๔/๒๕๖๖](/PDPC-consultation-24)**
+   สภาวิชาชีพบัญชีขอหารือการเปิดเผยข้อมูลส่วนบุคคล
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๘/๒๕๖๖](/PDPC-consultation-28)**
+   สำนักงานตรวจคนเข้าเมืองขอหารือการเปิดเผยข้อมูลส่วนบุคคลกรณีรายงานการประชุม
+</div>
+
+</details>

@@ -20,6 +20,39 @@ aliases: ['มาตรา ๓๒', 'ม32']
 
 &emsp; ในกรณีที่ผู้ควบคุมข้อมูลส่วนบุคคลปฏิเสธการคัดด้านด้วยเหตุผลตาม (๑) (ก) หรือ (ข) หรือ (๓) ให้ผู้ควบคุมข้อมูลส่วนบุคคลบันทึกการปฏิเสธการคัดค้านพร้อมด้วยเหตุผลไว้ในรายการ ตาม[[มาตรา ๓๙]]
 
+
+<details>
+<summary style="font-size: 22px; font-weight: bold; color: #1a5f4a; cursor: pointer; background: #f0f7f4; padding: 12px; border-radius: 8px;">
 ข้อหารือที่เกี่ยวข้อง
----
-[เลขที่เรื่อง ๕/๒๕๖๖เรื่องธนาคาร จ. ขอหารือเกี่ยวกับการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ เพื่อวัตถุประสงค์ทางการตลาดกับลูกค้าธนาคาร](/discussion325-2566)
+</summary>
+
+<small style="color: #666; display: block; margin-bottom: 15px;">คลิกที่รายการเพื่อดูรายละเอียดข้อหารือ</small>
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๕/๒๕๖๖](/discussion325-2566)** เรื่องธนาคาร จ. ขอหารือเกี่ยวกับการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ เพื่อวัตถุประสงค์ทางการตลาดกับลูกค้าธนาคาร
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๔/๒๕๖๗](/PDPC-consultation-33)**
+   สถานีตำรวจ F ขอหารือกรณีผู้ใช้ Facebook ได้โพสต์รูปภาพและข้อความ
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๕/๒๕๖๗](/PDPC-consultation-34)**
+   สถานีตำรวจ D หารือข้อมูลโพสภาพใบหย่า
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๖/๒๕๖๗](/PDPC-consultation-35)**
+   สถานีตำรวจ E หารือการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๘/๒๕๖๗](/PDPC-consultation-37)**
+   สถานีตำรวจ H หารือการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๙/๒๕๖๗](/PDPC-consultation-38)**
+   สถานีตำรวจ J หารือการละเมิดข้อมูลส่วนบุค    
+
+</div>
+
+</details>

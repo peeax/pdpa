@@ -13,8 +13,62 @@ aliases: ['มาตรา ๒๐', 'ม20']
 
 &emsp; ให้นำความในวรรคหนึ่ง วรรคสอง และวรรคสาม มาใช้บังคับกับการถอนความยินยอมของ เจ้าของข้อมูลส่วนบุคคล การแจ้งให้เจ้าของข้อมูลส่วนบุคคลทราบ การใช้สิทธิของเจ้าของข้อมูล ส่วนบุคคล การร้องเรียนของเจ้าของข้อมูลส่วนบุคคล และการอื่นใดตามพระราชบัญญัตินี้ในกรณีที่ เจ้าของข้อมูลส่วนบุคคลเป็นผู้เยาว์ คนไร้ความสามารถ หรือคนเสมือนไร้ความสามารถ โดยอนุโลม
 
-ข้อหารือที่เกี่ยวข้อง
----
-[เลขที่เรื่อง ๕/๒๕๖๖เรื่องธนาคาร จ. ขอหารือเกี่ยวกับการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ เพื่อวัตถุประสงค์ทางการตลาดกับลูกค้าธนาคาร](/discussion205-2566)
 
-[เลขที่เรื่อง ๖/๒๕๖๖เรื่องธนาคาร ม. ขอหารือเกี่ยวกับการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒](/discussion206-2566)
+<details>
+<summary style="font-size: 22px; font-weight: bold; color: #1a5f4a; cursor: pointer; background: #f0f7f4; padding: 12px; border-radius: 8px;">
+ข้อหารือที่เกี่ยวข้อง
+</summary>
+
+<small style="color: #666; display: block; margin-bottom: 15px;">คลิกที่รายการเพื่อดูรายละเอียดข้อหารือ</small>
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๕/๒๕๖๖](/discussion205-2566)** เรื่องธนาคาร จ. ขอหารือเกี่ยวกับการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ เพื่อวัตถุประสงค์ทางการตลาดกับลูกค้าธนาคาร
+
+</div>
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๖/๒๕๖๖](/discussion206-2566)** เรื่องธนาคาร ม. ขอหารือเกี่ยวกับการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๙/๒๕๖๖](/PDPC-consultation-19)**
+  บริษัท ก. ขอหารือกรณีบริษัทประกันภัยร้องขอให้ลงนามในหนังสือคำรับรองการได้รับความยินยอมจากพนักงานในฐานะเจ้าของข้อมูลส่วนบุคคล
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๔/๒๕๖๗](/PDPC-consultation-33)**
+   สถานีตำรวจ F ขอหารือกรณีผู้ใช้ Facebook ได้โพสต์รูปภาพและข้อความ
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๕/๒๕๖๗](/PDPC-consultation-34)**
+   สถานีตำรวจ D หารือข้อมูลโพสภาพใบหย่า  
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๖/๒๕๖๗](/PDPC-consultation-35)**
+   สถานีตำรวจ E หารือการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๗/๒๕๖๗](/PDPC-consultation-36)**
+   สถานีตำรวจ G หารือการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๘/๒๕๖๗](/PDPC-consultation-37)**
+   สถานีตำรวจ H หารือการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๙/๒๕๖๗](/PDPC-consultation-38)**
+   สถานีตำรวจ J หารือการละเมิดข้อมูลส่วนบุค
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๐/๒๕๖๗](/PDPC-consultation-39)**
+   สมาคมธนาคารไทย ขอหารือการเก็บรวบรวมข้อมูลส่วนบุคคลเกี่ยวกับประวัติอาชญากรรม
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๔/๒๕๖๗](/PDPC-consultation-43)**
+  การทางพิเศษแห่งประเทศไทยขอหารือกรณีการจัดเก็บข้อมูลส่วนบุคคลเพื่อเป็นข้อมูล พื้นฐานสำหรับการบันทึกเวลาทำงานด้วยระบบอิเล็กทรอนิกส์                         
+</div>
+
+</details>

@@ -13,3 +13,31 @@ aliases: ['มาตรา ๓๐', 'ม30']
 &emsp; เมื่อเจ้าของข้อมูลส่วนบุคคลมีคำขอตามวรรคหนึ่งและเป็นกรณีที่ไม่อาจปฏิเสธคำขอได้ ตามวรรคสอง ให้ผู้ควบคุมข้อมูลส่วนบุคคลดำเนินการตามคำขอโดยไม่ชักช้า แต่ต้องไม่เกินสามสิบวัน นับแต่วันที่ได้รับคำขอ
 
 &emsp; [คณะกรรมการอาจกำหนดหลักเกณฑ์](/no-announcement)เกี่ยวกับการเข้าถึงและการขอรับสำเนาตามวรรคหนึ่ง รวมทั้ง การขยายระยะเวลาตามวรรคสี่หรือหลักเกณฑ์อื่นตามความเหมาะสมก็ได้
+
+<details>
+<summary style="font-size: 22px; font-weight: bold; color: #1a5f4a; cursor: pointer; background: #f0f7f4; padding: 12px; border-radius: 8px;">
+ข้อหารือที่เกี่ยวข้อง
+</summary>
+
+<small style="color: #666; display: block; margin-bottom: 15px;">คลิกที่รายการเพื่อดูรายละเอียดข้อหารือ</small>
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๓/๒๕๖๗](/PDPC-consultation-32)**
+   แพทยสภา หารือข้อมูลใบรับรองแพทย์ 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๕/๒๕๖๗](/PDPC-consultation-34)**
+   สถานีตำรวจ D หารือข้อมูลโพสภาพใบหย่า
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๖/๒๕๖๗](/PDPC-consultation-35)**
+   สถานีตำรวจ E หารือการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล 
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๘/๒๕๖๗](/PDPC-consultation-37)**
+   สถานีตำรวจ H หารือการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล  
+               
+</div>
+
+</details>

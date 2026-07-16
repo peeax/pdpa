@@ -30,6 +30,117 @@ aliases: ['มาตรา ๒๖', 'ม26']
 
 &emsp; ในกรณีที่เป็นการเก็บรวบรวมข้อมูลส่วนบุคคลเกี่ยวกับประวัติอาชญากรรมต้องกระทำภายใต้การควบคุมของหน่วยงานที่มีอำนาจหน้าที่ตามกฎหมาย หรือได้จัดให้มีมาตรการคุ้มครองข้อมูลส่วนบุคคล ตามหลักเกณฑ์ที่[คณะกรรมการประกาศกำหนด](/highlight-article-26-last)
 
+
+
+ <details>
+<summary style="font-size: 22px; font-weight: bold; color: #1a5f4a; cursor: pointer; background: #f0f7f4; padding: 12px; border-radius: 8px;">
 ข้อหารือที่เกี่ยวข้อง
----
-[เลขที่เรื่อง ๖/๒๕๖๖เรื่องธนาคาร ม. ขอหารือเกี่ยวกับการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒](/discussion266-2566)
+</summary>
+
+<small style="color: #666; display: block; margin-bottom: 15px;">คลิกที่รายการเพื่อดูรายละเอียดข้อหารือ</small>
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๖/๒๕๖๖](/discussion266-2566)**
+ เรื่องธนาคาร ม. ขอหารือเกี่ยวกับการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+
+</div>
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๘/๒๕๖๖ ](/discussion26-8-2566)**
+ เรื่องบริษัท ฆ. ขอปรึกษาเกี่ยวกับพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๐/๒๕๖๖](/discussion26-10-2566) เรื่อง บริษัท ย. ขอความอนุเคราะห์ข้อมูลและแนวทาง พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+  <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๔/๒๕๖๖](/discussion26-14-2566)**
+   โรงพยาบาล B ขอหารือกรณีพนักงานสอบสวนขอข้อมูลส่วนบุคคล
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๙/๑๕๖๖](/PDPC-consultation-19)**
+  บริษัท ก. ขอหารือกรณีบริษัทประกันภัยร้องขอให้ลงนามในหนังสือคำรับรองการได้รับความยินยอมจากพนักงานในฐานะเจ้าของข้อมูลส่วนบุคคล
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๒/๒๕๖๖](/PDPC-consultation-22)**
+   สถานีตำรวจภูธร ข. หารือเกี่ยวกับการกระทำความผิดตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒      
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๓/๒๕๖๖](/PDPC-consultation-23)**
+   องค์การขนส่งมวลชนกรุงเทพขอหารือเกี่ยวกับการให้ข้อมูลส่วนบุคคลกับประชาชน
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๗/๒๕๖๖](/PDPC-consultation-27)**
+   สำนักการระบายน้ำ กรุงเทพมหานคร หารือการขอข้อมูลผู้ใช้น้ำของการประปานครหลวง เพื่อจัดเก็บค่าธรรมเนียมบำบัดน้ำเสีย
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๙/๒๕๖๖](/PDPC-consultation-29)**
+   สำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน) ขอคำปรึกษาเกี่ยวกับการเก็บรวบรวม ใช้ ข้อมูลส่วนบุคคลที่เป็นข้อมูลสุขภาพ ในการเบิกค่ารักษาพยาบาลของเจ้าหน้าที่องค์การมหาชน
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑/๒๕๖๗](/PDPC-consultation-30)**
+   สำนักงาน ป.ป.ช. ขอให้ตีความและวินิจฉัยชี้ขาดปัญหาการบังคับใช้พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒/๒๕๖๗](/PDPC-consultation-31)**
+   สำนักงานนโยบายและแผนทรัพยากรธรรมชาติและสิ่งแวดล้อม ขอหารือการปฏิบัติ ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ ในกระบวนการประเมินผลกระทบสิ่งแวดล้อม 
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๓/๒๕๖๗](/PDPC-consultation-32)**
+   แพทยสภา หารือข้อมูลใบรับรองแพทย์ 
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๔/๒๕๖๗](/PDPC-consultation-33)**
+   สถานีตำรวจ F ขอหารือกรณีผู้ใช้ Facebook ได้โพสต์รูปภาพและข้อความ
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๕/๒๕๖๗](/PDPC-consultation-34)**
+   สถานีตำรวจ D หารือข้อมูลโพสภาพใบหย่า   
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๖/๒๕๖๗](/PDPC-consultation-35)**
+   สถานีตำรวจ E หารือการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๗/๒๕๖๗](/PDPC-consultation-36)**
+   สถานีตำรวจ G หารือการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๘/๒๕๖๗](/PDPC-consultation-37)**
+   สถานีตำรวจ H หารือการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๙/๒๕๖๗](/PDPC-consultation-38)**
+   สถานีตำรวจ J หารือการละเมิดข้อมูลส่วนบุค
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๐/๒๕๖๗](/PDPC-consultation-39)**
+   สมาคมธนาคารไทย ขอหารือการเก็บรวบรวมข้อมูลส่วนบุคคลเกี่ยวกับประวัติอาชญากรรม
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๑/๒๕๖๗](/PDPC-consultation-40-v2)**
+    สำนักงาน ป.ป.ช. ขอให้ตีความและวินิจฉัยชี้ขาดปัญหาที่เกิดจากการบังคับใช้ พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๒/๒๕๖๗](/PDPC-consultation-41)**
+    สมาคมธนาคารไทยขอหารือฐานทางกฎหมายในการเก็บรวบรวมและใช้เอกสารบัตร ประจำตัวคนพิการ เพื่อการยืนยันตัวตนสำหรับการใช้บริการทางการเงินของผู้พิการ  
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๓/๒๕๖๗](/PDPC-consultation-42)**
+    สมาคมธนาคารไทยขอหารือว่าข้อมูลที่สถาบันการเงินดำเนินการตามมาตรการป้องกัน อาชญากรรมทางเทคโนโลยีที่กำหนดไว้ในพระราชกำหนดป้องกันและปราบปราม อาชญากรรมทางเทคโนโลยี พ.ศ. ๒๕๖๖ หรือรายชื่อที่หน่วยงานทางการ เช่น ตำรวจ แจ้งมาที่สถาบันการเงิน เข้าข่ายเป็นข้อมูลส่วนบุคคลเกี่ยวกับประวัติอาชญากรรมหรือไม่                     
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๔/๒๕๖๗](/PDPC-consultation-43)**
+  การทางพิเศษแห่งประเทศไทยขอหารือกรณีการจัดเก็บข้อมูลส่วนบุคคลเพื่อเป็นข้อมูล พื้นฐานสำหรับการบันทึกเวลาทำงานด้วยระบบอิเล็กทรอนิกส์                             
+</div>
+
+</details>
