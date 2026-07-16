@@ -4,10 +4,10 @@
 // Renders a plain <a> (the original used Gatsby <Link>) and intercepts clicks
 // to push the target onto the stack instead of doing a full navigation.
 import React, { useCallback, useRef } from 'react';
-import { useStackedPage } from '../lib/stacked';
+import { prefetchNote, useStackedPage } from '../lib/stacked';
 
 export const LinkToStacked = React.forwardRef(function LinkToStacked(
-  { to, onClick, onMouseLeave, onMouseEnter, ...restProps },
+  { to, onClick, onMouseLeave, onMouseEnter, onFocus, ...restProps },
   ref
 ) {
   const [, , , navigateToStackedPage, highlightStackedPage] = useStackedPage();
@@ -34,6 +34,7 @@ export const LinkToStacked = React.forwardRef(function LinkToStacked(
 
   const onMouseEnterHandler = useCallback(
     (ev) => {
+      prefetchNote(to);
       clearTimeout(highlightTimer.current);
       highlightTimer.current = setTimeout(() => highlightStackedPage(to, true), 80);
       if (onMouseEnter) onMouseEnter(ev);
@@ -50,6 +51,14 @@ export const LinkToStacked = React.forwardRef(function LinkToStacked(
     [to, onMouseLeave, highlightStackedPage]
   );
 
+  const onFocusHandler = useCallback(
+    (ev) => {
+      prefetchNote(to);
+      if (onFocus) onFocus(ev);
+    },
+    [to, onFocus]
+  );
+
   return (
     <a
       {...restProps}
@@ -58,6 +67,7 @@ export const LinkToStacked = React.forwardRef(function LinkToStacked(
       onClick={onClickHandler}
       onMouseEnter={onMouseEnterHandler}
       onMouseLeave={onMouseLeaveHandler}
+      onFocus={onFocusHandler}
     />
   );
 });

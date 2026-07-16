@@ -7,6 +7,7 @@ import { LinkToStacked } from './LinkToStacked';
 import useWindowWidth from './useWindowWidth';
 import { MOBILE_BREAKPOINT } from '../lib/constants';
 import { TOC } from '../lib/toc-structure';
+import { prefetchArticleNotes } from '../lib/stacked';
 
 function articleSlug(label) {
   return `article-${label.replace('ม', '')}`;
@@ -35,9 +36,9 @@ function ArticleChip({ label, onMobile, isActive, onSelect }) {
   };
   const handleClick = () => onSelect(slug);
   return onMobile ? (
-    <NextLink href={`/${slug}`} sx={chipSx} onClick={handleClick}>{label}</NextLink>
+    <NextLink data-testid={`toc-${slug}`} href={`/${slug}`} sx={chipSx} onClick={handleClick}>{label}</NextLink>
   ) : (
-    <LinkToStacked to={`/${slug}`} sx={chipSx} onClick={handleClick}>{label}</LinkToStacked>
+    <LinkToStacked data-testid={`toc-${slug}`} to={`/${slug}`} sx={chipSx} onClick={handleClick}>{label}</LinkToStacked>
   );
 }
 
@@ -66,6 +67,26 @@ export default function TableOfContents() {
   // Reflect the currently-open second column (e.g. the default article 1 opened
   // on first visit, the user's browser back/forward, or in-app navigation via
   // a citation link / search result) as the active chip.
+  useEffect(() => {
+    if (onMobile) return undefined;
+    const prefetch = () => prefetchArticleNotes();
+    let didPrefetch = false;
+    const runOnce = () => {
+      if (didPrefetch) return;
+      didPrefetch = true;
+      prefetch();
+    };
+    const timeoutId = window.setTimeout(runOnce, 1200);
+    if ('requestIdleCallback' in window) {
+      const idleId = window.requestIdleCallback(runOnce, { timeout: 2500 });
+      return () => {
+        window.clearTimeout(timeoutId);
+        window.cancelIdleCallback(idleId);
+      };
+    }
+    return () => window.clearTimeout(timeoutId);
+  }, [onMobile]);
+
   useEffect(() => {
     const syncFromUrl = () => {
       const params = new URLSearchParams(window.location.search.replace(/^\?/, ''));

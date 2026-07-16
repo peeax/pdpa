@@ -17,6 +17,7 @@ npm-debug.log*
 /public/notes
 /public/manifest.webmanifest
 /public/note-meta.json
+/public/article-notes.json
 /public/search-index.json
 
 # Generated highlight pages

@@ -10,6 +10,7 @@ import {
   SEARCH_TEXT_SCORE,
 } from '../lib/constants';
 import { normalizeSearchIndex } from '../lib/search-index.mjs';
+import { prefetchNote, prefetchNotes } from '../lib/stacked';
 
 // Maps Western Arabic digits to Thai-script digits and back.
 const DIGIT_MAP = {
@@ -259,6 +260,11 @@ export default function SearchModal({ navigateToStackedPage }) {
     }
   }, [selectedIndex]);
 
+  useEffect(() => {
+    const slugs = results.filter((item) => item.isItem).slice(0, 8).map((item) => item.slug);
+    if (slugs.length) prefetchNotes(slugs, 4);
+  }, [results]);
+
   const handleSelect = useCallback(
     (slug) => {
       setIsOpen(false);
@@ -362,7 +368,10 @@ export default function SearchModal({ navigateToStackedPage }) {
                     <Box
                       key={`item-${item.slug}-${i}`}
                       className={isSelected ? 'selected' : ''}
-                      onMouseEnter={() => setSelectedIndex(i)}
+                      onMouseEnter={() => {
+                        setSelectedIndex(i);
+                        prefetchNote(item.slug);
+                      }}
                       onClick={() => handleSelect(item.slug)}
                       sx={{
                         px: 3, py: 2, mx: 2, my: 1,

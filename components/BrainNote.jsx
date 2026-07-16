@@ -45,6 +45,14 @@ function BrainNote({ note }) {
     return acc;
   }, [note.outboundReferenceNotes]);
 
+  if (note.isLoading) {
+    return (
+      <div sx={{ flex: '1' }}>
+        <Themed.h1 className="note-title" sx={{ my: 3 }}>{note.title}</Themed.h1>
+      </div>
+    );
+  }
+
   // Highlight notes show pre-wrapped plain text (or a PDF embed) instead of markdown.
   if (note.isHighlight) {
     return (

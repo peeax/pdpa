@@ -26,12 +26,16 @@ const { notes } = buildAll();
 let count = 0;
 const searchIndex = [];
 const noteMeta = {};
+const articleNotes = {};
 
 for (const [slug, note] of notes) {
   fs.writeFileSync(path.join(notesDir, `${slug}.json`), JSON.stringify(compactNote(note)));
   count++;
 
   noteMeta[slug] = buildNoteMetaEntry(note);
+  if (/^article-\d+$/.test(slug)) {
+    articleNotes[slug] = compactNote(note);
+  }
 
   // Exclude empty stub nodes from search
   let text = note.body || note.content || '';
@@ -45,6 +49,7 @@ for (const [slug, note] of notes) {
 }
 fs.writeFileSync(path.join(publicDir, 'search-index.json'), JSON.stringify(searchIndex));
 fs.writeFileSync(noteMetaPath, JSON.stringify(noteMeta));
+fs.writeFileSync(path.join(publicDir, 'article-notes.json'), JSON.stringify(articleNotes));
 console.log(`[gen] wrote ${count} note JSON files, search-index.json, and note-meta.json`);
 
 // --- PWA manifest ---
