@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "gen": "node scripts/gen-public.mjs",
+    "sync": "node scripts/sync-highlights.mjs",
     "watch:content": "nodemon --watch content --ext md,json --exec \"npm run gen\"",
     "predev": "node scripts/gen-public.mjs",
     "dev": "concurrently \"npm run watch:content\" \"next dev\"",
@@ -28,10 +29,11 @@
     "rehype-sanitize": "^6.0.0",
     "remark-gfm": "^4.0.0",
     "theme-ui": "^0.16.2",
-    "tippy.js": "^6.3.7"
+    "tippy.js": "^6.3.7",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "concurrently": "^10.0.3",
+    "concurrently": "^8.2.2",
     "nodemon": "^3.1.14"
   }
 }
