@@ -20,7 +20,7 @@ import { NOTE_WIDTH, MOBILE_BREAKPOINT } from '../lib/constants';
  * A wrapper for individual stacked pages.
  * Provides the PageIndexProvider context so child components know their position
  * in the horizontally-scrolling stack.
- * 
+ *
  * @param {Object} props
  * @param {number} props.i - The index of the page in the stack.
  */
@@ -54,8 +54,6 @@ const NoteWrapper = React.memo(function NoteWrapper({ children, slug, title, ove
     <Box
       sx={{
         display: ['none', 'none', 'block'],
-        transition: 'opacity',
-        transitionDuration: 100,
         opacity: obstructed ? 1 : 0,
       }}
     >
@@ -77,8 +75,6 @@ const NoteWrapper = React.memo(function NoteWrapper({ children, slug, title, ove
       sx={{
         flexDirection: 'column',
         minHeight: '100%',
-        transition: 'opacity',
-        transitionDuration: 100,
         opacity: obstructed ? 0 : 1,
       }}
     >
@@ -94,15 +90,33 @@ export default function BrainNoteContainer({ slug, note, siteMetadata }) {
   // Manage the query string (?stackedPages=...) via the History API.
   const [search, setSearch] = React.useState('');
   React.useEffect(() => {
+    // On first visit to the about page on a wide-enough screen, default-open
+    // มาตรา ๑ as the second column so the layout doesn't look mostly empty.
+    const params = new URLSearchParams(window.location.search.replace(/^\?/, ''));
+    // Require enough width for two full columns side by side (not just the
+    // >=768px "desktop" breakpoint) — otherwise the default second column
+    // heavily overlaps the first on tablet-width screens (e.g. iPad @768px).
+    if (slug === 'about' && !params.has('stackedPages') && window.innerWidth >= NOTE_WIDTH * 2) {
+      // Matches the leading-slash slug format LinkToStacked/AnchorTag use for
+      // `to`/`href`, so the "already open" fast path in navigateToStackedPage
+      // recognizes this column instead of re-pushing a duplicate on re-click.
+      params.set('stackedPages', '/article-1');
+      const qs = params.toString();
+      window.history.replaceState(null, '', `${window.location.pathname}${qs ? `?${qs}` : ''}`);
+    }
     setSearch(window.location.search);
     const onPop = () => setSearch(window.location.search);
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
-  }, []);
+  }, [slug]);
 
   const navigate = React.useCallback((url) => {
     window.history.pushState(null, '', url);
     setSearch(window.location.search);
+    // pushState doesn't fire `popstate` — dispatch our own event so other
+    // components (e.g. TableOfContents' active-chip highlight) can react to
+    // in-app navigation the same way they react to back/forward.
+    window.dispatchEvent(new Event('pdpa:navigate'));
   }, []);
 
   const firstPage = React.useMemo(() => ({ slug, data: note }), [slug, note]);
@@ -143,8 +157,6 @@ export default function BrainNoteContainer({ slug, note, siteMetadata }) {
           sx={{
             minWidth: 'unset',
             flexGrow: 1,
-            transition: [null, null, 'width'],
-            transitionDuration: 100,
             width: ['100%', '100%', NOTE_WIDTH * (pages.length + 1)],
           }}
         >

@@ -8,12 +8,15 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { buildAll } from '../lib/build-notes.mjs';
+import { buildNoteMetaEntry, compactNote } from '../lib/note-payload.mjs';
+import { compactSearchEntry } from '../lib/search-index.mjs';
 import { stripMarkdown } from '../lib/strip-markdown.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
 const publicDir = path.join(rootDir, 'public');
 const notesDir = path.join(publicDir, 'notes');
+const noteMetaPath = path.join(publicDir, 'note-meta.json');
 
 // --- per-note JSON ---
 fs.rmSync(notesDir, { recursive: true, force: true });
@@ -22,41 +25,35 @@ fs.mkdirSync(notesDir, { recursive: true });
 const { notes } = buildAll();
 let count = 0;
 const searchIndex = [];
+const noteMeta = {};
 
 for (const [slug, note] of notes) {
-  fs.writeFileSync(path.join(notesDir, `${slug}.json`), JSON.stringify(note));
+  fs.writeFileSync(path.join(notesDir, `${slug}.json`), JSON.stringify(compactNote(note)));
   count++;
-  
-  // Categorize for search
-  let type = 'article';
-  if (note.isHighlight) type = 'highlight';
-  else if (slug === 'about' || slug === 'index') type = 'other';
-  
+
+  noteMeta[slug] = buildNoteMetaEntry(note);
+
   // Exclude empty stub nodes from search
   let text = note.body || note.content || '';
-  
+
   // Strip markdown and HTML for clean search snippets (shared utility)
   text = stripMarkdown(text);
 
   if (text || note.title !== slug) {
-    searchIndex.push({
-      slug,
-      title: note.title,
-      type,
-      text: text, // Raw text to search against
-    });
+    searchIndex.push(compactSearchEntry(slug, note, text));
   }
 }
 fs.writeFileSync(path.join(publicDir, 'search-index.json'), JSON.stringify(searchIndex));
-console.log(`[gen] wrote ${count} note JSON files and search-index.json`);
+fs.writeFileSync(noteMetaPath, JSON.stringify(noteMeta));
+console.log(`[gen] wrote ${count} note JSON files, search-index.json, and note-meta.json`);
 
 // --- PWA manifest ---
 const manifest = {
   name: 'พ.ร.บ.คุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ Thailand PDPA - SiData+ คณะแพทยศาสตร์ศิริราชพยาบาล',
   short_name: 'PDPA',
   start_url: '/',
-  background_color: '#006400',
-  theme_color: '#006400',
+  background_color: '#ffffff',
+  theme_color: '#ffffff',
   display: 'minimal-ui',
   icons: [{ src: '/favicon.png', sizes: '512x512', type: 'image/png' }],
 };

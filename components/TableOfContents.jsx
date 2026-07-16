@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Box, Flex, Text } from 'theme-ui';
 import NextLink from 'next/link';
 import { LinkToStacked } from './LinkToStacked';
@@ -60,8 +60,28 @@ function ChipGroup({ articles, onMobile, selectedSlug, onSelect }) {
 export default function TableOfContents() {
   const [width] = useWindowWidth();
   const onMobile = width < MOBILE_BREAKPOINT;
-  const [openSet, setOpenSet] = useState(new Set([0]));
+  const [openSet, setOpenSet] = useState(() => new Set(TOC.map((_, i) => i)));
   const [selectedSlug, setSelectedSlug] = useState(null);
+
+  // Reflect the currently-open second column (e.g. the default มาตรา ๑ opened
+  // on first visit, the user's browser back/forward, or in-app navigation via
+  // a citation link / search result) as the active chip.
+  useEffect(() => {
+    const syncFromUrl = () => {
+      const params = new URLSearchParams(window.location.search.replace(/^\?/, ''));
+      const slugs = params.getAll('stackedPages');
+      setSelectedSlug(slugs.length ? slugs[slugs.length - 1].replace(/^\/+/, '') : null);
+    };
+    syncFromUrl();
+    // 'popstate' covers back/forward; 'pdpa:navigate' covers in-app pushState
+    // navigation (BrainNoteContainer's `navigate`), which never fires popstate.
+    window.addEventListener('popstate', syncFromUrl);
+    window.addEventListener('pdpa:navigate', syncFromUrl);
+    return () => {
+      window.removeEventListener('popstate', syncFromUrl);
+      window.removeEventListener('pdpa:navigate', syncFromUrl);
+    };
+  }, []);
 
   const toggle = (i) => {
     setOpenSet((prev) => {
@@ -127,7 +147,6 @@ export default function TableOfContents() {
                 sx={{
                   color: 'text-light',
                   transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
-                  transition: 'transform 0.2s ease',
                   flexShrink: 0,
                 }}
               >

@@ -9,6 +9,7 @@ import {
   SEARCH_TITLE_SCORE,
   SEARCH_TEXT_SCORE,
 } from '../lib/constants';
+import { normalizeSearchIndex } from '../lib/search-index.mjs';
 
 // Maps Arabic digits ↔ Thai digits so "มาตรา 1" matches "มาตรา ๑" and vice versa.
 const DIGIT_MAP = {
@@ -53,6 +54,10 @@ function splitHighlight(text, regex) {
   const re = new RegExp(regex.source, 'gi');
   let match;
   while ((match = re.exec(text)) !== null) {
+    if (match[0] === '') {
+      re.lastIndex += 1;
+      continue;
+    }
     if (match.index > lastIndex) {
       parts.push({ text: text.slice(lastIndex, match.index), highlight: false });
     }
@@ -113,7 +118,11 @@ export default function SearchModal({ navigateToStackedPage }) {
   const debounceTimer = useRef(null);
 
   // --- Memoised regex (only recomputed when the query string changes) ---
-  const regexStr = useMemo(() => (query ? buildSearchRegexStr(query) : ''), [query]);
+  const normalizedQuery = query.trim();
+  const regexStr = useMemo(
+    () => (normalizedQuery ? buildSearchRegexStr(normalizedQuery) : ''),
+    [normalizedQuery]
+  );
   const testRegex = useMemo(() => (regexStr ? new RegExp(regexStr, 'i') : null), [regexStr]);
 
   // --- Lazy-load the search index once on first open ---
@@ -128,7 +137,7 @@ export default function SearchModal({ navigateToStackedPage }) {
         return res.json();
       })
       .then((data) => {
-        setIndexData(data);
+        setIndexData(normalizeSearchIndex(data));
         setLoading(false);
       })
       .catch((err) => {
@@ -137,6 +146,16 @@ export default function SearchModal({ navigateToStackedPage }) {
         setLoading(false);
       });
   }, [isOpen, indexData, loading]);
+
+  // --- Prefill from ?q= (deep link support for the WebSite SearchAction schema) ---
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get('q');
+    if (q) {
+      setInputValue(q);
+      setQuery(q);
+      setIsOpen(true);
+    }
+  }, []);
 
   // --- Open with Ctrl+K / Cmd+K ---
   useEffect(() => {
@@ -172,7 +191,10 @@ export default function SearchModal({ navigateToStackedPage }) {
         if (textMatch) {
           const matchIndex = item.text.search(testRegex);
           const start = Math.max(0, matchIndex - SEARCH_SNIPPET_CONTEXT);
-          const end = Math.min(item.text.length, matchIndex + query.length + SEARCH_SNIPPET_CONTEXT);
+          const end = Math.min(
+            item.text.length,
+            matchIndex + normalizedQuery.length + SEARCH_SNIPPET_CONTEXT
+          );
           snippet =
             (start > 0 ? '…' : '') +
             item.text.substring(start, end) +
@@ -196,7 +218,7 @@ export default function SearchModal({ navigateToStackedPage }) {
 
     setResults(flat);
     setSelectedIndex(flat.findIndex((r) => r.isItem));
-  }, [query, indexData, testRegex]);
+  }, [query, normalizedQuery, indexData, testRegex]);
 
   // --- Keyboard navigation inside the results panel ---
   useEffect(() => {
@@ -294,7 +316,7 @@ export default function SearchModal({ navigateToStackedPage }) {
             sx={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 999 }}
           />
 
-          {query.trim().length > 0 && (
+          {normalizedQuery.length > 0 && (
             <Box
               onClick={(e) => e.stopPropagation()}
               sx={{

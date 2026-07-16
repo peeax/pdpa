@@ -5,14 +5,10 @@
 import React, { useCallback, useRef } from 'react';
 import { useStackedPage } from '../lib/stacked';
 
-export function LinkToStacked({
-  to,
-  onClick,
-  onMouseLeave,
-  onMouseEnter,
-  ref,
-  ...restProps
-}) {
+export const LinkToStacked = React.forwardRef(function LinkToStacked(
+  { to, onClick, onMouseLeave, onMouseEnter, ...restProps },
+  ref
+) {
   const [, , , navigateToStackedPage, highlightStackedPage] = useStackedPage();
   const highlightTimer = useRef(null);
 
@@ -27,7 +23,7 @@ export function LinkToStacked({
 
       // Override cmd+click (Mac) / ctrl+click (others) to open in a new tab
       if ((isMac && ev.metaKey) || (!isMac && ev.ctrlKey)) {
-        window.open(to, '_blank');
+        window.open(to, '_blank', 'noopener,noreferrer');
       } else {
         navigateToStackedPage(to);
       }
@@ -63,4 +59,4 @@ export function LinkToStacked({
       onMouseLeave={onMouseLeaveHandler}
     />
   );
-}
+});
