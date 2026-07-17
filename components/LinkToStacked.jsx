@@ -24,7 +24,7 @@ export const LinkToStacked = React.forwardRef(function LinkToStacked(
 
       // Override cmd+click (Mac) / ctrl+click (others) to open in a new tab
       if ((isMac && ev.metaKey) || (!isMac && ev.ctrlKey)) {
-        window.open(to, '_blank');
+        window.open(to, '_blank', 'noopener,noreferrer');
       } else {
         navigateToStackedPage(to);
       }
