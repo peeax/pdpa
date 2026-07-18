@@ -4,8 +4,8 @@
 import { Box } from 'theme-ui';
 import { Themed } from '../theme/themed';
 
-export default function OfficialDisclaimer({ isHighlight, pdf, mainPdfLink }) {
-  if (isHighlight) {
+export default function OfficialDisclaimer({ isReference, pdf, mainPdfLink }) {
+  if (isReference) {
     return (
       <Box
         sx={{

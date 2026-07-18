@@ -203,12 +203,12 @@ export default function SearchModal({ navigateToStackedPage }) {
 
     // Group results by type for a cleaner UI
     const articles = matches.filter((m) => m.type === 'article');
-    const highlights = matches.filter((m) => m.type === 'highlight');
+    const references = matches.filter((m) => m.type === 'reference');
     const others = matches.filter((m) => m.type === 'other');
 
     const flat = [];
     if (articles.length) { flat.push({ isHeader: true, label: 'หมวดมาตรา' }); articles.forEach((i) => flat.push({ isItem: true, ...i })); }
-    if (highlights.length) { flat.push({ isHeader: true, label: 'หมวดคำอธิบาย' }); highlights.forEach((i) => flat.push({ isItem: true, ...i })); }
+    if (references.length) { flat.push({ isHeader: true, label: 'หมวดเอกสารอ้างอิง' }); references.forEach((i) => flat.push({ isItem: true, ...i })); }
     if (others.length) { flat.push({ isHeader: true, label: 'หมวดอื่นๆ' }); others.forEach((i) => flat.push({ isItem: true, ...i })); }
 
     setResults(flat);

@@ -40,7 +40,7 @@ export default async function NotePage({ params }) {
   const pageUrl = `${SITE_URL}/${slug}/`;
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': note.isHighlight ? 'WebPage' : 'Legislation',
+    '@type': note.isReference ? 'WebPage' : 'Legislation',
     name: note.title,
     ...(note.excerpt ? { description: note.excerpt } : {}),
     url: pageUrl,

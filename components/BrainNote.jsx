@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 'use client';
 // Port of the project's shadowed gatsby-theme-andy BrainNote
-// (src/gatsby-theme-andy/components/BrainNote.js), including the HighlightNote
+// (src/gatsby-theme-andy/components/BrainNote.js), including the reference-note
 // branch.
 import React, { useMemo } from 'react';
 import { Themed } from '../theme/themed';
@@ -14,18 +14,18 @@ import TableOfContents from './TableOfContents';
 import { MOBILE_BREAKPOINT } from '../lib/constants';
 
 /**
- * Renders a single note as either a Highlight (markdown content / PDF) or a
+ * Renders a single note as either a legal reference (markdown content / PDF) or a
  * regular markdown note with hover popovers for outbound wiki-links.
  *
  * @param {Object} props
  * @param {Object} props.note - Note data from build-notes.mjs. Shape:
  *   - slug {string}
  *   - title {string}
- *   - isHighlight {boolean} - true for highlight/announcement notes
+ *   - isReference {boolean} - true for supplementary legal references
  *   - body {string}         - linkified markdown (regular notes only)
- *   - content {string}      - raw markdown content (highlight notes only)
- *   - pdf {string}          - local PDF path (highlight notes only)
- *   - main_pdf_link {string}- official PDF URL (highlight notes only)
+ *   - content {string}      - raw markdown content (reference notes only)
+ *   - pdf {string}          - local PDF path (reference notes only)
+ *   - main_pdf_link {string}- official PDF URL (reference notes only)
  *   - outboundReferenceNotes {Array} - notes this note links to
  *   - inboundReferenceNotes  {Array} - notes that link to this note
  */
@@ -53,9 +53,9 @@ function BrainNote({ note }) {
     );
   }
 
-  // Highlight notes use the same markdown renderer as regular notes so copy/paste
+  // Reference notes use the same markdown renderer as regular notes so copy/paste
   // carries semantic HTML paragraphs instead of CSS-only whitespace formatting.
-  if (note.isHighlight) {
+  if (note.isReference) {
     return (
       <>
         <div sx={{ flex: '1' }}>
@@ -64,7 +64,7 @@ function BrainNote({ note }) {
             <MarkdownContent body={note.content} popups={popups} noPopups={noPopups} />
           )}
         </div>
-        <OfficialDisclaimer isHighlight={true} pdf={note.pdf} mainPdfLink={note.main_pdf_link} />
+        <OfficialDisclaimer isReference={true} pdf={note.pdf} mainPdfLink={note.main_pdf_link} />
         <Footer references={note.inboundReferenceNotes || []} />
       </>
     );

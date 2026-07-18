@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "gen": "node scripts/gen-public.mjs",
+    "check:full-act": "node scripts/check-full-act.mjs",
     "watch:content": "nodemon --watch content --ext md,json --exec \"npm run gen\"",
     "predev": "node scripts/gen-public.mjs",
     "dev": "concurrently \"npm run watch:content\" \"next dev\"",
