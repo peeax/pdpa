@@ -10,7 +10,7 @@ The goal is to provide ease of access to PDPA and allow tracking of article refe
 
 ### Requirements
 
-- Node.js v20+
+- Node.js 22.16.0 (pinned in `.node-version`; minimum supported version is 20.9.0)
 - npm
 
 ### Install
@@ -18,7 +18,7 @@ The goal is to provide ease of access to PDPA and allow tracking of article refe
 Clone this repository to your machine. At the repository's root directory, run
 
 ```bash
-npm install
+npm ci
 ```
 
 ### Development
@@ -36,14 +36,32 @@ Then go to `http://localhost:3000` in your browser of choice. Any changes to the
 Run
 
 ```bash
-npm run build
+npm run check:production
 ```
 
-The generated static site will be available at `./out`
+This checks the source, verifies all 96 articles, builds the site, and validates
+the generated routes, links, JSON, metadata, and security configuration. The
+generated static site will be available at `./out`.
+
+To preview that production build locally, run
+
+```bash
+npm start
+```
+
+Then open `http://localhost:3000`. You can choose another port with
+`npm start -- --port 3400`.
 
 ### Deployment
 
-Once code pushed/merged into `master` branch on GitHub, Cloudflare Pages will automatically build and deploy the site. (**If unsure, don't push to master but file a Pull Request first.**)
+Cloudflare Pages should use `npm run check:production` as the build command and
+`out` as the build output directory. The repository pins the Cloudflare build
+runtime through `.node-version` and supplies static-host security headers in
+`public/_headers`.
+
+Once code is pushed or merged into the deployment branch on GitHub, Cloudflare
+Pages will automatically build and deploy the site. If unsure, open a Pull
+Request first instead of pushing directly to the deployment branch.
 
 ## Contributions
 

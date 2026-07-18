@@ -66,7 +66,7 @@ const NoteWrapper = React.memo(function NoteWrapper({ children, slug, title, ove
         }}
         pb={2}
       >
-        <LinkToStacked to={slug} sx={{ fontWeight: 'bold', textDecoration: 'none', color: 'text' }}>
+        <LinkToStacked to={`/${slug}`} sx={{ fontWeight: 'bold', textDecoration: 'none', color: 'text' }}>
           {title || slug}
         </LinkToStacked>
       </Box>

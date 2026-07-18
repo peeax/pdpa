@@ -12,57 +12,61 @@ export const LinkToStacked = React.forwardRef(function LinkToStacked(
 ) {
   const [, , , navigateToStackedPage, highlightStackedPage] = useStackedPage();
   const highlightTimer = useRef(null);
+  const href = String(to).startsWith('/') ? String(to) : `/${to}`;
 
   const onClickHandler = useCallback(
     (ev) => {
-      ev.preventDefault();
       if (onClick) onClick(ev);
+      if (ev.defaultPrevented) return;
 
-      const isMac =
-        typeof window !== 'undefined' &&
-        window.navigator.platform.toUpperCase().indexOf('MAC') >= 0;
-
-      // Override cmd+click (Mac) / ctrl+click (others) to open in a new tab
-      if ((isMac && ev.metaKey) || (!isMac && ev.ctrlKey)) {
-        window.open(to, '_blank', 'noopener,noreferrer');
-      } else {
-        navigateToStackedPage(to);
+      // Open modifier-clicks explicitly so stacked navigation also behaves
+      // consistently in browsers that do not apply their native anchor action.
+      if (ev.metaKey || ev.ctrlKey) {
+        ev.preventDefault();
+        window.open(href, '_blank', 'noopener,noreferrer');
+        return;
       }
+
+      // Preserve other native browser actions such as middle-click and Shift+click.
+      if (ev.button !== 0 || ev.shiftKey || ev.altKey) return;
+
+      ev.preventDefault();
+      navigateToStackedPage(href);
     },
-    [navigateToStackedPage, to, onClick]
+    [navigateToStackedPage, href, onClick]
   );
 
   const onMouseEnterHandler = useCallback(
     (ev) => {
-      prefetchNote(to);
+      prefetchNote(href);
       clearTimeout(highlightTimer.current);
-      highlightTimer.current = setTimeout(() => highlightStackedPage(to, true), 80);
+      highlightTimer.current = setTimeout(() => highlightStackedPage(href, true), 80);
       if (onMouseEnter) onMouseEnter(ev);
     },
-    [to, onMouseEnter, highlightStackedPage]
+    [href, onMouseEnter, highlightStackedPage]
   );
 
   const onMouseLeaveHandler = useCallback(
     (ev) => {
       clearTimeout(highlightTimer.current);
-      highlightStackedPage(to, false);
+      highlightStackedPage(href, false);
       if (onMouseLeave) onMouseLeave(ev);
     },
-    [to, onMouseLeave, highlightStackedPage]
+    [href, onMouseLeave, highlightStackedPage]
   );
 
   const onFocusHandler = useCallback(
     (ev) => {
-      prefetchNote(to);
+      prefetchNote(href);
       if (onFocus) onFocus(ev);
     },
-    [to, onFocus]
+    [href, onFocus]
   );
 
   return (
     <a
       {...restProps}
-      href={to}
+      href={href}
       ref={ref}
       onClick={onClickHandler}
       onMouseEnter={onMouseEnterHandler}

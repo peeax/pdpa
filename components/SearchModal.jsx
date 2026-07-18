@@ -12,6 +12,8 @@ import {
 import { normalizeSearchIndex } from '../lib/search-index.mjs';
 import { prefetchNote, prefetchNotes } from '../lib/stacked';
 
+const SEARCH_RESULTS_ID = 'pdpa-search-results';
+
 // Maps Western Arabic digits to Thai-script digits and back.
 const DIGIT_MAP = {
   '0': '[0๐]', '๐': '[0๐]', '1': '[1๑]', '๑': '[1๑]',
@@ -122,6 +124,11 @@ export default function SearchModal({ navigateToStackedPage }) {
   // --- Memoised regex (only recomputed when the query string changes) ---
   const regexStr = useMemo(() => (query ? buildSearchRegexStr(query) : ''), [query]);
   const testRegex = useMemo(() => (regexStr ? new RegExp(regexStr, 'i') : null), [regexStr]);
+  const showResults = isOpen && query.trim().length > 0;
+  const activeResultId =
+    showResults && results[selectedIndex]?.isItem
+      ? `pdpa-search-option-${selectedIndex}`
+      : undefined;
 
   // --- Lazy-load the search index once on first open ---
   useEffect(() => {
@@ -288,6 +295,14 @@ export default function SearchModal({ navigateToStackedPage }) {
         <Input
           ref={inputRef}
           placeholder="ค้นหามาตรา..."
+          aria-label="ค้นหาเนื้อหาในพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded={showResults}
+          aria-controls={showResults ? SEARCH_RESULTS_ID : undefined}
+          aria-activedescendant={activeResultId}
+          autoComplete="off"
+          spellCheck="false"
           value={inputValue}
           onFocus={() => setIsOpen(true)}
           onChange={(e) => {
@@ -311,10 +326,11 @@ export default function SearchModal({ navigateToStackedPage }) {
         <>
           <Box
             onClick={() => setIsOpen(false)}
+            aria-hidden="true"
             sx={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, zIndex: 999 }}
           />
 
-          {query.trim().length > 0 && (
+          {showResults && (
             <Box
               onClick={(e) => e.stopPropagation()}
               sx={{
@@ -328,20 +344,27 @@ export default function SearchModal({ navigateToStackedPage }) {
               }}
             >
               {loading && (
-                <Flex sx={{ p: 3, justifyContent: 'center' }}>
+                <Flex role="status" aria-label="กำลังโหลดผลการค้นหา" sx={{ p: 3, justifyContent: 'center' }}>
                   <Spinner size={24} />
                 </Flex>
               )}
 
               {fetchError && (
-                <Text sx={{ p: 3, color: 'red', textAlign: 'center', fontSize: 1 }}>
+                <Text role="alert" sx={{ p: 3, color: 'red', textAlign: 'center', fontSize: 1 }}>
                   {fetchError}
                 </Text>
               )}
 
-              <Box ref={resultsRef} sx={{ overflowY: 'auto', p: 2 }}>
+              <Box
+                id={SEARCH_RESULTS_ID}
+                ref={resultsRef}
+                role="listbox"
+                aria-label="ผลการค้นหา"
+                aria-busy={loading}
+                sx={{ overflowY: 'auto', p: 2 }}
+              >
                 {query && results.length === 0 && !loading && !fetchError && (
-                  <Box sx={{ p: 3, textAlign: 'center' }}>
+                  <Box role="status" sx={{ p: 3, textAlign: 'center' }}>
                     <Text sx={{ color: 'text-light', display: 'block', mb: 1 }}>ไม่พบผลลัพธ์สำหรับ "{query}"</Text>
                     <Text sx={{ fontSize: 0, color: 'text-light', opacity: 0.7 }}>ลองพิมพ์ชื่อมาตรา เช่น ม1, ม19, หรือคำในเนื้อหา</Text>
                   </Box>
@@ -352,6 +375,7 @@ export default function SearchModal({ navigateToStackedPage }) {
                     return (
                       <Text
                         key={`header-${i}`}
+                        role="presentation"
                         sx={{
                           px: 3, pt: 3, pb: 1, fontSize: 1,
                           fontWeight: 'bold', color: 'text-light',
@@ -367,11 +391,16 @@ export default function SearchModal({ navigateToStackedPage }) {
                   return (
                     <Box
                       key={`item-${item.slug}-${i}`}
+                      id={`pdpa-search-option-${i}`}
+                      role="option"
+                      aria-selected={isSelected}
+                      tabIndex={-1}
                       className={isSelected ? 'selected' : ''}
                       onMouseEnter={() => {
                         setSelectedIndex(i);
                         prefetchNote(item.slug);
                       }}
+                      onMouseDown={(e) => e.preventDefault()}
                       onClick={() => handleSelect(item.slug)}
                       sx={{
                         px: 3, py: 2, mx: 2, my: 1,
