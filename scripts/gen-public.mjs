@@ -2,7 +2,7 @@
 //   public/notes/<slug>.json   one file per note (fetched lazily by the stack)
 //   public/manifest.webmanifest
 //
-// Static assets (public/pdfs/*, public/favicon.png) are checked into the repo
+// Static assets (public/images/*, public/pdfs/*) are checked into the repo
 // directly — no copying needed.
 import fs from 'fs';
 import path from 'path';
@@ -60,7 +60,7 @@ const manifest = {
   background_color: '#ffffff',
   theme_color: '#ffffff',
   display: 'minimal-ui',
-  icons: [{ src: '/favicon.png', sizes: '512x512', type: 'image/png' }],
+  icons: [{ src: '/images/sidata-logo.png', sizes: '1591x1591', type: 'image/png' }],
 };
 fs.writeFileSync(path.join(publicDir, 'manifest.webmanifest'), JSON.stringify(manifest, null, 2));
 console.log('[gen] wrote manifest.webmanifest');

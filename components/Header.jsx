@@ -7,13 +7,13 @@ import DarkModeToggle from './DarkModeToggle';
 import SearchModal from './SearchModal';
 
 const MAHIDOL_HEADER_LOGO = {
-  src: '/Mahidol_U-96.png',
+  src: '/images/mahidol-university-logo-96x96.png',
   width: 96,
   height: 96,
 };
 
 const SIDATA_HEADER_LOGO = {
-  src: '/icons/icon-72x72.png',
+  src: '/images/sidata-logo-72x72.png',
   width: 72,
   height: 72,
 };

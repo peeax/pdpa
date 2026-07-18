@@ -24,7 +24,7 @@ export const metadata = {
   title: { default: SITE_TITLE, template: `%s - ${SITE_TITLE}` },
   description: SITE_DESCRIPTION,
   manifest: '/manifest.webmanifest',
-  icons: { icon: '/favicon-32x32.png' },
+  icons: { icon: '/images/sidata-favicon-32x32.png' },
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
@@ -33,13 +33,13 @@ export const metadata = {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
     url: SITE_URL,
-    images: [{ url: '/favicon.png', width: 1591, height: 1591, alt: SITE_SHORT_TITLE }],
+    images: [{ url: '/images/sidata-logo.png', width: 1591, height: 1591, alt: SITE_SHORT_TITLE }],
   },
   twitter: {
     card: 'summary',
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ['/favicon.png'],
+    images: ['/images/sidata-logo.png'],
   },
 };
 
@@ -69,8 +69,8 @@ export default function RootLayout({ children }) {
     <html lang="th">
       <head>
         <link rel="prefetch" href="/search-index.json" as="fetch" crossOrigin="anonymous" />
-        <link rel="preload" href="/Mahidol_U-96.png" as="image" type="image/png" />
-        <link rel="preload" href="/icons/icon-72x72.png" as="image" type="image/png" />
+        <link rel="preload" href="/images/mahidol-university-logo-96x96.png" as="image" type="image/png" />
+        <link rel="preload" href="/images/sidata-logo-72x72.png" as="image" type="image/png" />
         {/* Self-hosted heading font - preloaded so it's ready before first paint
             instead of swapping in after headings already rendered in the
             fallback font (Sarabun). */}

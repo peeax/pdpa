@@ -26,9 +26,9 @@ export async function generateMetadata({ params }) {
       description,
       url,
       type: 'article',
-      images: [{ url: '/favicon.png', width: 1591, height: 1591, alt: note.title }],
+      images: [{ url: '/images/sidata-logo.png', width: 1591, height: 1591, alt: note.title }],
     },
-    twitter: { card: 'summary', title: note.title, description, images: ['/favicon.png'] },
+    twitter: { card: 'summary', title: note.title, description, images: ['/images/sidata-logo.png'] },
   };
 }
 
