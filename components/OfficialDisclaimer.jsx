@@ -66,7 +66,7 @@ export default function OfficialDisclaimer({ isReference, pdf, mainPdfLink }) {
           ไฟล์ pdf จาก website ราชกิจจานุเบกษา
         </Themed.a>{' '}
         (
-        <Themed.a href="https://github.com/sidataplus/pdpa/raw/master/src/pdf/pdpa-2562.PDF">
+        <Themed.a href="/pdfs/pdpa-2562.PDF">
           สำรอง
         </Themed.a>
         )
