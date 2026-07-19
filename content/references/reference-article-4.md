@@ -1,5 +1,4 @@
 ---
-slug: "highlight-article-4"
 title: "พระราชกฤษฎีกากำหนดลักษณะ กิจการ หรือหน่วยงาน ที่ได้รับการยกเว้นไม่ให้นำพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ บางส่วนมาใช้บังคับ พ.ศ. ๒๕๖๖"
 pdf: "/pdfs/article-4.pdf"
 main_pdf_link: "https://www.pdpc.or.th/wp-content/uploads/2023/12/1_PDPA-decree.pdf"

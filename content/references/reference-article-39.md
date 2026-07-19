@@ -1,5 +1,4 @@
 ---
-slug: "highlight-article-39"
 title: "ประกาศคณะกรรมการคุ้มครองข้อมูลส่วนบุคคล เรื่อง การยกเว้นการบันทึกรายการของผู้ควบคุมข้อมูลส่วนบุคคลซึ่งเป็นกิจการขนาดเล็ก พ.ศ. ๒๕๖๗"
 pdf: "/pdfs/article-39.pdf"
 main_pdf_link: "https://www.pdpc.or.th/wp-content/uploads/2025/01/-1--ROPA--.-39.pdf"

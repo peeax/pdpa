@@ -1,5 +1,4 @@
 ---
-slug: "highlight-article-37-1"
 title: "ประกาศคณะกรรมการคุ้มครองข้อมูลส่วนบุคคล เรื่อง มาตรการรักษาความมั่นคงปลอดภัยของผู้ควบคุมข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๕"
 pdf: "/pdfs/article-37-1.pdf"
 main_pdf_link: "https://www.pdpc.or.th/wp-content/uploads/2024/01/announcement-pdpc-05.pdf"
