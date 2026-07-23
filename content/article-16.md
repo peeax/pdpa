@@ -31,3 +31,44 @@ aliases: ['มาตรา ๑๖', 'ม16']
 &emsp; (๑๒) ส่งเสริมและสนับสนุนการวิจัย เพื่อพัฒนาเทคโนโลยีที่เกี่ยวข้องกับการคุ้มครองข้อมูล ส่วนบุคคล  
 
 &emsp; (๑๓) ปฏิบัติการอื่นใดตามที่พระราชบัญญัตินี้หรือกฎหมายอื่นกำหนดให้เป็นหน้าที่และอำนาจ ของคณะกรรมการ
+
+<details>
+<summary style="font-size: 22px; font-weight: bold; color: #1a5f4a; cursor: pointer; background: #f0f7f4; padding: 12px; border-radius: 8px;">
+ข้อหารือที่เกี่ยวข้อง
+</summary>
+
+<small style="color: #666; display: block; margin-bottom: 15px;">คลิกที่รายการเพื่อดูรายละเอียดข้อหารือ</small>
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๓/๒๕๖๖](/dicussion16-13-2566)**
+  กรมส่งเสริมสหกรณ์หารือแนวทางปฏิบัติการรายงานข้อมูลส่วนบุคคลตามประกาศนายทะเบียนสหกรณ์ฯ
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๘/๒๕๖๖](/PDPC-consultation-18)**
+  ธนาคาร Z ขอหารือเกี่ยวกับแนวทางการนำส่งข้อมูลส่วนบุคคลของกรรมการตามกฎข้อบังคับของ ACRA ประเทศสิงคโปร์ และ/หรือกฎข้อบังคับและกฎหมายของประเทศอื่น
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๔/๒๕๖๘](/PDPCconsultation-53)**
+ บริษัท Z หารือการขอถอนความยินยอมของลูกค้าในระบบแอปพลิเคชัน ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๖/๒๕๖๙](/consultation-69)**
+   ข้อหารือกรณีเจ้าหนี้ตามคำพิพากษาขอให้ผู้ควบคุมข้อมูลส่วนบุคคลเปิดเผยข้อมูลของลูกหนี้ตามคำพิพากษาถึงที่สุด
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๗/๒๕๖๙](/consultation-70)**
+   ข้อหารือของคณะกรรมาธิการศึกษาการจัดทำและติดตามการบริหารงบประมาณ สภาผู้แทนราษฎรเกี่ยวกับการให้ข้อคิดเห็นและข้อเสนอแนะเกี่ยวกับพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๙/๒๕๖๙](/consultation-73-)**
+   ขั้นตอนการจัดเก็บข้อมูลอ่อนไหวของระบบสแกนใบหน้า (Face Scan) สำหรับนิติบุคคลอาคารชุด ก. 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๑/๒๕๖๙](/consultation-74-)**
+   คำปรึกษาเกี่ยวกับข้อมูลในใบอนุญาตขับรถรูปแบบใหม่ว่าเป็นข้อมูลส่วนบุคคลตามมาตรา ๒๖ แห่งพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ หรือไม่                 
+
+</div>
+</details>

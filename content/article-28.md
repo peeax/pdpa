@@ -19,3 +19,41 @@ aliases: ['มาตรา ๒๘', 'ม28']
 &emsp; (๖) เป็นการจำเป็นเพื่อการดำเนินภารกิจเพื่อประโยชน์สาธารณะที่สำคัญ
 
 &emsp; ในกรณีที่มีปัญหาเกี่ยวกับมาตรฐานการคุ้มครองข้อมูลส่วนบุคคลที่เพียงพอของประเทศปลายทางหรือองค์การระหว่างประเทศที่รับข้อมูลส่วนบุคคล ให้เสนอต่อคณะกรรมการเป็นผู้วินิจฉัย ทั้งนี้ คำวินิจฉัยของคณะกรรมการอาจขอให้ทบทวนได้เมื่อมีหลักฐานใหม่ทำให้เชื่อได้ว่าประเทศปลายทางหรือ องค์การระหว่างประเทศที่รับข้อมูลส่วนบุคคลมีการพัฒนาจนมีมาตรฐานการคุ้มครองข้อมูลส่วนบุคคล ที่เพียงพอ
+
+<details>
+<summary style="font-size: 22px; font-weight: bold; color: #1a5f4a; cursor: pointer; background: #f0f7f4; padding: 12px; border-radius: 8px;">
+ข้อหารือที่เกี่ยวข้อง
+</summary>
+
+<small style="color: #666; display: block; margin-bottom: 15px;">คลิกที่รายการเพื่อดูรายละเอียดข้อหารือ</small>
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๘/๒๕๖๖](/PDPC-consultation-18)**
+  ธนาคาร Z ขอหารือเกี่ยวกับแนวทางการนำส่งข้อมูลส่วนบุคคลของกรรมการตามกฎข้อบังคับของ ACRA ประเทศสิงคโปร์ และ/หรือกฎข้อบังคับและกฎหมายของประเทศอื่น
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๖/๒๕๖๖](/PDPC-consultation-26)**
+   สํานักงานส่งเสริมวิสาหกิจขนาดกลางและขนาดย่อมขอหารือในประเด็นเกี่ยวกับการคุ้มครองข้อมูลส่วนบุคคล
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๔/๒๕๖๗](/PDPC-consultation-33)**
+   สถานีตำรวจ F ขอหารือกรณีผู้ใช้ Facebook ได้โพสต์รูปภาพและข้อความ
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๕/๒๕๖๗](/PDPC-consultation-34)**
+   สถานีตำรวจ D หารือข้อมูลโพสภาพใบหย่า   
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๗/๒๕๖๗](/PDPC-consultation-36)**
+   สถานีตำรวจ G หารือการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล  
+ <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๘/๒๕๖๗](/PDPC-consultation-37)**
+   สถานีตำรวจ H หารือการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๙/๒๕๖๗](/PDPC-consultation-48)**
+  สำนักงานคณะกรรมการอ้อยและน้ำตาลทรายหารือเกี่ยวกับการดำเนินการ ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒                   
+</div>
+
+</details>

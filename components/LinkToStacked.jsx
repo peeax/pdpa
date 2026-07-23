@@ -74,4 +74,4 @@ export const LinkToStacked = React.forwardRef(function LinkToStacked(
       onFocus={onFocusHandler}
     />
   );
-});
+}
