@@ -8,13 +8,27 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeRaw from 'rehype-raw';
 import { buildAll, ROOT_NOTE } from '../lib/build-notes.mjs';
-import { buildFullActContent, validateActStructure } from '../lib/full-act.mjs';
+import {
+  buildFullActContent,
+  buildTableOfContents,
+  validateActStructure,
+} from '../lib/full-act.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, '..');
 const contentDir = path.join(rootDir, 'content');
 const structure = JSON.parse(fs.readFileSync(path.join(contentDir, 'act-structure.json'), 'utf8'));
 const articleNumbers = validateActStructure(structure);
+const tableOfContents = buildTableOfContents(structure);
+const tocArticleNumbers = tableOfContents.flatMap((section) =>
+  (section.articles || section.sections?.flatMap((subsection) => subsection.articles) || [])
+    .map((label) => Number.parseInt(label.replace(/^ม/, ''), 10))
+);
+assert.deepEqual(
+  tocArticleNumbers,
+  articleNumbers,
+  'Table of contents must contain every article exactly once and in order',
+);
 const introduction = matter(fs.readFileSync(path.join(contentDir, 'about.md'), 'utf8')).content;
 const articles = new Map();
 
