@@ -36,7 +36,7 @@ function ArticleChip({ label, onMobile, isActive, onSelect }) {
   };
   const handleClick = () => onSelect(slug);
   return onMobile ? (
-    <NextLink data-testid={`toc-${slug}`} href={`/${slug}`} sx={chipSx} onClick={handleClick}>{label}</NextLink>
+<Box as={NextLink} data-testid={`toc-${slug}`} href={`/${slug}`} sx={chipSx} onClick={handleClick}>{label}</Box>
   ) : (
     <LinkToStacked data-testid={`toc-${slug}`} to={`/${slug}`} sx={chipSx} onClick={handleClick}>{label}</LinkToStacked>
   );
