@@ -1,26 +1,34 @@
-import { notFound } from 'next/navigation';
-import { getNote, getAllSlugs, ROOT_NOTE } from '../../lib/build-notes.mjs';
+import { notFound, permanentRedirect } from 'next/navigation';
+import {
+  getAllRouteSlugs,
+  getNote,
+  getRedirectTarget,
+  ROOT_NOTE,
+} from '../../lib/build-notes.mjs';
 import { SITE_TITLE, SITE_URL, PUBLISHER, jsonLdString } from '../../lib/site';
 import BrainNoteContainer from '../../components/BrainNoteContainer';
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return getAllSlugs().map((slug) => ({ slug }));
+  return getAllRouteSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
-  const note = getNote(slug);
+  const canonicalSlug = getRedirectTarget(slug) || slug;
+  const note = getNote(canonicalSlug);
   if (!note) return { title: SITE_TITLE };
   const description = note.excerpt || SITE_TITLE;
   // The root note is also reachable at its own slug (/about/), but "/" is
   // canonical for it — point search engines there to avoid duplicate content.
-  const url = slug === ROOT_NOTE ? `${SITE_URL}/` : `${SITE_URL}/${slug}/`;
+  const url =
+    canonicalSlug === ROOT_NOTE ? `${SITE_URL}/` : `${SITE_URL}/${canonicalSlug}/`;
   return {
     title: note.title,
     description,
     alternates: { canonical: url },
+    ...(canonicalSlug !== slug ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       title: note.title,
       description,
@@ -34,6 +42,9 @@ export async function generateMetadata({ params }) {
 
 export default async function NotePage({ params }) {
   const { slug } = await params;
+  const redirectTarget = getRedirectTarget(slug);
+  if (redirectTarget) permanentRedirect(`/${redirectTarget}/`);
+
   const note = getNote(slug);
   if (!note) notFound();
 

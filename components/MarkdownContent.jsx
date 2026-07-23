@@ -7,9 +7,19 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
-import rehypeSanitize from 'rehype-sanitize';
+import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import { Themed } from '../theme/themed';
 import AnchorTag from './AnchorTag';
+import RelatedConsultations from './RelatedConsultations';
+
+const sanitizeSchema = {
+  ...defaultSchema,
+  tagNames: [...new Set([...(defaultSchema.tagNames || []), 'section'])],
+  attributes: {
+    ...defaultSchema.attributes,
+    section: [...(defaultSchema.attributes?.section || []), 'dataArticle'],
+  },
+};
 
 // Strip react-markdown's `node` prop before forwarding to a Themed element.
 const themed = (Tag) =>
@@ -37,28 +47,52 @@ for (const tag of TAGS) {
  *
  * @param {Object} props - The component props.
  * @param {string} props.body - The raw markdown string to render.
+ * @param {string} [props.className] - Optional class for a specific content variant.
  * @param {Object} [props.popups] - Dictionary of popup contents mapped by slug.
  * @param {boolean} [props.noPopups=false] - Whether to disable hover popovers for links.
  */
-function MarkdownContent({ body, popups = {}, noPopups = false }) {
+function MarkdownContent({
+  body,
+  className,
+  popups = {},
+  noPopups = false,
+  relatedConsultationsByArticle = {},
+}) {
   const components = React.useMemo(() => ({
     ...baseComponents,
     a: ({ node, ...props }) => <AnchorTag {...props} popups={popups} noPopups={noPopups} />,
-  }), [popups, noPopups]);
+    section: ({ node, children, ...props }) => {
+      const article = node?.properties?.dataArticle;
+      if (article) {
+        return (
+          <RelatedConsultations
+            consultations={relatedConsultationsByArticle[article] || []}
+            popups={popups}
+            noPopups={noPopups}
+          />
+        );
+      }
+      return <section {...props}>{children}</section>;
+    },
+  }), [popups, noPopups, relatedConsultationsByArticle]);
 
   return (
-    <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
-      rehypePlugins={[rehypeRaw, rehypeSanitize]}
-      components={components}
-    >
-      {body}
-    </ReactMarkdown>
+    <div className={['markdown-content', className].filter(Boolean).join(' ')}>
+      <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw, [rehypeSanitize, sanitizeSchema]]}
+        components={components}
+      >
+        {body}
+      </ReactMarkdown>
+    </div>
   );
 }
 
 export default React.memo(MarkdownContent, (prev, next) =>
   prev.body === next.body &&
+  prev.className === next.className &&
   prev.noPopups === next.noPopups &&
-  prev.popups === next.popups
+  prev.popups === next.popups &&
+  prev.relatedConsultationsByArticle === next.relatedConsultationsByArticle
 );

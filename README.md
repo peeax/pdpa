@@ -35,6 +35,56 @@ npm run dev
 
 Then go to `localhost:3000` in your browser of choice. Any changes to the files saved will be automatically updated on the website.
 
+### Content
+
+Article order and chapter structure are maintained once in `content/act-structure.json`.
+
+Related articles for a consultation are maintained in that consultation's frontmatter. Do not duplicate consultation cards or presentation HTML in article Markdown files:
+
+```yaml
+---
+articles:
+  - 24
+  - 26
+---
+
+# เลขที่เรื่อง ๙/๒๕๖๗
+
+## เรื่อง ตัวอย่างหัวข้อหารือ
+```
+
+The consultation title and summary are derived from the `เลขที่เรื่อง` and `เรื่อง` lines in its Markdown content.
+
+Consultation filenames are canonical public identifiers and use
+`consultation-YYYY-NNN.md`, where `YYYY` is the Buddhist year and `NNN` is the
+zero-padded consultation number. For example, `เลขที่เรื่อง ๙/๒๕๖๗` belongs in
+`content/discussion/consultation-2567-009.md`. The title does not need a
+separate slug field.
+
+Legacy filenames are maintained centrally in
+`content/discussion-redirects.json`. `npm run gen` turns that map into static
+redirect routes and Cloudflare's `public/_redirects`; legacy routes are not
+duplicated in search results or the sitemap. The one-time migration audit is
+kept in `content/discussion-migration.json`.
+
+Collapsible sections use one consistent format:
+
+```html
+<details>
+<summary>ความเห็น</summary>
+
+Markdown content
+
+</details>
+```
+
+Run `npm run format:content` to normalize these sections automatically.
+
+`npm run lint` validates article ranges, consultation metadata, canonical
+filenames, duplicate content, redirect integrity, internal links, duplicate
+slugs, balanced disclosure sections, and disallows inline presentation markup
+in content.
+
 ### Build
 
 Run

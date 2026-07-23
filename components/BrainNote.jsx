@@ -11,6 +11,7 @@ import Popover from './Popover';
 import Footer from './Footer';
 import OfficialDisclaimer from './OfficialDisclaimer';
 import TableOfContents from './TableOfContents';
+import RelatedConsultations from './RelatedConsultations';
 import { MOBILE_BREAKPOINT } from '../lib/constants';
 
 /**
@@ -32,6 +33,7 @@ import { MOBILE_BREAKPOINT } from '../lib/constants';
 function BrainNote({ note }) {
   const [width] = useWindowWidth();
   const noPopups = width < MOBILE_BREAKPOINT;
+  const isConsultation = /^consultation-\d{4}-\d{3}$/.test(note.slug);
 
   // Build hover popovers for resolved outbound wiki-links that have an excerpt.
   // Memoised so the <Popover> elements are not recreated on every render.
@@ -83,7 +85,14 @@ function BrainNote({ note }) {
           <MarkdownContent body={introPart} popups={popups} noPopups={noPopups} />
           <Themed.hr />
           <TableOfContents />
-          {restPart && <MarkdownContent body={restPart} popups={popups} noPopups={noPopups} />}
+          {restPart && (
+            <MarkdownContent
+              body={restPart}
+              popups={popups}
+              noPopups={noPopups}
+              relatedConsultationsByArticle={note.relatedConsultationsByArticle}
+            />
+          )}
         </div>
         <OfficialDisclaimer />
         <Footer references={note.inboundReferenceNotes || []} />
@@ -95,7 +104,17 @@ function BrainNote({ note }) {
     <>
       <div sx={{ flex: '1' }}>
         <Themed.h1 className="note-title" sx={{ my: 3 }}>{note.title}</Themed.h1>
-        <MarkdownContent body={note.body} popups={popups} noPopups={noPopups} />
+        <MarkdownContent
+          body={note.body}
+          className={isConsultation ? 'consultation-content' : undefined}
+          popups={popups}
+          noPopups={noPopups}
+        />
+        <RelatedConsultations
+          consultations={note.relatedConsultations}
+          popups={popups}
+          noPopups={noPopups}
+        />
       </div>
       <Footer references={note.inboundReferenceNotes || []} />
     </>

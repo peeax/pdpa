@@ -1,4 +1,7 @@
-[
+{
+  "firstArticle": 1,
+  "lastArticle": 96,
+  "sections": [
   {
     "heading": "บทนำ",
     "headingLevel": 2,
@@ -79,4 +82,5 @@
     "startArticle": 91,
     "endArticle": 96
   }
-]
+  ]
+}

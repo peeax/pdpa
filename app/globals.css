@@ -6,6 +6,10 @@
   src: url('/fonts/DB-Lim-X-v3.2.woff') format('woff');
 }
 
+:root {
+  --note-title-font-size: 45px;
+}
+
 /* Mirrors theme.styles.root applied to <body> by gatsby-plugin-theme-ui,
    plus a CSS reset equivalent to what the browser + theme-ui base provided. */
 * {
@@ -59,6 +63,51 @@ a, button, [role="button"], [role="switch"], input, label {
 
 .tippy-arrow {
   color: var(--theme-ui-colors-background, #fff) !important;
+}
+
+.related-consultations {
+  margin: 24px 0;
+}
+
+.related-consultations > summary,
+.markdown-content details > summary {
+  padding: 12px;
+  color: var(--theme-ui-colors-heading, #5c7ebc);
+  background-color: var(--theme-ui-colors-accent, #f5f6f8);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.related-consultations-hint {
+  margin: 12px 0;
+  color: var(--theme-ui-colors-text-light, #606770);
+  font-size: 14px;
+}
+
+.related-consultations-list {
+  display: grid;
+  gap: 12px;
+}
+
+.consultation-card {
+  padding: 16px;
+  background-color: var(--theme-ui-colors-background, #fff);
+  border: 1px solid var(--theme-ui-colors-gray, #dadde1);
+  border-radius: 8px;
+}
+
+.consultation-card > p {
+  margin: 4px 0 0;
+}
+
+.markdown-content details > summary + * {
+  margin-top: 15px;
+}
+
+.consultation-content > h2:first-child {
+  font-size: var(--note-title-font-size);
 }
 
 /* Dark mode: deepen the Tippy shadow */

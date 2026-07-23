@@ -77,7 +77,7 @@ const theme = {
       fontFamily: 'heading',
       lineHeight: 'heading',
       fontWeight: 'heading',
-      fontSize: '45px',
+      fontSize: 'var(--note-title-font-size)',
     },
     h2: {
       color: 'heading',

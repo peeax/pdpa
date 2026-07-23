@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "gen": "node scripts/gen-public.mjs",
-    "lint": "node scripts/lint-source.mjs",
+    "format:content": "node scripts/format-content.mjs",
+    "migrate:discussions": "node scripts/migrate-discussions.mjs",
+    "lint": "node scripts/lint-source.mjs && node scripts/check-content.mjs && node scripts/check-discussions.mjs",
     "check:full-act": "node scripts/check-full-act.mjs",
     "check:output": "node scripts/check-production.mjs",
     "check:production": "npm run lint && npm run check:full-act && npm run build && npm run check:output",
@@ -40,7 +42,10 @@
   },
   "devDependencies": {
     "concurrently": "^10.0.3",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "unified": "^11.0.5"
   },
   "overrides": {
     "postcss": "^8.5.10",

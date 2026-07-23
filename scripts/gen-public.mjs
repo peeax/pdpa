@@ -17,12 +17,13 @@ const rootDir = path.resolve(__dirname, '..');
 const publicDir = path.join(rootDir, 'public');
 const notesDir = path.join(publicDir, 'notes');
 const noteMetaPath = path.join(publicDir, 'note-meta.json');
+const redirectsPath = path.join(publicDir, '_redirects');
 
 // --- per-note JSON ---
 fs.rmSync(notesDir, { recursive: true, force: true });
 fs.mkdirSync(notesDir, { recursive: true });
 
-const { notes } = buildAll();
+const { notes, redirects } = buildAll();
 let count = 0;
 const searchIndex = [];
 const noteMeta = {};
@@ -51,6 +52,12 @@ fs.writeFileSync(path.join(publicDir, 'search-index.json'), JSON.stringify(searc
 fs.writeFileSync(noteMetaPath, JSON.stringify(noteMeta));
 fs.writeFileSync(path.join(publicDir, 'article-notes.json'), JSON.stringify(articleNotes));
 console.log(`[gen] wrote ${count} note JSON files, search-index.json, and note-meta.json`);
+
+const redirectLines = Object.entries(redirects).map(
+  ([source, target]) => `/${source}/ /${target}/ 301`,
+);
+fs.writeFileSync(redirectsPath, `${redirectLines.join('\n')}\n`);
+console.log(`[gen] wrote ${redirectLines.length} legacy redirects`);
 
 // --- PWA manifest ---
 const manifest = {
