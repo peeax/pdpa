@@ -31,7 +31,14 @@ aliases: ['มาตรา ๔๒', 'ม42']
 
   **[เลขที่เรื่อง ๒๖/๒๕๖๖](/PDPC-consultation-26)**
    สํานักงานส่งเสริมวิสาหกิจขนาดกลางและขนาดย่อมขอหารือในประเด็นเกี่ยวกับการคุ้มครองข้อมูลส่วนบุคคล
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
 
+  **[เลขที่เรื่อง ๕/๒๕๖๘](/PDPCconsultation-54)**
+ บริษัท Y หารือเกี่ยวกับการแต่งตั้งเจ้าหน้าที่คุ้มครองข้อมูลส่วนบุคคล (DPO)    
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๔/๒๕๖๙](/consultation-67-)**
+   สำนักงานปลัดกระทรวงสาธารณสุขขอหารือข้อกฎหมายเกี่ยวกับการจัดทำข้อตกลงการเปิดเผย ข้อมูลส่วนบุคคลระหว่างกัน (Data Sharing Agreement)  
 
 </div>
 

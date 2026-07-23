@@ -36,7 +36,15 @@ aliases: ['มาตรา ๓๖', 'ม36']
 <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
 
   **[เลขที่เรื่อง ๙/๒๕๖๗](/PDPC-consultation-38)**
-   สถานีตำรวจ J หารือการละเมิดข้อมูลส่วนบุค              
+   สถานีตำรวจ J หารือการละเมิดข้อมูลส่วนบุค  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๕/๒๕๖๗](/PDPC-consultation-44)**
+  ธนาคาร Y ขอหารือในประเด็นที่เกี่ยวข้องกับพระราชกฤษฎีกากำหนดลักษณะ กิจการ หรือหน่วยงานที่ได้รับการยกเว้นไม่ให้นำพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ บางส่วนมาใช้บังคับ พ.ศ. ๒๕๖๖
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๘/๒๕๖๗](/PDPC-consultation-47)**
+  คณะแพทยศาสตร์ มหาวิทยาลัยสงขลานครินทร์ ขอหารือการขอลบประวัติการรักษาในโรงพยาบาล                     
 </div>
 
 </details>  

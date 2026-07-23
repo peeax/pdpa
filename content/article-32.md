@@ -51,7 +51,27 @@ aliases: ['มาตรา ๓๒', 'ม32']
 <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
 
   **[เลขที่เรื่อง ๙/๒๕๖๗](/PDPC-consultation-38)**
-   สถานีตำรวจ J หารือการละเมิดข้อมูลส่วนบุค    
+   สถานีตำรวจ J หารือการละเมิดข้อมูลส่วนบุคคล
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๘/๒๕๖๗](/PDPC-consultation-47)**
+  คณะแพทยศาสตร์ มหาวิทยาลัยสงขลานครินทร์ ขอหารือการขอลบประวัติการรักษาในโรงพยาบาล
+  <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๙/๒๕๖๘](/consultation-61)**
+  สำนักงานคณะกรรมการข้าราชการพลเรือนหารือเกี่ยวกับข้อกฎหมายตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๐/๒๕๖๘](/consultation-62)**
+   ธนาคาร X ขอหารือเกี่ยวกับฐานทางกฎหมายในการประมวลผลข้อมูลส่วนบุคคลของพนักงานและครอบครัวของพนักงานสำหรับการใช้สิทธิสวัสดิการ
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๖/๒๕๖๙](/consultation-69)**
+   ข้อหารือกรณีเจ้าหนี้ตามคำพิพากษาขอให้ผู้ควบคุมข้อมูลส่วนบุคคลเปิดเผยข้อมูลของลูกหนี้ตามคำพิพากษาถึงที่สุด
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๗/๒๕๖๙](/consultation-70)**
+   ข้อหารือของคณะกรรมาธิการศึกษาการจัดทำและติดตามการบริหารงบประมาณ สภาผู้แทนราษฎรเกี่ยวกับการให้ข้อคิดเห็นและข้อเสนอแนะเกี่ยวกับพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒                    
 
 </div>
 

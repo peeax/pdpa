@@ -23,7 +23,22 @@ aliases: ['มาตรา ๗๓', 'ม73']
 
   **[เลขที่เรื่อง ๑๐/๒๕๖๗](/PDPC-consultation-39)**
    สมาคมธนาคารไทย ขอหารือการเก็บรวบรวมข้อมูลส่วนบุคคลเกี่ยวกับประวัติอาชญากรรม
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
 
+  **[เลขที่เรื่อง ๑๔/๒๕๖๗](/PDPC-consultation-43)**
+  การทางพิเศษแห่งประเทศไทยขอหารือกรณีการจัดเก็บข้อมูลส่วนบุคคลเพื่อเป็นข้อมูล พื้นฐานสำหรับการบันทึกเวลาทำงานด้วยระบบอิเล็กทรอนิกส์   
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๕/๒๕๖๗](/PDPC-consultation-44)**
+  ธนาคาร Y ขอหารือในประเด็นที่เกี่ยวข้องกับพระราชกฤษฎีกากำหนดลักษณะ กิจการ หรือหน่วยงานที่ได้รับการยกเว้นไม่ให้นำพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ บางส่วนมาใช้บังคับ พ.ศ. ๒๕๖๖  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๘/๒๕๖๗](/PDPC-consultation-47)**
+  คณะแพทยศาสตร์ มหาวิทยาลัยสงขลานครินทร์ ขอหารือการขอลบประวัติการรักษาในโรงพยาบาล  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๑/๒๕๖๗](/consultation-56)**
+  การยางแห่งประเทศไทย ขอความอนุเคราะห์หารือกรณีการเปิดเผยข้อมูลส่วนบุคคล        
 </div>
 
 </details>      

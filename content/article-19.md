@@ -99,7 +99,32 @@ aliases: ['มาตรา ๑๙', 'ม19']
 <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
 
   **[เลขที่เรื่อง ๑๔/๒๕๖๗](/PDPC-consultation-43)**
-  การทางพิเศษแห่งประเทศไทยขอหารือกรณีการจัดเก็บข้อมูลส่วนบุคคลเพื่อเป็นข้อมูล พื้นฐานสำหรับการบันทึกเวลาทำงานด้วยระบบอิเล็กทรอนิกส์                                 
+  การทางพิเศษแห่งประเทศไทยขอหารือกรณีการจัดเก็บข้อมูลส่วนบุคคลเพื่อเป็นข้อมูล พื้นฐานสำหรับการบันทึกเวลาทำงานด้วยระบบอิเล็กทรอนิกส์ 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๖/๒๕๖๗](/PDPC-consultation-45)**
+  บริษัท W ขอหารือเกี่ยวกับการเก็บรวบรวมข้อมูลการรักษาพยาบาลเพื่อเบิกจ่ายเงินสวัสดิการ                      
+ <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๔/๒๕๖๘](/PDPCconsultation-53)**
+ บริษัท Z หารือการขอถอนความยินยอมของลูกค้าในระบบแอปพลิเคชัน ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๗/๒๕๖๘](/consultation-59-)**
+ ข้อหารือของมหาวิทยาลัยนวมินทราธิราชเกี่ยวกับการส่งข้อมูลผลการตรวจสุขภาพตามนโยบาย ตรวจสุขภาพ ๑ ล้านคน
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๓/๒๕๖๙](/consultation-66-)**
+   ศูนย์วิจัยอุบัติเหตุแห่งประเทศไทย สถาบันเทคโนโลยีแห่งเอเชีย ขอหารือเกี่ยวกับฐานการประมวลผลสำหรับโครงการสืบสวนสาเหตุการเกิดอุบัติเหตุของรถจักรยานยนต์ และแนวทางการจัดทำข้อมูลนิรนาม 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๙/๒๕๖๙](/consultation-73-)**
+   ขั้นตอนการจัดเก็บข้อมูลอ่อนไหวของระบบสแกนใบหน้า (Face Scan) สำหรับนิติบุคคลอาคารชุด ก.   
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๑/๒๕๖๙](/consultation-74-)**
+   คำปรึกษาเกี่ยวกับข้อมูลในใบอนุญาตขับรถรูปแบบใหม่ว่าเป็นข้อมูลส่วนบุคคลตามมาตรา ๒๖ แห่งพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ หรือไม่                      
 </div>
 
 </details>

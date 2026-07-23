@@ -37,7 +37,17 @@ aliases: ['มาตรา ๓๐', 'ม30']
 
   **[เลขที่เรื่อง ๘/๒๕๖๗](/PDPC-consultation-37)**
    สถานีตำรวจ H หารือการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล  
-               
+
+
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๘/๒๕๖๗](/PDPC-consultation-47)**
+  คณะแพทยศาสตร์ มหาวิทยาลัยสงขลานครินทร์ ขอหารือการขอลบประวัติการรักษาในโรงพยาบาล 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๔/๒๕๖๘](/PDPCconsultation-53)**
+ บริษัท Z หารือการขอถอนความยินยอมของลูกค้าในระบบแอปพลิเคชัน ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒   
 </div>
 
 </details>

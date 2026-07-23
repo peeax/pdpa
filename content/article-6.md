@@ -112,7 +112,77 @@ aliases: ['มาตรา ๖', 'ม6', 'ม 6']
 <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
 
   **[เลขที่เรื่อง ๑๔/๒๕๖๗](/PDPC-consultation-43)**
-  การทางพิเศษแห่งประเทศไทยขอหารือกรณีการจัดเก็บข้อมูลส่วนบุคคลเพื่อเป็นข้อมูล พื้นฐานสำหรับการบันทึกเวลาทำงานด้วยระบบอิเล็กทรอนิกส์                       
+  การทางพิเศษแห่งประเทศไทยขอหารือกรณีการจัดเก็บข้อมูลส่วนบุคคลเพื่อเป็นข้อมูล พื้นฐานสำหรับการบันทึกเวลาทำงานด้วยระบบอิเล็กทรอนิกส์    
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๘/๒๕๖๗](/PDPC-consultation-47)**
+  คณะแพทยศาสตร์ มหาวิทยาลัยสงขลานครินทร์ ขอหารือการขอลบประวัติการรักษาในโรงพยาบาล 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๙/๒๕๖๗](/PDPC-consultation-48)**
+  สำนักงานคณะกรรมการอ้อยและน้ำตาลทรายหารือเกี่ยวกับการดำเนินการ ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๐/๒๕๖๗](/PDPC-consultation-49)**
+  สำนักงานปลัดกระทรวงกลาโหมขอหารือแนวทางปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๒/๒๕๖๗](/consultation-57--22-67)**
+  สำนักงานคณะกรรมการกิจการกระจายเสียง กิจการโทรทัศน์ และกิจการโทรคมนาคมแห่งชาติ ขอหารือกรณีการจัดเก็บรักษาข้อมูลส่วนบุคคลของผู้ให้บริการโทรศัพท์เคลื่อนที่ 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๓/๒๕๖๘](/PDPCconsultation-52)**
+  สำนักงานคณะกรรมการกำกับและส่งเสริมการประกอบธุรกิจประกันภัย หารือเกี่ยวกับการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๕/๒๕๖๘](/PDPCconsultation-54)**
+ บริษัท Y หารือเกี่ยวกับการแต่งตั้งเจ้าหน้าที่คุ้มครองข้อมูลส่วนบุคคล (DPO)
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๖/๒๕๖๘](/consultation-55)**
+ สำนักงานคณะกรรมการดิจิทัลเพื่อเศรษฐกิจและสังคมแห่งชาติและสำนักงานปลัดกระทรวงสาธารณสุข หารือเกี่ยวกับจัดทำข้อตกลงการประมวลผลข้อมูลส่วนบุคคล ภายใต้โครงการพัฒนาระบบคลาวด์กลางด้านสาธารณสุขของประเทศไทย   
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๗/๒๕๖๘](/consultation-59-)**
+ ข้อหารือของมหาวิทยาลัยนวมินทราธิราชเกี่ยวกับการส่งข้อมูลผลการตรวจสุขภาพตามนโยบาย ตรวจสุขภาพ ๑ ล้านคน
+
+  <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๘/๒๕๖๘](/consultation-60)**
+ ข้อหารือของสำนักการแพทย์ กรุงเทพมหานคร ในการรวบรวมและการประมวลผลข้อมูลสุขภาพของสถานพยาบาลในพื้นที่กรุงเทพมหานคร
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๑/๒๕๖๘](/consultation-63)**
+   แพทยสภาหารือแนวทางปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ เกี่ยวกับการเปิดเผยข้อมูลการลงโทษผู้ประกอบวิชาชีพเวชกรรม
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑/๒๕๖๙](/consultation-64)**
+   กรมการขนส่งทางบกขอหารือเกี่ยวกับการบังคับใช้พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ 
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๓/๒๕๖๙](/consultation-66-)**
+   ศูนย์วิจัยอุบัติเหตุแห่งประเทศไทย สถาบันเทคโนโลยีแห่งเอเชีย ขอหารือเกี่ยวกับฐานการประมวลผลสำหรับโครงการสืบสวนสาเหตุการเกิดอุบัติเหตุของรถจักรยานยนต์ และแนวทางการจัดทำข้อมูลนิรนาม 
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๔/๒๕๖๙](/consultation-67-)**
+   สำนักงานปลัดกระทรวงสาธารณสุขขอหารือข้อกฎหมายเกี่ยวกับการจัดทำข้อตกลงการเปิดเผย ข้อมูลส่วนบุคคลระหว่างกัน (Data Sharing Agreement)             
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๕/๒๕๖๙](/consultation-68-)**
+   สำนักงานหลักประกันสุขภาพแห่งชาติขอหารือปัญหาข้อกฎหมายเกี่ยวกับการจัดทำข้อตกลงการแบ่งปันข้อมูลส่วนบุคคล (Personal Data Sharing Agreement) ระหว่างสำนักงานปลัดกระทรวงสาธารณสุขกับสำนักงานหลักประกันสุขภาพแห่งชาติ     
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๘/๒๕๖๙](/consultation-71)**
+   ข้อหารือเกี่ยวกับการเปิดเผยเอกสารจากคณะกรรมการประกันสังคมตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๙/๒๕๖๙](/consultation-73-)**
+   ขั้นตอนการจัดเก็บข้อมูลอ่อนไหวของระบบสแกนใบหน้า (Face Scan) สำหรับนิติบุคคลอาคารชุด ก.                        
 </div>
 
 </details>

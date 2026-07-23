@@ -44,6 +44,68 @@ aliases: ['มาตรา ๓', 'ม3', 'ม 3']
 
   **[เลขที่เรื่อง ๒๘/๒๕๖๖](/PDPC-consultation-28)**
    สำนักงานตรวจคนเข้าเมืองขอหารือการเปิดเผยข้อมูลส่วนบุคคลกรณีรายงานการประชุม
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๑/๒๕๖๗](/consultation-56)**
+  การยางแห่งประเทศไทย ขอความอนุเคราะห์หารือกรณีการเปิดเผยข้อมูลส่วนบุคคล 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๒/๒๕๖๗](/consultation-57--22-67)**
+  สำนักงานคณะกรรมการกิจการกระจายเสียง กิจการโทรทัศน์ และกิจการโทรคมนาคมแห่งชาติ ขอหารือกรณีการจัดเก็บรักษาข้อมูลส่วนบุคคลของผู้ให้บริการโทรศัพท์เคลื่อนที่ 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๓/๒๕๖๗](/consultation-58--23-67)**
+  สำนักงานเลขาธิการสภาผู้แทนราษฎรขอความอนุเคราะห์ข้อมูล   
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๓/๒๕๖๘](/PDPCconsultation-52)**
+  สำนักงานคณะกรรมการกำกับและส่งเสริมการประกอบธุรกิจประกันภัย หารือเกี่ยวกับการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒     
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๗/๒๕๖๘](/consultation-59-)**
+ ข้อหารือของมหาวิทยาลัยนวมินทราธิราชเกี่ยวกับการส่งข้อมูลผลการตรวจสุขภาพตามนโยบาย ตรวจสุขภาพ ๑ ล้านคน    
+ <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๘/๒๕๖๘](/consultation-60)**
+ ข้อหารือของสำนักการแพทย์ กรุงเทพมหานคร ในการรวบรวมและการประมวลผลข้อมูลสุขภาพของสถานพยาบาลในพื้นที่กรุงเทพมหานคร
+ <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๙/๒๕๖๘](/consultation-61)**
+  สำนักงานคณะกรรมการข้าราชการพลเรือนหารือเกี่ยวกับข้อกฎหมายตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๐/๒๕๖๘](/consultation-62)**
+   ธนาคาร X ขอหารือเกี่ยวกับฐานทางกฎหมายในการประมวลผลข้อมูลส่วนบุคคลของพนักงานและครอบครัวของพนักงานสำหรับการใช้สิทธิสวัสดิก
+   าร
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๑/๒๕๖๘](/consultation-63)**
+   แพทยสภาหารือแนวทางปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ เกี่ยวกับการเปิดเผยข้อมูลการลงโทษผู้ประกอบวิชาชีพเวชกรรม
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑/๒๕๖๙](/consultation-64)**
+   กรมการขนส่งทางบกขอหารือเกี่ยวกับการบังคับใช้พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒/๒๕๖๙](/consultation-65)**
+   กรมสุขภาพจิตขอหารือเกี่ยวกับการแลกเปลี่ยนข้อมูลผู้ป่วยจิตเวชและยาเสพติดที่มีความเสี่ยงสูงต่อการก่อความรุนแรง เพื่อความปลอดภัยของผู้ป่วย ผู้อื่น และสาธารณชน
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๔/๒๕๖๙](/consultation-67-)**
+   สำนักงานปลัดกระทรวงสาธารณสุขขอหารือข้อกฎหมายเกี่ยวกับการจัดทำข้อตกลงการเปิดเผย ข้อมูลส่วนบุคคลระหว่างกัน (Data Sharing Agreement)      
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๖/๒๕๖๙](/consultation-69)**
+   ข้อหารือกรณีเจ้าหนี้ตามคำพิพากษาขอให้ผู้ควบคุมข้อมูลส่วนบุคคลเปิดเผยข้อมูลของลูกหนี้ตามคำพิพากษาถึงที่สุด
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๗/๒๕๖๙](/consultation-70)**
+   ข้อหารือของคณะกรรมาธิการศึกษาการจัดทำและติดตามการบริหารงบประมาณ สภาผู้แทนราษฎรเกี่ยวกับการให้ข้อคิดเห็นและข้อเสนอแนะเกี่ยวกับพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๘/๒๕๖๙](/consultation-71)**
+   ข้อหารือเกี่ยวกับการเปิดเผยเอกสารจากคณะกรรมการประกันสังคมตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒         
 </div>
 
 </details>

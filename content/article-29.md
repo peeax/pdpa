@@ -50,7 +50,15 @@ aliases: ['มาตรา ๒๙', 'ม29']
 <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
 
   **[เลขที่เรื่อง ๙/๒๕๖๗](/PDPC-consultation-38)**
-   สถานีตำรวจ J หารือการละเมิดข้อมูลส่วนบุค        
+   สถานีตำรวจ J หารือการละเมิดข้อมูลส่วนบุคคล
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๙/๒๕๖๗](/PDPC-consultation-48)**
+  สำนักงานคณะกรรมการอ้อยและน้ำตาลทรายหารือเกี่ยวกับการดำเนินการ ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒   
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๕/๒๕๖๘](/PDPCconsultation-54)**
+ บริษัท Y หารือเกี่ยวกับการแต่งตั้งเจ้าหน้าที่คุ้มครองข้อมูลส่วนบุคคล (DPO)              
 </div>
 
 </details>

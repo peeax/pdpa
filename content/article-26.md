@@ -140,7 +140,64 @@ aliases: ['มาตรา ๒๖', 'ม26']
 <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
 
   **[เลขที่เรื่อง ๑๔/๒๕๖๗](/PDPC-consultation-43)**
-  การทางพิเศษแห่งประเทศไทยขอหารือกรณีการจัดเก็บข้อมูลส่วนบุคคลเพื่อเป็นข้อมูล พื้นฐานสำหรับการบันทึกเวลาทำงานด้วยระบบอิเล็กทรอนิกส์                             
+  การทางพิเศษแห่งประเทศไทยขอหารือกรณีการจัดเก็บข้อมูลส่วนบุคคลเพื่อเป็นข้อมูล พื้นฐานสำหรับการบันทึกเวลาทำงานด้วยระบบอิเล็กทรอนิกส์
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๖/๒๕๖๗](/PDPC-consultation-45)**
+  บริษัท W ขอหารือเกี่ยวกับการเก็บรวบรวมข้อมูลการรักษาพยาบาลเพื่อเบิกจ่ายเงินสวัสดิการ   
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๘/๒๕๖๗](/PDPC-consultation-47)**
+  คณะแพทยศาสตร์ มหาวิทยาลัยสงขลานครินทร์ ขอหารือการขอลบประวัติการรักษาในโรงพยาบาล  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๓/๒๕๖๗](/consultation-58--23-67)**
+  สำนักงานเลขาธิการสภาผู้แทนราษฎรขอความอนุเคราะห์ข้อมูล   
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒/๒๕๖๘](/PDPC-consultation-51)**
+  นาย ฐ ขอให้ตีความและวินิจฉัยชี้ขาดปัญหาเกี่ยวกับข้อมูลส่วนบุคคลตามมาตรา ๒๖ แห่งพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๓/๒๕๖๘](/PDPCconsultation-52)**
+  สำนักงานคณะกรรมการกำกับและส่งเสริมการประกอบธุรกิจประกันภัย หารือเกี่ยวกับการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๗/๒๕๖๘](/consultation-59-)**
+ ข้อหารือของมหาวิทยาลัยนวมินทราธิราชเกี่ยวกับการส่งข้อมูลผลการตรวจสุขภาพตามนโยบาย ตรวจสุขภาพ ๑ ล้านคน
+ <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๘/๒๕๖๘](/consultation-60)**
+ ข้อหารือของสำนักการแพทย์ กรุงเทพมหานคร ในการรวบรวมและการประมวลผลข้อมูลสุขภาพของสถานพยาบาลในพื้นที่กรุงเทพมหานคร
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑/๒๕๖๙](/consultation-64)**
+   กรมการขนส่งทางบกขอหารือเกี่ยวกับการบังคับใช้พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒/๒๕๖๙](/consultation-65)**
+   กรมสุขภาพจิตขอหารือเกี่ยวกับการแลกเปลี่ยนข้อมูลผู้ป่วยจิตเวชและยาเสพติดที่มีความเสี่ยงสูงต่อการก่อความรุนแรง เพื่อความปลอดภัยของผู้ป่วย ผู้อื่น และสาธารณชน 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๓/๒๕๖๙](/consultation-66-)**
+   ศูนย์วิจัยอุบัติเหตุแห่งประเทศไทย สถาบันเทคโนโลยีแห่งเอเชีย ขอหารือเกี่ยวกับฐานการประมวลผลสำหรับโครงการสืบสวนสาเหตุการเกิดอุบัติเหตุของรถจักรยานยนต์ และแนวทางการจัดทำข้อมูลนิรนาม 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๔/๒๕๖๙](/consultation-67-)**
+   สำนักงานปลัดกระทรวงสาธารณสุขขอหารือข้อกฎหมายเกี่ยวกับการจัดทำข้อตกลงการเปิดเผย ข้อมูลส่วนบุคคลระหว่างกัน (Data Sharing Agreement) 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๕/๒๕๖๙](/consultation-68-)**
+   สำนักงานหลักประกันสุขภาพแห่งชาติขอหารือปัญหาข้อกฎหมายเกี่ยวกับการจัดทำข้อตกลงการแบ่งปันข้อมูลส่วนบุคคล (Personal Data Sharing Agreement) ระหว่างสำนักงานปลัดกระทรวงสาธารณสุขกับสำนักงานหลักประกันสุขภาพแห่งชาติ
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๙/๒๕๖๙](/consultation-73-)**
+   ขั้นตอนการจัดเก็บข้อมูลอ่อนไหวของระบบสแกนใบหน้า (Face Scan) สำหรับนิติบุคคลอาคารชุด ก.   
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๑/๒๕๖๙](/consultation-74-)**
+   คำปรึกษาเกี่ยวกับข้อมูลในใบอนุญาตขับรถรูปแบบใหม่ว่าเป็นข้อมูลส่วนบุคคลตามมาตรา ๒๖ แห่งพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ หรือไม่                                                               
 </div>
 
 </details>

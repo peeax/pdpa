@@ -17,7 +17,13 @@ aliases: ['มาตรา ๘๑', 'ม81']
 <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
 
   **[เลขที่เรื่อง ๒๒/๒๕๖๖](/PDPC-consultation-22)**
-   สถานีตำรวจภูธร ข. หารือเกี่ยวกับการกระทำความผิดตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ 
+   สถานีตำรวจภูธร ข. หารือเกี่ยวกับการกระทำความผิดตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๔/๒๕๖๙](/consultation-67-)**
+   สำนักงานปลัดกระทรวงสาธารณสุขขอหารือข้อกฎหมายเกี่ยวกับการจัดทำข้อตกลงการเปิดเผย ข้อมูลส่วนบุคคลระหว่างกัน (Data Sharing Agreement)  
+     
 </div>
 
 </details>  

@@ -60,6 +60,18 @@ aliases: ['มาตรา ๓๓', 'ม33']
 <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
 
   **[เลขที่เรื่อง ๑๐/๒๕๖๗](/PDPC-consultation-39)**
-   สมาคมธนาคารไทย ขอหารือการเก็บรวบรวมข้อมูลส่วนบุคคลเกี่ยวกับประวัติอาชญากรรม                 
+   สมาคมธนาคารไทย ขอหารือการเก็บรวบรวมข้อมูลส่วนบุคคลเกี่ยวกับประวัติอาชญากรรม 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๘/๒๕๖๗](/PDPC-consultation-47)**
+  คณะแพทยศาสตร์ มหาวิทยาลัยสงขลานครินทร์ ขอหารือการขอลบประวัติการรักษาในโรงพยาบาล 
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๔/๒๕๖๘](/PDPCconsultation-53)**
+ บริษัท Z หารือการขอถอนความยินยอมของลูกค้าในระบบแอปพลิเคชัน ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๓/๒๕๖๙](/consultation-66-)**
+   ศูนย์วิจัยอุบัติเหตุแห่งประเทศไทย สถาบันเทคโนโลยีแห่งเอเชีย ขอหารือเกี่ยวกับฐานการประมวลผลสำหรับโครงการสืบสวนสาเหตุการเกิดอุบัติเหตุของรถจักรยานยนต์ และแนวทางการจัดทำข้อมูลนิรนาม                        
 </div>
 </details>

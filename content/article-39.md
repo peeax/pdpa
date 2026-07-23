@@ -25,3 +25,76 @@ aliases: ['มาตรา ๓๙', 'ม39']
 &emsp; ในวรรคหนึ่งให้นำมาใช้บังคับกับตัวแทนของผู้ควบคุมข้อมูลส่วนบุคคลตาม[[มาตรา ๕]] วรรคสอง โดยอนุโลม
 
 &emsp; ความใน (๑) (๒) (๓) (๔) (๕) (๖) และ (๘) อาจยกเว้นมิให้นำมาใช้บังคับกับผู้ควบคุม ข้อมูลส่วนบุคคลซึ่งเป็นกิจการขนาดเล็กตามหลักเกณฑ์ที่[คณะกรรมการประกาศกำหนด](/highlight-article-39) เว้นแต่ มีการเก็บรวบรวม ใช้ หรือเปิดเผยข้อมูลส่วนบุคคลที่มีความเสี่ยงที่จะมีผลกระทบต่อสิทธิและเสรีภาพ ของเจ้าของข้อมูลส่วนบุคคล หรือมิใช่กิจการที่เก็บรวบรวม ใช้ หรือเปิดเผยข้อมูลส่วนบุคคลเป็น ครั้งคราว หรือมีการเก็บรวบรวม ใช้ หรือเปิดเผยข้อมูลส่วนบุคคลตาม[[มาตรา ๒๖]]
+
+<details>
+<summary style="font-size: 22px; font-weight: bold; color: #1a5f4a; cursor: pointer; background: #f0f7f4; padding: 12px; border-radius: 8px;">
+ข้อหารือที่เกี่ยวข้อง
+</summary>
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๕/๒๕๖๖](/discussion325-2566)** เรื่องธนาคาร จ. ขอหารือเกี่ยวกับการปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ เพื่อวัตถุประสงค์ทางการตลาดกับลูกค้าธนาคาร
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๐/๒๕๖๖](/discussion27-10-2566)** 
+  เรื่อง บริษัท ย. ขอความอนุเคราะห์ข้อมูลและแนวทาง พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๑/๒๕๖๖](/discussion6-11-2566.md)**  
+บริษัท ศ. ขอหารือแนวทางปฏิบัติการยกเว้น  
+การบันทึกรายการของผู้ควบคุมข้อมูลส่วนบุคคลซึ่งเป็นกิจการขนาดเล็ก
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๕/๒๕๖๖](/discussion37-15-2566)**
+  นิติบุคคลอาคารชุด อ. หารือกรณีขอบเขตความหมายของคำว่า “องค์กรไม่แสวงหาผลกำไร”  ข้อกฎหมาย 
+  <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๔/๒๕๖๖](/PDPC-consultation-24)**
+   สภาวิชาชีพบัญชีขอหารือการเปิดเผยข้อมูลส่วนบุคคล
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๗/๒๕๖๖](/PDPC-consultation-27)**
+   สำนักการระบายน้ำ กรุงเทพมหานคร หารือการขอข้อมูลผู้ใช้น้ำของการประปานครหลวง เพื่อจัดเก็บค่าธรรมเนียมบำบัดน้ำเสีย  
+
+
+<small style="color: #666; display: block; margin-bottom: 15px;">คลิกที่รายการเพื่อดูรายละเอียดข้อหารือ</small>
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๔/๒๕๖๗](/PDPC-consultation-43)**
+  การทางพิเศษแห่งประเทศไทยขอหารือกรณีการจัดเก็บข้อมูลส่วนบุคคลเพื่อเป็นข้อมูล พื้นฐานสำหรับการบันทึกเวลาทำงานด้วยระบบอิเล็กทรอนิกส์ 
+  <div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๕/๒๕๖๗](/PDPC-consultation-44)**
+  ธนาคาร Y ขอหารือในประเด็นที่เกี่ยวข้องกับพระราชกฤษฎีกากำหนดลักษณะ กิจการ หรือหน่วยงานที่ได้รับการยกเว้นไม่ให้นำพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ บางส่วนมาใช้บังคับ พ.ศ. ๒๕๖๖  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๒๑/๒๕๖๗](/consultation-56)**
+  การยางแห่งประเทศไทย ขอความอนุเคราะห์หารือกรณีการเปิดเผยข้อมูลส่วนบุคคล  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๗/๒๕๖๘](/consultation-59-)**
+ ข้อหารือของมหาวิทยาลัยนวมินทราธิราชเกี่ยวกับการส่งข้อมูลผลการตรวจสุขภาพตามนโยบาย ตรวจสุขภาพ ๑ ล้านคน
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑๑/๒๕๖๘](/consultation-63)**
+   แพทยสภาหารือแนวทางปฏิบัติตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ เกี่ยวกับการเปิดเผยข้อมูลการลงโทษผู้ประกอบวิชาชีพเวชกรรม
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๑/๒๕๖๙](/consultation-64)**
+   กรมการขนส่งทางบกขอหารือเกี่ยวกับการบังคับใช้พระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒ 
+
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๔/๒๕๖๙](/consultation-67-)**
+   สำนักงานปลัดกระทรวงสาธารณสุขขอหารือข้อกฎหมายเกี่ยวกับการจัดทำข้อตกลงการเปิดเผย ข้อมูลส่วนบุคคลระหว่างกัน (Data Sharing Agreement)  
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๖/๒๕๖๙](/consultation-69)**
+   ข้อหารือกรณีเจ้าหนี้ตามคำพิพากษาขอให้ผู้ควบคุมข้อมูลส่วนบุคคลเปิดเผยข้อมูลของลูกหนี้ตามคำพิพากษาถึงที่สุด
+<div style="background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 16px; margin: 12px 0;">
+
+  **[เลขที่เรื่อง ๗/๒๕๖๙](/consultation-70)**
+   ข้อหารือของคณะกรรมาธิการศึกษาการจัดทำและติดตามการบริหารงบประมาณ สภาผู้แทนราษฎรเกี่ยวกับการให้ข้อคิดเห็นและข้อเสนอแนะเกี่ยวกับพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. ๒๕๖๒                    
+
+</div>
+
+</details>
